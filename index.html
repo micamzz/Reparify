@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reparify – Soluciones inteligentes para tu hogar</title>
+   
+    
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./Styles/header.css" />
+    <link rel="stylesheet" href="./Styles/footer.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <!-- NAVBAR-->
+    <header class="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">
+                <span class="logo-text">REPARIFY</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#" class="nav-link active">Inicio</a>
+                <a href="#steps-comofunciona" class="nav-link">Cómo funciona</a>
+                <a href="#" class="nav-link">Obtén un diagnóstico</a>
+                <a href="#" class="nav-link">Profesionales</a>
+                <a href="./Pages/sobreNosotros.html" class="nav-link">Sobre nosotros</a>
+            </nav>
+            <!-- BOTONES INICIAR SESION Y REGISTRASE -->
+            <div class="nav-actions">
+                <button class="btn-login">Iniciar sesión</button>
+                <button class="btn-register">Registrarse</button>
+            </div>
+            <!-- MENU HAMBURGUESA  -->
+            <button class="hamburger" id="hamburger" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!--  MAIN PRINCIPAL -->
+    <main>
+
+        <!--HERO-->
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-text">
+                    <h1 class="hero-title">Soluciones inteligentes<br />para tu hogar</h1>
+                    <p class="hero-subtitle">Descubrí qué está pasando y encontrá al profesional ideal</p>
+                    <p class="hero-desc">
+                        Subí una foto/video o describí tu problema, recibí un diagnóstico instantáneo y conectá con
+                        profesionales verificados en tu zona. <strong>Todo en un solo lugar.</strong>
+                    </p>
+                    <div class="hero-btns">
+                        <button class="btn-primary">Obtener un diagnóstico</button>
+                        <button class="btn-outline">Buscar profesionales</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="./image/image-hero-1.png" alt="Imagén ilustrativa de la aplicación" class="hero-img" />
+                </div>
+            </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-bar">
+                <div class="container stats-inner">
+                    <div class="stat">
+                        <span class="stat-number pink">10k+</span>
+                        <span class="stat-label">Diagnósticos realizados</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number yellow">98%</span>
+                        <span class="stat-label">Precisión en análisis</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number blue">+500</span>
+                        <span class="stat-label">Profesionales</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number orange"><span class="estrella">★</span> 4.9</span>
+                        <span class="stat-label">Valoración</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PASOS-->
+        <section class="steps" >
+
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="highlight-blue" id="steps-comofunciona">3 simples pasos</span> para usar Reparify
+                </h2>
+
+                <!-- Step 1: Imagen a la derecha -->
+                <div class="step step-right">
+                    <div class="step-card">
+                        <div class="step-icon">📷</div>
+                        <h3>Subí tu problema</h3>
+                        <p>Cargá una foto o video de lo que está pasando en tu hogar.</p>
+                    </div>
+                    <figure class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="./image/phone-1.png" alt="Pantalla de carga de archivos en Reparify">
+                        </div>
+                    </figure>
+                </div>
+
+                <!-- Step 2: Imagen a la izquierda -->
+                <div class="step step-left">
+                    <figure class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="./image/phone-2.png" alt="Diagnóstico inteligente de Reparify">
+                        </div>
+                    </figure>
+                    <div class="step-card">
+                        <div class="step-icon">🏷️</div>
+                        <h3>Recibí tu diagnóstico</h3>
+                        <p>Descubrí qué está fallando y cómo solucionarlo.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3: Imagen a la derecha -->
+                <div class="step step-right">
+                    <div class="step-card">
+                        <div class="step-icon">✏️</div>
+                        <h3>Elegí tu profesional</h3>
+                        <p>Conectá con expertos verificados en tu zona.</p>
+                    </div>
+                    <figure class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="./image/phone-3.png" alt="Listado de profesionales disponibles">
+                        </div>
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="trust-bar">
+                <div class="container trust-inner">
+                    <div class="trust-item">✅ Profesionales verificados</div>
+                    <div class="trust-item">💰 Asesoramiento gratuito</div>
+                    <div class="trust-item">⚡ Respuesta inmediata</div>
+                </div>
+            </div>
+        </section>
+
+        <!--OPINIONES -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Nuestros clientes opinan...</h2>
+
+                <div class="testimonials-slider" id="testimonialsSlider">
+                    <div class="testimonials-track" id="testimonialsTrack">
+
+                        <!-- Card 1 -->
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★☆</div>
+                            <p class="testimonial-text">"He recibido varios servicios. Subí una foto de mi tubería rota
+                                y en
+                                segundos recibí el diagnóstico completo."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MG</div>
+                                <div>
+                                    <strong>María González</strong>
+                                    <span>Propietaria de casa</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="testimonial-text">"La precisión del diagnóstico es impresionante. Me ayudó a
+                                entender
+                                el problema antes de llamar a un profesional."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">CR</div>
+                                <div>
+                                    <strong>Carlos Ramírez</strong>
+                                    <span>Ingeniero</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="testimonial-card">
+                            <div class="stars">★★★☆☆</div>
+                            <p class="testimonial-text">"Fácil de usar y súper rápido. El diagnóstico con IA es una
+                                herramienta precisa. Lo recomiendo 100%."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">AM</div>
+                                <div>
+                                    <strong>Antonio Martínez</strong>
+                                    <span>Diseñador</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p class="testimonial-text">"Una herramienta indispensable para cualquier propietario. Me
+                                ahorró
+                                tiempo y dinero en múltiples ocasiones."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">RS</div>
+                                <div>
+                                    <strong>Roberto Silva</strong>
+                                    <span>Arquitecto</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Dots -->
+                <div class="slider-dots" id="sliderDots">
+                    <button class="dot active" data-index="0"></button>
+                    <button class="dot" data-index="1"></button>
+                    <button class="dot" data-index="2"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOTONES CTA-->
+        <section class="cta-section">
+            <div class="container cta-inner">
+                <div class="cta-card cta-user">
+                    <h3>¿Necesitás un servicio?</h3>
+                    <p>Encontramos técnicos verificados y calificados. Pedí tu cotización gratis en minutos.</p>
+                    <button class="btn-primary">Obtener un diagnóstico</button>
+                </div>
+                <div class="cta-card cta-pro">
+                    <h3>¿Eres un profesional?</h3>
+                    <p>Unite a nuestra red. Obtén acceso a nuevos clientes y administrá tus trabajos fácilmente con
+                        Reparify.</p>
+                    <button class="btn-pink">Registrate</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--FOOTER -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <div class="logo footer-logo">
+                    <span class="logo-text">REPARIFY</span>
+                </div>
+                <p>Soluciones inteligentes para tu hogar</p>
+            </div>
+            <div class="footer-col">
+                <h4>Producto</h4>
+                <a href="#">Cómo funciona</a>
+                <a href="#">Profesionales</a>
+                <a href="#">Obtén un diagnóstico</a>
+            </div>
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <a href="#">Sobre nosotros</a>
+                <a href="#">Contacto</a>
+                <a href="#">Trabaja con nosotros</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 - Desarrollado por Micaela Mazza</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
