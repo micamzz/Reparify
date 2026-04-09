@@ -1,0 +1,332 @@
+@import url('variables.css');
+
+body {
+    font-family: var(--font-main);
+     background-image: url('../image/fondo-iniciar.jpg ');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* min-height: 100vh; */
+}
+
+/*Estructura general */ 
+.registro-main {
+    min-height: calc(100vh - 64px); /* descuenta el navbar */
+    display: flex;
+    align-items: center;
+    padding: 3em 0 4em;
+}
+
+.registro-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 2em;
+    align-items: center;
+}
+
+/* Columna izquierda - Texto */
+.registro-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.registro-titulo {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1.15;
+}
+
+.registro-subtitulo {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* Formulario */
+.registro-card {
+    background: var(--white);
+    border-radius: 20px;
+    border: 1.5px solid var(--border);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
+    padding: 2.5em 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.form-bienvenido {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    text-align: center;
+}
+
+.form-desc {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 0.75em;
+}
+
+/* ---- CAMPOS ---- */
+#formRegistro {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    margin-bottom: 0.75em;
+}
+
+.campo-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding-left: 2px;
+}
+
+/* Wrapper para input + botón ojo */
+.input-password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.campo-input {
+    width: 100%;
+    background: #f5f5f5;
+    border: 1.5px solid transparent;
+    border-radius: 8px;
+    padding: 0.75em 2.5em 0.75em 0.875em;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.22s, background 0.22s;
+}
+
+/* Input sin wrapper (email) */
+.campo-grupo > .campo-input {
+    padding-right: 0.875em;
+}
+
+.campo-input:focus {
+    border-color: var(--blue);
+    background: var(--white);
+}
+
+/* Estado error */
+.campo-input.input-error {
+    border-color: #e53e3e;
+    background: #fff5f5;
+}
+
+/* Estado ok */
+.campo-input.input-ok {
+    border-color: #38a169;
+}
+
+/* Botón mostrar/ocultar contraseña */
+.toggle-pass {
+    position: absolute;
+    right: 0.75em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    line-height: 1;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+.toggle-pass:hover { opacity: 1; }
+
+/* Mensajes de error debajo del input */
+.campo-error {
+    font-size: 0.78rem;
+    color: #e53e3e;
+    font-weight: 500;
+    min-height: 1em;
+    padding-left: 2px;
+    display: block;
+}
+
+/* ---- BOTÓN REGISTRAR ---- */
+.btn-registrar {
+    width: 100%;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 13px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 0.5em;
+    transition: background 0.22s, transform 0.22s;
+}
+.btn-registrar:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+}
+.btn-registrar:active {
+    transform: translateY(0);
+}
+
+/* Mensaje global de éxito o error */
+.form-mensaje {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    min-height: 1.2em;
+    margin-top: 0.25em;
+}
+.form-mensaje.exito { color: #38a169; }
+.form-mensaje.error { color: #e53e3e; }
+
+/* Link iniciar sesión */
+.form-login-link {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 0.75em;
+}
+.form-login-link a {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+.form-login-link a:hover { opacity: 0.75; }
+
+/* Imagen persona= */
+.registro-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.img-persona-registro {
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    display: block;
+}
+
+/* RESPONSIVE  */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .registro-container {
+        grid-template-columns: 0.8fr 1.2fr 0.8fr;
+        gap: 1.5em;
+    }
+    .registro-titulo {
+        font-size: 2rem;
+    }
+    .img-persona-registro {
+        max-height: 340px;
+    }
+}
+
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    .registro-main {
+        padding: 2em 0 3em;
+        align-items: flex-start;
+    }
+    .registro-container {
+        grid-template-columns: 1fr;
+        max-width: 460px;
+        gap: 1.5em;
+    }
+    .registro-texto {
+        text-align: center;
+    }
+    .registro-imagen {
+        display: none; /* La imagen se oculta en móvil */
+    }
+    .registro-card {
+        padding: 2em 1.75em;
+    }
+}
+
+
+@media screen and (min-width: 321px) and (max-width: 425px) {
+    .registro-main {
+        padding: 1.5em 0 2.5em;
+        align-items: flex-start;
+    }
+    .registro-container {
+        grid-template-columns: 1fr;
+        gap: 1.25em;
+    }
+    .registro-texto {
+        text-align: center;
+    }
+    .registro-titulo {
+        font-size: 1.7rem;
+    }
+    .registro-imagen {
+        display: none;
+    }
+    .registro-card {
+        padding: 1.75em 1.25em;
+    }
+    .form-bienvenido {
+        font-size: 1.35rem;
+    }
+    .btn-registrar {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+}
+
+
+@media screen and (max-width: 320px) {
+    .registro-main {
+        padding: 1.25em 0 2em;
+        align-items: flex-start;
+    }
+    .registro-container {
+        grid-template-columns: 1fr;
+        gap: 1em;
+        padding: 0 16px;
+    }
+    .registro-texto {
+        text-align: center;
+    }
+    .registro-titulo {
+        font-size: 1.45rem;
+    }
+    .registro-subtitulo {
+        font-size: 0.88rem;
+    }
+    .registro-imagen {
+        display: none;
+    }
+    .registro-card {
+        padding: 1.5em 1em;
+        border-radius: 14px;
+    }
+    .form-bienvenido {
+        font-size: 1.2rem;
+    }
+    .campo-input {
+        font-size: 0.85rem;
+        padding: 0.7em 2.2em 0.7em 0.75em;
+    }
+    .btn-registrar {
+        font-size: 0.9rem;
+        padding: 11px;
+    }
+}

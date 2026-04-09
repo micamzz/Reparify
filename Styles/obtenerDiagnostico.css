@@ -1,0 +1,716 @@
+@import url('variables.css');
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+body {
+    background: url('../image/fondo-diagnostico.jpg');
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: var(--font-main);
+}
+
+.diag-main {
+    overflow-x: hidden;
+}
+
+.diag-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Videos */
+.deco-target-orange {
+    top: 40px;
+    left: -20px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    border: 14px solid var(--orange);
+    box-shadow:
+        0 0 0 7px transparent,
+        0 0 0 14px var(--orange),
+        0 0 0 21px transparent,
+        0 0 0 28px var(--orange);
+    opacity: 0.25;
+    animation: floatDeco 7s ease-in-out infinite;
+}
+
+/* Antes/Después */
+.deco-circle-yellow-outline {
+    top: 20px;
+    right: 20px;
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    border: 6px solid var(--yellow);
+    animation: floatDeco 5s ease-in-out infinite reverse;
+}
+.deco-triangle-pink {
+    bottom: 60px;
+    left: 30px;
+    width: 0; height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-top: 60px solid var(--pink);
+    opacity: 0.35;
+    animation: floatDeco 6s ease-in-out infinite;
+}
+
+/* HERO */
+.diag-hero {
+    padding: 2em  4em;
+    position: relative;
+    overflow: hidden;
+}
+
+.diag-hero-header {
+    text-align: center;
+    margin-bottom: 2.5em;
+}
+
+.diag-titulo {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: var(--blue);
+    line-height: 1.15;
+    margin-bottom: 0.5em;
+}
+
+.diag-subtitulo {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* Layout formulario + pasos */
+.diag-hero-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    align-items: start;
+}
+
+/* ---- FORMULARIO ---- */
+.diag-form-card {
+    border: 1.5px dashed var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2em 1.75em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+}
+
+.upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.upload-icons {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 0.25em;
+}
+
+.upload-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.upload-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px; height: 52px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    transition: transform 0.2s;
+}
+.upload-icon:hover { transform: scale(1.08); }
+
+.upload-icon-foto  { background: var(--yellow); }
+.upload-icon-video { background: var(--pink); }
+
+.upload-label {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+.upload-separator {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Inputs */
+.diag-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6em 0.875em;
+    background: var(--white);
+}
+.input-group:focus-within {
+    border-color: var(--blue);
+}
+
+.input-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.diag-input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    color: var(--text);
+    background: transparent;
+}
+.diag-input::placeholder { color: #aaa; }
+
+.input-group-tip { opacity: 0.7; }
+.diag-input-tip  { font-size: 0.82rem; }
+
+/* Botón diagnóstico */
+.btn-diagnostico {
+    width: 100%;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 13px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.22s, transform 0.22s;
+}
+.btn-diagnostico:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+}
+
+/* PASOS  */
+.diag-pasos-card {
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2em 1.75em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.diag-paso {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+.paso-label {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+.paso-1 { color: var(--blue); }
+.paso-2 { color: var(--pink-dark, #e060a8); }
+.paso-3 { color: var(--orange); }
+
+.diag-paso p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/*VIDEOS */
+.diag-videos {
+    padding: 2em 0;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Subtítulo con líneas */
+.subtitulo-linea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 0.75em;
+}
+.linea-blue {
+    display: block;
+    height: 3px;
+    width: 40px;
+    background: var(--blue);
+    border-radius: 4px;
+}
+.subtitulo-texto {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.videos-header {
+    text-align: center;
+    margin-bottom: 2.5em;
+}
+.videos-titulo {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.5em;
+}
+.videos-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* Grid de videos */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+    margin-bottom: 2.5em;
+}
+
+.video-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.22s, box-shadow 0.22s;
+}
+.video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.1);
+}
+
+.video-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #ddd;
+}
+.video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.25);
+}
+.play-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+}
+.play-btn:hover {
+    background: var(--white);
+    transform: scale(1.1);
+}
+
+.video-duracion {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.65);
+    color: var(--white);
+    font-size: 0.72rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.video-categoria {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: var(--white);
+}
+.categoria-fontaneria  { background: var(--yellow); color: var(--black); }
+.categoria-electrica   { background: var(--blue); }
+.categoria-climatizacion { background: var(--orange); }
+
+.video-info {
+    padding: 0.875em 1em;
+}
+.video-titulo {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25em;
+}
+.video-autor {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.25em;
+}
+.video-stars {
+    color: var(--yellow);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+/* CTA ver más */
+.videos-cta {
+    text-align: center;
+}
+.btn-ver-mas {
+    background: var(--pink);
+    color: var(--black);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.22s, transform 0.22s;
+}
+.btn-ver-mas:hover {
+    background: #ef5e91;
+    transform: translateY(-2px);
+}
+
+/* ANTES Y DESPUES */
+.diag-antes-despues {
+    padding: 2em 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.ad-header {
+    margin-bottom: 1.5em;
+}
+.ad-titulo {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.4em;
+}
+.color-orange { color: var(--orange); }
+.color-blue   { color: var(--blue); }
+
+.ad-subtitulo {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25em;
+}
+
+/* Caso */
+.ad-caso-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-bottom: 0.5em;
+}
+.ad-caso-nombre {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--blue);
+}
+.ad-caso-meta {
+    display: flex;
+    gap: 1.5em;
+    flex-wrap: wrap;
+}
+.meta-item {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+}
+.meta-dot { font-size: 0.6rem; }
+.dot-blue { color: var(--blue); }
+
+
+/* Cards Antes/Después */
+.ad-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5em;
+}
+
+.ad-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+}
+.ad-card-antes  { background: #fffbea; }
+.ad-card-despues { background: #eef4ff; }
+
+.ad-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.ad-card-badge {
+    padding: 0.5em 1em;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+.badge-antes  { color: var(--orange); }
+.badge-despues { color: var(--blue); }
+
+.ad-card-desc {
+    padding: 0.75em 1em 0.5em;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+}
+
+.ad-tags {
+    padding: 0 1em 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4em;
+}
+.tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+}
+.tag-error { background: #ffe0e0; color: #c0392b; }
+.tag-ok    { background: #e0f7e9; color: #1a7a3a; }
+
+/* PREGUNTAS Y RESPUESTAS*/
+.diag-faq {
+    padding: 2em 0 5em;
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-titulo {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--blue);
+    text-align: center;
+    margin-bottom: 2em;
+    letter-spacing: 1px;
+}
+
+.faq-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.faq-item {
+    border-bottom: 1.5px solid var(--border);
+}
+.faq-item:first-child {
+    border-top: 1.5px solid var(--border);
+}
+
+.faq-pregunta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1em 0.5em;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    list-style: none;
+    gap: 1em;
+    transition: color 0.2s;
+}
+.faq-pregunta::-webkit-details-marker { display: none; }
+.faq-pregunta:hover { color: var(--blue); }
+
+.faq-chevron {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease; 
+    flex-shrink: 0;
+    transform: rotate(-90deg); 
+}
+details[open] .faq-chevron {
+    transform: rotate(90deg);
+}
+
+.faq-respuesta {
+    padding: 0 0.5em 1.25em;
+}
+.faq-respuesta p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* ERSPONSIVE */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    .diag-hero-body {
+        gap: 1.5em;
+    }
+    .videos-grid {
+        gap: 1em;
+    }
+    .ad-cards {
+        gap: 1em;
+    }
+}
+
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+    /* Hero */
+    .diag-hero {
+        padding: 2.5em 0 3em;
+    }
+    .diag-hero-body {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+
+    /* Videos */
+    .videos-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Antes/Después */
+    .ad-caso-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .ad-cards {
+        grid-template-columns: 1fr;
+    }
+
+ 
+}
+
+@media screen and (min-width: 321px) and (max-width: 425px) {
+
+    /* Hero */
+    .diag-hero {
+        padding: 2em 0 2.5em;
+    }
+    .diag-titulo {
+        font-size: 1.55rem;
+    }
+    .diag-subtitulo {
+        font-size: 0.88rem;
+    }
+    .diag-hero-body {
+        grid-template-columns: 1fr;
+        gap: 1.25em;
+    }
+    .diag-form-card,
+    .diag-pasos-card {
+        padding: 1.5em 1.25em;
+    }
+
+    /* Videos */
+    .diag-videos { padding: 3em 0; }
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Antes/Después */
+    .diag-antes-despues { padding: 3em 0; }
+    .ad-caso-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .ad-caso-meta {
+        gap: 0.75em;
+    }
+    .ad-cards {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    /* FAQ */
+    .diag-faq { padding: 3em 0 4em; }
+    .faq-titulo { font-size: 1.25rem; }
+    .faq-pregunta { font-size: 0.88rem; }
+
+    /* Decos */
+    .deco-circle-blue  { width: 44px; height: 44px; top: 20px; right: 8px; }
+    .deco-zigzag-pink  { font-size: 2rem; top: 160px; }
+    .deco-target-orange { display: none; }
+    .deco-circle-yellow-outline { width: 44px; height: 44px; }
+}
+
+@media screen and (max-width: 320px) {
+
+    .diag-hero { padding: 1.5em 0 2em; }
+    .diag-titulo { font-size: 1.35rem; }
+    .diag-subtitulo { font-size: 0.82rem; }
+    .diag-hero-body { grid-template-columns: 1fr; gap: 1em; }
+    .diag-form-card,
+    .diag-pasos-card { padding: 1.25em 1em; }
+
+    .upload-icon { width: 44px; height: 44px; font-size: 1.2rem; }
+    .btn-diagnostico { font-size: 0.9rem; padding: 11px; }
+
+    .diag-videos { padding: 2.5em 0; }
+    .videos-titulo { font-size: 1.25rem; }
+    .videos-grid { grid-template-columns: 1fr; }
+
+    .diag-antes-despues { padding: 2.5em 0; }
+    .ad-titulo { font-size: 1.25rem; }
+    .ad-cards { grid-template-columns: 1fr; gap: 0.875em; }
+    .ad-tags { gap: 0.3em; }
+    .tag { font-size: 0.68rem; }
+
+    .diag-faq { padding: 2.5em 0 3.5em; }
+    .faq-titulo { font-size: 1.1rem; }
+    .faq-pregunta { font-size: 0.82rem; padding: 0.9em 0.25em; }
+
+    /* Ocultar decos que no caben */
+    .deco-circle-blue,
+    .deco-target-orange,
+    .deco-circle-yellow-outline { display: none; }
+    .deco-zigzag-pink { font-size: 1.6rem; }
+}
