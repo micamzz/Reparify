@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reparify – Registrarse</title>
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/registro.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="nav-placeholder"></div>
+
+    <!-- MAIN -->
+    <main class="registro-main">
+        <div class="registro-container">
+
+            <!-- COLUMNA IZQUIERDA: texto -->
+            <div class="registro-texto">
+                <h1 class="registro-titulo">Crear una cuenta</h1>
+                <p class="registro-subtitulo">Resuelve tus problemas con Reparify</p>
+            </div>
+
+            <!-- COLUMNA CENTRAL: formulario -->
+            <div class="registro-card">
+                <h2 class="form-bienvenido">¡Bienvenido!</h2>
+                <p class="form-desc">Ingresa tus datos para registrarte</p>
+
+                <form id="formRegistro" novalidate>
+
+                    <!-- Email -->
+                    <div class="campo-grupo">
+                        <label class="campo-label" for="email">Email / Usuario</label>
+                        <input class="campo-input" type="text" id="email" name="email" placeholder="ejemplo@gmail.com"
+                            autocomplete="email" />
+                        <span class="campo-error" id="error-email"></span>
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div class="campo-grupo">
+                        <label class="campo-label" for="password">Contraseña</label>
+                        <div class="input-password-wrapper">
+                            <input class="campo-input" type="password" id="password" name="password"
+                                placeholder="············" autocomplete="new-password" />
+                            <button type="button" class="toggle-pass" data-target="password"
+                                aria-label="Ver contraseña">
+                                👁
+                            </button>
+                        </div>
+                        <span class="campo-error" id="error-password"></span>
+                    </div>
+
+                    <!-- Repetir contraseña -->
+                    <div class="campo-grupo">
+                        <label class="campo-label" for="repetirPassword">Repetir contraseña</label>
+                        <div class="input-password-wrapper">
+                            <input class="campo-input" type="password" id="repetirPassword" name="repetirPassword"
+                                placeholder="············" autocomplete="new-password" />
+                            <button type="button" class="toggle-pass" data-target="repetirPassword"
+                                aria-label="Ver contraseña">
+                                👁
+                            </button>
+                        </div>
+                        <span class="campo-error" id="error-repetirPassword"></span>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn-registrar">Registrar</button>
+
+                    <!-- Mensaje global  -->
+                    <p class="form-mensaje" id="formMensaje"></p>
+
+                </form>
+
+                <p class="form-login-link">
+                    ¿Ya tienes una cuenta?
+                    <a href="./iniciarSesion.html">Inicia sesión</a>
+                </p>
+            </div>
+
+            <!-- COLUMNA DERECHA: -->
+            <div class="registro-imagen">
+                <img src="../image/iniciarSesion-Registrarse/persona-parada.png" alt="Persona usando Reparify" class="img-persona-registro" />
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER SE CARGA CN JS-->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="../javascript/main.js"></script>
+    <script type="module" src="../javascript/registro.js"></script>
+
+</body>
+
+</html>

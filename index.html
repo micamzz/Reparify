@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reparify – Soluciones inteligentes para tu hogar</title>
    
-    
-    <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="./Styles/header.css" />
-    <link rel="stylesheet" href="./Styles/footer.css" />
+
+    <link rel="stylesheet" href="./styles/header.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
@@ -18,31 +18,7 @@
 <body>
 
     <!-- HEADER -->
-    <!-- NAVBAR-->
-    <header class="navbar">
-        <div class="nav-inner">
-            <a href="#" class="logo">
-                <span class="logo-text">REPARIFY</span>
-            </a>
-
-            <nav class="nav-links">
-                <a href="#" class="nav-link active">Inicio</a>
-                <a href="#steps-comofunciona" class="nav-link">Cómo funciona</a>
-                <a href="#" class="nav-link">Obtén un diagnóstico</a>
-                <a href="#" class="nav-link">Profesionales</a>
-                <a href="./Pages/sobreNosotros.html" class="nav-link">Sobre nosotros</a>
-            </nav>
-            <!-- BOTONES INICIAR SESION Y REGISTRASE -->
-            <div class="nav-actions">
-                <button class="btn-login">Iniciar sesión</button>
-                <button class="btn-register">Registrarse</button>
-            </div>
-            <!-- MENU HAMBURGUESA  -->
-            <button class="hamburger" id="hamburger" aria-label="Menú">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </header>
+    <div id="nav-placeholder"></div>
 
     <!--  MAIN PRINCIPAL -->
     <main>
@@ -58,14 +34,13 @@
                         profesionales verificados en tu zona. <strong>Todo en un solo lugar.</strong>
                     </p>
                     <div class="hero-btns">
-                        <button class="btn-primary">Obtener un diagnóstico</button>
+                        <a href="./Pages/obtenerDiagnostico.html" class="btn-primary">Obtener un diagnóstico</a>
                         <button class="btn-outline">Buscar profesionales</button>
                     </div>
                 </div>
                 <div class="hero-image">
                     <img src="./image/image-hero-1.png" alt="Imagén ilustrativa de la aplicación" class="hero-img" />
                 </div>
-            </div>
             </div>
 
             <!-- Stats -->
@@ -237,52 +212,26 @@
                 <div class="cta-card cta-user">
                     <h3>¿Necesitás un servicio?</h3>
                     <p>Encontramos técnicos verificados y calificados. Pedí tu cotización gratis en minutos.</p>
-                    <button class="btn-primary">Obtener un diagnóstico</button>
+                    <a href="./Pages/obtenerDiagnostico.html" class="btn-primary">Obtener un diagnóstico</a>
                 </div>
                 <div class="cta-card cta-pro">
                     <h3>¿Eres un profesional?</h3>
                     <p>Unite a nuestra red. Obtén acceso a nuevos clientes y administrá tus trabajos fácilmente con
                         Reparify.</p>
-                    <button class="btn-pink">Registrate</button>
+                    <a href="./Pages/eresProfesional.html" class="btn-pink">Mas información</a>
                 </div>
             </div>
         </section>
     </main>
 
     <!--FOOTER -->
-    <footer class="footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <div class="logo footer-logo">
-                    <span class="logo-text">REPARIFY</span>
-                </div>
-                <p>Soluciones inteligentes para tu hogar</p>
-            </div>
-            <div class="footer-col">
-                <h4>Producto</h4>
-                <a href="#">Cómo funciona</a>
-                <a href="#">Profesionales</a>
-                <a href="#">Obtén un diagnóstico</a>
-            </div>
-            <div class="footer-col">
-                <h4>Empresa</h4>
-                <a href="#">Sobre nosotros</a>
-                <a href="#">Contacto</a>
-                <a href="#">Trabaja con nosotros</a>
-            </div>
-            <div class="footer-col">
-                <h4>Legal</h4>
-                <a href="#">Privacidad</a>
-                <a href="#">Términos</a>
-                <a href="#">Cookies</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 - Desarrollado por Micaela Mazza</p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
-    <script src="scripts.js"></script>
+    <!-- JAVASCRIPT -->
+    <script src="./javascript/main.js" type="module"></script>
+    <script src="./javascript/scripts.js"></script>
+
+    
 </body>
 
 </html>
