@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reparify – Iniciar sesión</title>
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/registro.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div id="nav-placeholder"></div>
+
+    <main class="registro-main">
+
+        <section class="titulo-main">
+            <h1 class="hero-title">Bienvenido a <span class="titulo-h1">Reparify</span></h1>
+          <p class="hero-subtitle">Obtén la mejor atención para tus problemas del hogar.</p>
+        </section>
+
+
+        <div class="registro-container">
+            <!-- COLUMNA IZQUIERDA: IMAGEN -->
+            <div class="registro-imagen">
+                <img
+                    src="../image/iniciarSesion-Registrarse/persona-2.png"
+                    alt="Persona usando Reparify"
+                    class="img-persona-registro"
+                />
+            </div>
+
+            <!-- COLUMNA CENTRAL: formulario -->
+            <div class="registro-card">
+                <h2 class="form-bienvenido">¡Hola!</h2>
+                <p class="form-desc">Iniciá sesión para acceder a Reparify</p>
+
+                <form id="formLogin" novalidate>
+
+                    <!-- Email -->
+                    <div class="campo-grupo">
+                        <label class="campo-label" for="emailLogin">Email / Usuario</label>
+                        <input
+                            class="campo-input"
+                            type="text"
+                            id="emailLogin"
+                            name="emailLogin"
+                            placeholder="ejemplo@gmail.com"
+                            autocomplete="email"
+                        />
+                        <span class="campo-error" id="error-emailLogin"></span>
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div class="campo-grupo">
+                        <label class="campo-label" for="passwordLogin">Contraseña</label>
+                        <div class="input-password-wrapper">
+                            <input
+                                class="campo-input"
+                                type="password"
+                                id="passwordLogin"
+                                name="passwordLogin"
+                                placeholder="············"
+                                autocomplete="current-password"
+                            />
+                            <!-- OJO PARA VER CONTRASEÑA -->
+                            <button type="button" class="toggle-pass" data-target="passwordLogin" aria-label="Ver contraseña">   👁 </button>
+                        </div>
+                        <span class="campo-error" id="error-passwordLogin"></span>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn-registrar btn-login-submit">Iniciar sesión</button>
+
+                    <!-- Mensaje global -->
+                    <p class="form-mensaje" id="formMensajeLogin"></p>
+
+                </form>
+
+                <p class="form-login-link">
+                    ¿No tenés cuenta?
+                    <a href="./registro.html">Registrate gratis</a>
+                </p>
+            </div>
+
+            <!-- COLUMNA DERECHA: imagen -->
+            <div class="registro-imagen">
+                <img
+                    src="../image/iniciarSesion-Registrarse/persona-1.png"
+                    alt="Persona usando Reparify"
+                    class="img-persona-registro"
+                />
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="../javascript/main.js"></script>
+    <script src="../javascript/iniciarSesion.js"></script>
+
+</body>
+</html>
