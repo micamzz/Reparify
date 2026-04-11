@@ -6,10 +6,10 @@ const profesionalesBase = [
         profesion: 'Carpintería',
         ubicacion: 'Palermo',
         desde: 'Enero 2022',
-        trabajos: 120,
+        trabajos: 20,
         valoracion: 4.8,
         respuesta: '1h',
-        foto: '../image/profesionales/maria-gonzalez.jpg',
+        foto: '../image/profesionales/persona1.png',
         zona: 'Palermo'
     },
     {
@@ -18,10 +18,10 @@ const profesionalesBase = [
         profesion: 'Plomería',
         ubicacion: 'Palermo, CABA',
         desde: 'Marzo 2021',
-        trabajos: 140,
+        trabajos: 30,
         valoracion: 5.0,
         respuesta: '30min',
-        foto: '../image/profesionales/roberto-silva.jpg',
+        foto: '../image/profesionales/persona2.png',
         zona: 'Palermo'
     },
     {
@@ -30,10 +30,10 @@ const profesionalesBase = [
         profesion: 'Albañilería',
         ubicacion: 'Belgrano, CABA',
         desde: 'Junio 2020',
-        trabajos: 110,
+        trabajos: 10,
         valoracion: 4.5,
         respuesta: '2h',
-        foto: '../image/profesionales/carlos-ramirez.jpg',
+        foto: '../image/profesionales/persona3.png',
         zona: 'Belgrano'
     },
     {
@@ -42,10 +42,10 @@ const profesionalesBase = [
         profesion: 'Electricista',
         ubicacion: 'Recoleta, CABA',
         desde: 'Agosto 2022',
-        trabajos: 85,
+        trabajos: 36,
         valoracion: 4.9,
         respuesta: '45min',
-        foto: '../image/profesionales/ana-martinez.jpg',
+        foto: '../image/profesionales/persona4.png',
         zona: 'Recoleta'
     },
     {
@@ -54,10 +54,10 @@ const profesionalesBase = [
         profesion: 'Gasista',
         ubicacion: 'Colegiales, CABA',
         desde: 'Febrero 2021',
-        trabajos: 95,
+        trabajos: 40,
         valoracion: 4.7,
         respuesta: '1h',
-        foto: '../image/profesionales/jorge-perez.jpg',
+        foto: '../image/profesionales/persona5.png',
         zona: 'Colegiales'
     },
     {
@@ -66,10 +66,10 @@ const profesionalesBase = [
         profesion: 'Pinturería',
         ubicacion: 'Villa Crespo, CABA',
         desde: 'Mayo 2023',
-        trabajos: 60,
+        trabajos: 120,
         valoracion: 4.6,
         respuesta: '2h',
-        foto: '../image/profesionales/lucia-fernandez.jpg',
+        foto: '../image/profesionales/persona6.png',
         zona: 'Villa Crespo'
     },
     {
@@ -81,7 +81,7 @@ const profesionalesBase = [
         trabajos: 200,
         valoracion: 4.9,
         respuesta: '20min',
-        foto: '../image/profesionales/diego-romero.jpg',
+        foto: '../image/profesionales/persona7.png',
         zona: 'Belgrano'
     },
     {
@@ -93,7 +93,7 @@ const profesionalesBase = [
         trabajos: 70,
         valoracion: 4.8,
         respuesta: '1h',
-        foto: '../image/profesionales/sofia-lopez.jpg',
+        foto: '../image/profesionales/persona8.png',
         zona: 'Palermo'
     },
     {
@@ -105,7 +105,7 @@ const profesionalesBase = [
         trabajos: 130,
         valoracion: 4.7,
         respuesta: '30min',
-        foto: '../image/profesionales/martin-torres.jpg',
+        foto:'../image/profesionales/persona9.png',
         zona: 'Colegiales'
     },
     {
@@ -117,7 +117,7 @@ const profesionalesBase = [
         trabajos: 90,
         valoracion: 4.6,
         respuesta: '45min',
-        foto: '../image/profesionales/valentina-ruiz.jpg',
+        foto: '../image/profesionales/persona10.png',
         zona: 'Recoleta'
     },
     {
@@ -129,7 +129,7 @@ const profesionalesBase = [
         trabajos: 115,
         valoracion: 5.0,
         respuesta: '15min',
-        foto: '../image/profesionales/pablo-diaz.jpg',
+        foto:'../image/profesionales/persona11.png',
         zona: 'Palermo'
     },
     {
@@ -141,7 +141,7 @@ const profesionalesBase = [
         trabajos: 45,
         valoracion: 4.5,
         respuesta: '2h',
-        foto: '../image/profesionales/camila-sanchez.jpg',
+        foto: '../image/profesionales/persona12.png',
         zona: 'Belgrano'
     },
     {
@@ -153,7 +153,7 @@ const profesionalesBase = [
         trabajos: 160,
         valoracion: 4.9,
         respuesta: '1h',
-        foto: '../image/profesionales/tomas-vargas.jpg',
+        foto: '../image/profesionales/persona13.png',
         zona: 'Villa Crespo'
     },
     {
@@ -165,7 +165,7 @@ const profesionalesBase = [
         trabajos: 80,
         valoracion: 4.7,
         respuesta: '40min',
-        foto: '../image/profesionales/florencia-medina.jpg',
+        foto: '../image/profesionales/persona14.png',
         zona: 'Villa Crespo'
     },
     {
@@ -177,7 +177,7 @@ const profesionalesBase = [
         trabajos: 105,
         valoracion: 4.8,
         respuesta: '30min',
-        foto: '../image/profesionales/nicolas-herrera.jpg',
+        foto: '../image/profesionales/persona15.png',
         zona: 'Colegiales'
     }
 ];
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* RENDER DEL SLIDER DE DESTACADOS
-   Muestra hasta 8 profesionales ordenados por valoración. */
+   Muestra hasta 3 profesionales ordenados por valoración. */
 function renderSlider() {
     const track = document.getElementById('sliderTrack');
     if (!track) return;
@@ -245,7 +245,7 @@ function cardProfesionalHTML(p) {
             </div>
             <div class="slider-acciones">
                 <a href="./perfilProfesional.html?id=${p.id}" class="btn-ver-perfil">Ver perfil</a>
-                <button class="btn-agendar-cita" data-id="${p.id}">Agendar cita</button>
+                <a href="./perfilProfesional.html?id=${p.id} class="btn-agendar-cita"" class="btn-ver-perfil">Contactar</a>
             </div>
         </div>
     `;
@@ -514,13 +514,10 @@ function configurarFiltrosMapa() {
     if (btnAplicar) {
         btnAplicar.addEventListener('click', () => {
             const zonaSeleccionada = document.querySelector('input[name="zona"]:checked')?.value || 'todas';
-            const calMin = parseFloat(document.getElementById('filtroCalificacion')?.value || '0');
-
             const todos = obtenerTodosProfesionales();
             const filtrados = todos.filter(p => {
                 const coincideZona = zonaSeleccionada === 'todas' || p.zona === zonaSeleccionada;
-                const coincideCal  = p.valoracion >= calMin;
-                return coincideZona && coincideCal;
+                return coincideZona;
             });
 
             actualizarMapa(filtrados);
@@ -534,14 +531,57 @@ function configurarFiltrosMapa() {
             /* Resetea los radios y el select */
             const radioTodas = document.querySelector('input[name="zona"][value="todas"]');
             if (radioTodas) radioTodas.checked = true;
-            const select = document.getElementById('filtroCalificacion');
-            if (select) select.value = '0';
 
             actualizarMapa(obtenerTodosProfesionales());
             document.getElementById('seccionResultados').style.display = 'none';
         });
     }
 }
+
+function configurarAutocomplete(inputId, sugerenciasId, propiedadABuscar) {
+    const input = document.getElementById(inputId);
+    const panel = document.getElementById(sugerenciasId);
+
+    if (!input || !panel) return;
+
+    input.addEventListener('input', () => {
+        const texto = input.value.toLowerCase();
+        const todos = obtenerTodosProfesionales();
+        
+        // Filtra valores únicos basados en la propiedad (profesion o zona)
+        const filtrados = [...new Set(todos.map(p => p[propiedadABuscar]))]
+            .filter(valor => valor.toLowerCase().includes(texto));
+
+        if (texto && filtrados.length > 0) {
+            panel.innerHTML = filtrados
+                .map(item => `<div class="sugerencia-item">${item}</div>`)
+                .join('');
+            panel.style.display = 'block';
+        } else {
+            panel.style.display = 'none';
+        }
+    });
+
+    // Cerrar al hacer click afuera
+    document.addEventListener('click', (e) => {
+        if (!input.contains(e.target) && !panel.contains(e.target)) {
+            panel.style.display = 'none';
+        }
+    });
+
+    // Seleccionar sugerencia
+    panel.addEventListener('click', (e) => {
+        if (e.target.classList.contains('sugerencia-item')) {
+            input.value = e.target.textContent;
+            panel.style.display = 'none';
+        }
+    });
+}
+
+// Llamar a la función para ambos campos
+configurarAutocomplete('inputServicio', 'sugerenciasServicio', 'profesion');
+configurarAutocomplete('inputZona', 'sugerenciasZona', 'zona');
+
 
 
 /* HELPER: render de estrellas */

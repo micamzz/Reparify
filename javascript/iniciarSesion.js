@@ -1,12 +1,9 @@
-/* 
-   1. Valida que los campos no estén vacíos
-   2. Busca el email en localStorage ('reparify_usuarios')
-   3. Si existe y la contraseña coincide → inicia sesión
-   4. Guarda la sesión activa en localStorage ('reparify_sesion')
-   5. Redirige al index
-
-   Si el email no existe o la contraseña no coincide → error.
-    */
+/* iniciarSesion.js
+   Busca el email en AMBAS tablas:
+   1. reparify_usuarios     → usuarios regulares
+   2. reparify_profesionales → profesionales registrados
+   Si encuentra coincidencia y la contraseña es correcta,
+   guarda reparify_sesion y redirige al index. */
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -19,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!form) return;
 
 
-    /* FUNCIONES */
+    /* HELPERS VISUALES */
+
     function mostrarError(input, errorId, mensaje) {
         input.classList.add('input-error');
         input.classList.remove('input-ok');
@@ -42,31 +40,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* LOCALSTORAGE – HELPERS */
-    function obtenerUsuarios() {
-        return JSON.parse(localStorage.getItem('reparify_usuarios') || '[]');
+    /* BUSCAR EN AMBAS TABLAS
+       Devuelve { cuenta, tipo } donde tipo es 'usuario' o 'profesional',
+       o null si no se encuentra. */
+    function buscarCuenta(email) {
+        const emailNorm = email.toLowerCase().trim();
+
+        /* Buscar en usuarios regulares */
+        const usuarios = JSON.parse(localStorage.getItem('reparify_usuarios') || '[]');
+        const usuario  = usuarios.find(u => u.email.toLowerCase() === emailNorm);
+        if (usuario) return { cuenta: usuario, tipo: 'usuario' };
+
+        /* Buscar en profesionales */
+        const profesionales = JSON.parse(localStorage.getItem('reparify_profesionales') || '[]');
+        const profesional   = profesionales.find(p => p.email?.toLowerCase() === emailNorm);
+        if (profesional) return { cuenta: profesional, tipo: 'profesional' };
+
+        return null;
     }
 
-    /* Busca el usuario por email */
-    function buscarUsuario(email) {
-        const usuarios = obtenerUsuarios();
-        return usuarios.find(u => u.email.toLowerCase() === email.toLowerCase().trim()) || null;
-    }
-
-    /* Guarda la sesión activa (sin la contraseña) */
-    function guardarSesion(usuario) {
-        const sesion = {
-            email:        usuario.email,
-            fechaLogin:   new Date().toISOString()
-        };
-        localStorage.setItem('reparify_sesion', JSON.stringify(sesion));
+    /* Guarda la sesión con el tipo de cuenta para que el navbar
+       y otras páginas puedan usarlo */
+    function guardarSesion(cuenta, tipo) {
+        localStorage.setItem('reparify_sesion', JSON.stringify({
+            email:      cuenta.email,
+            nombre:     cuenta.nombre || cuenta.email,
+            tipo:       tipo,           /* 'usuario' o 'profesional' */
+            fechaLogin: new Date().toISOString()
+        }));
     }
 
 
-    /* Validaciones individuales- */
+    /* VALIDACIONES */
+
     function validarEmailLogin() {
         const val = inputEmail.value.trim();
-
         if (!val) {
             mostrarError(inputEmail, 'error-emailLogin', 'Ingresá tu email.');
             return false;
@@ -75,78 +83,87 @@ document.addEventListener('DOMContentLoaded', () => {
             mostrarError(inputEmail, 'error-emailLogin', 'Ingresá un email válido.');
             return false;
         }
-
         mostrarOk(inputEmail, 'error-emailLogin');
         return true;
     }
 
     function validarPasswordLogin() {
         const val = inputPass.value;
-
         if (!val) {
             mostrarError(inputPass, 'error-passwordLogin', 'Ingresá tu contraseña.');
             return false;
         }
-
         mostrarOk(inputPass, 'error-passwordLogin');
         return true;
     }
 
-
-    /* Validacion en tiempo real */
+    /* Validación en tiempo real */
     inputEmail.addEventListener('blur',  validarEmailLogin);
     inputPass.addEventListener('blur',   validarPasswordLogin);
-
     inputEmail.addEventListener('input', () => limpiar(inputEmail, 'error-emailLogin'));
     inputPass.addEventListener('input',  () => limpiar(inputPass,  'error-passwordLogin'));
 
 
-    /*submit */
+    /* SUBMIT */
+
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
         formMensaje.textContent = '';
-        formMensaje.className = 'form-mensaje';
+        formMensaje.className   = 'form-mensaje';
 
-        /* Validamos formato de los campos */
         const emailOk = validarEmailLogin();
         const passOk  = validarPasswordLogin();
         if (!emailOk || !passOk) return;
 
-        /* Buscamos el usuario en localStorage */
-        const usuario = buscarUsuario(inputEmail.value);
+        /* Buscar en usuarios y profesionales */
+        const resultado = buscarCuenta(inputEmail.value);
 
-        /* Si el email no existe o la contraseña es incorrecta , mensaje que abarca ambos casos */
-        if(!usuario || usuario.password !== inputPass.value){
+        /* Email no encontrado en ninguna tabla */
+        if (!resultado) {
             formMensaje.textContent = 'Revisá tu email y/o contraseña e intentá de nuevo.';
             formMensaje.classList.add('error');
             return;
         }
-        
-        /* Todo correcto → iniciamos sesión */
-        guardarSesion(usuario);
- btnSubmit.disabled = true;
+
+        /* Contraseña incorrecta */
+        if (resultado.cuenta.password !== inputPass.value) {
+            formMensaje.textContent = 'Revisá tu email y/o contraseña e intentá de nuevo.';
+            formMensaje.classList.add('error');
+            return;
+        }
+
+        /* Todo correcto → guardamos sesión con tipo */
+        guardarSesion(resultado.cuenta, resultado.tipo);
+
+        btnSubmit.disabled    = true;
         btnSubmit.textContent = 'Ingresando...';
- 
-        formMensaje.textContent = `¡Bienvenido/a de nuevo! Redirigiendo...`;
+
+        const nombre = resultado.cuenta.nombre || resultado.cuenta.email;
+        formMensaje.textContent = `¡Bienvenido/a, ${nombre}! Redirigiendo...`;
         formMensaje.classList.add('exito');
- 
-        /* Redirigir al index después de 1.5s */
+
+        /* Redirigir según el tipo de cuenta */
         setTimeout(() => {
-            window.location.href = '/index.html';
+            if (resultado.tipo === 'profesional') {
+                window.location.href = '/index.html';
+            } else {
+                window.location.href = '/index.html';
+            }
         }, 1500);
     });
 
-    /*  VER / OCULTAR CONTRASEÑA */
+
+    /* TOGGLE VER/OCULTAR CONTRASEÑA */
+
     document.querySelectorAll('.toggle-pass').forEach(btn => {
         btn.addEventListener('click', () => {
             const input = document.getElementById(btn.dataset.target);
             if (!input) return;
-
-            const verPassword   = input.type === 'password';
-            input.type          = verPassword ? 'text' : 'password';
-            btn.textContent     = verPassword ? '🙈' : '👁';
-            btn.setAttribute('aria-label', verPassword ? 'Ocultar contraseña' : 'Ver contraseña');
+            const ver       = input.type === 'password';
+            input.type      = ver ? 'text' : 'password';
+            btn.textContent = ver ? '🙈' : '👁';
+            btn.setAttribute('aria-label', ver ? 'Ocultar contraseña' : 'Ver contraseña');
         });
     });
 
