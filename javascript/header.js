@@ -2,7 +2,7 @@ export async function cargarNavbar() {
     const prefix = window.location.pathname.includes('/Pages/') ? '../' : './';
  
     try {
-        const response = await fetch(prefix + 'components/navbar.html');
+        const response = await fetch('/components/navbar.html');
         if (!response.ok) throw new Error('Navbar no encontrado');
  
         const data = await response.text();

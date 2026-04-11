@@ -25,6 +25,11 @@ body {
     z-index: 1;
 }
 
+/* Resaltar texto reparify */
+.resaltar-texto {
+    color: var(--orange);
+    font-weight: 700;
+}
 
 /* Videos */
 .deco-target-orange {
@@ -96,14 +101,15 @@ body {
     align-items: start;
 }
 
-/* ---- FORMULARIO ---- */
+/* FORMULARIO  */
 .diag-form-card {
-    border: 1.5px dashed var(--border);
+    border: 3px dashed var(--border);
     border-radius: var(--radius-lg);
     padding: 2em 1.75em;
     display: flex;
     flex-direction: column;
     gap: 1.25em;
+    background-color: #F9FAFB;
 }
 
 .upload-area {
@@ -141,20 +147,17 @@ body {
 .upload-icon-video { background: var(--pink); }
 
 .upload-label {
-    font-size: 0.88rem;
-    color: var(--text-muted);
-    text-align: center;
+    font-size: 0.9em;
+    color: var(--text);
 }
-.upload-separator {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-}
+
 
 /* Inputs */
 .diag-inputs {
     display: flex;
     flex-direction: column;
     gap: 0.6em;
+    background-color: #F9FAFB;
 }
 
 .input-group {
@@ -164,11 +167,9 @@ body {
     border: 1.5px solid var(--border);
     border-radius: 8px;
     padding: 0.6em 0.875em;
-    background: var(--white);
+    background-color:var(--white);
 }
-.input-group:focus-within {
-    border-color: var(--blue);
-}
+
 
 .input-icon {
     font-size: 1rem;
@@ -184,9 +185,6 @@ body {
     color: var(--text);
     background: transparent;
 }
-.diag-input::placeholder { color: #aaa; }
-
-.input-group-tip { opacity: 0.7; }
 .diag-input-tip  { font-size: 0.82rem; }
 
 /* Botón diagnóstico */
@@ -202,6 +200,7 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: background 0.22s, transform 0.22s;
+    box-shadow: 4px 4px 0 var(--black);
 }
 .btn-diagnostico:hover {
     background: var(--blue-dark);
@@ -212,10 +211,11 @@ body {
 .diag-pasos-card {
     border: 1.5px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 2em 1.75em;
+   padding: 2.3em 1.75em;
     display: flex;
     flex-direction: column;
     gap: 1.5em;
+     background-color: #F9FAFB;
 }
 
 .diag-paso {
@@ -226,7 +226,7 @@ body {
 
 .paso-label {
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 1.25em;
 }
 .paso-1 { color: var(--blue); }
 .paso-2 { color: var(--pink-dark, #e060a8); }
@@ -248,37 +248,35 @@ body {
 
 /* Subtítulo con líneas */
 .subtitulo-linea {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--blue);
+    font-weight: 800;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 0.75em;
+    gap: 15px;
+    width: 100%;
+    
 }
 .linea-blue {
-    display: block;
-    height: 3px;
-    width: 40px;
-    background: var(--blue);
-    border-radius: 4px;
-}
-.subtitulo-texto {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--blue);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    white-space: nowrap;
+   flex-grow: 1;
+    height: 4px;
+    background-color: var(--blue);
+    border-radius: 10px;
+    max-width: 3em;
 }
 
 .videos-header {
     text-align: center;
-    margin-bottom: 2.5em;
+    margin-bottom: 1.5em;
 }
 .videos-titulo {
-    font-size: clamp(1.4rem, 3vw, 2rem);
-    font-weight: 800;
+    font-size: 1.em;
+    font-weight: 600;
     color: var(--text);
-    margin-bottom: 0.5em;
+    margin-top: 0.4em;
 }
 .videos-desc {
     font-size: 0.95rem;
@@ -518,15 +516,13 @@ body {
 .tag-error { background: #ffe0e0; color: #c0392b; }
 .tag-ok    { background: #e0f7e9; color: #1a7a3a; }
 
-/* PREGUNTAS Y RESPUESTAS*/
+/* Preguntas frecuentes */
 .diag-faq {
-    padding: 2em 0 5em;
-    position: relative;
-    overflow: hidden;
+     padding: 3em 0 5em;
 }
 
 .faq-titulo {
-    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
     font-weight: 800;
     color: var(--blue);
     text-align: center;
@@ -537,7 +533,6 @@ body {
 .faq-lista {
     display: flex;
     flex-direction: column;
-    gap: 0;
 }
 
 .faq-item {
@@ -559,19 +554,25 @@ body {
     list-style: none;
     gap: 1em;
     transition: color 0.2s;
+    user-select: none;
 }
-.faq-pregunta::-webkit-details-marker { display: none; }
-.faq-pregunta:hover { color: var(--blue); }
+.faq-pregunta::-webkit-details-marker { 
+    display: none;
+ }
+.faq-pregunta:hover {
+     color: var(--blue);
+     }
 
 .faq-chevron {
-    font-size: 1.3rem;
+     font-size: 1.3rem;
     color: var(--text-muted);
     transition: transform 0.3s ease; 
     flex-shrink: 0;
-    transform: rotate(-90deg); 
+    transform: rotate(-90deg);
 }
 details[open] .faq-chevron {
-    transform: rotate(90deg);
+       transform: rotate(90deg);
+    color: var(--blue);
 }
 
 .faq-respuesta {
@@ -583,7 +584,7 @@ details[open] .faq-chevron {
     line-height: 1.7;
 }
 
-/* ERSPONSIVE */
+/* responsive */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
 
     .diag-hero-body {

@@ -1,189 +1,347 @@
 @import url('variables.css');
 
-/* RESET */
-*, *::before, *::after {
-     box-sizing: border-box;
-      margin: 0; 
-      padding: 0; }
-html { 
-    scroll-behavior: smooth;
- }
 
- body {
-  font-family: var(--font-main); 
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-main); }
+a { text-decoration: none; color: inherit; }
+button {
+    font-family: inherit;
 }
 
-a {
-     text-decoration: none;
-      color: inherit; 
-    }
-
-/*  BOTONES */
-.btn, .btn-primary, .btn-outline, .btn-pink, .btn-login, .btn-register {
+/* BOTONES*/
+.btn, .btn-primary, .btn-outline, .btn-pink, .btn-login, .btn-register ,.btn-perfil-pink {
     font-family: var(--font-main);
     display: inline-block;
     text-align: center;
     font-weight: 600;
     cursor: pointer;
     transition: all var(--transition);
-    border-radius: 10px; 
-    border: none; 
+    border-radius: 10px;
+    border: none;
 }
-
-/* 2. Variantes de tamaño (Padding y Font-size) */
 .btn-primary, .btn-pink, .btn-outline {
     padding: 13px 28px;
-    font-size: 0.95rem; 
+    font-size: 0.95rem;
 }
-
-.btn-login, .btn-register {
-    padding: 9px 20px; 
-    font-size: 0.88rem; 
+.btn-login, .btn-register , .btn-perfil-pink{
+    padding: 9px 20px;
+    font-size: 0.88rem;
     border-radius: 0.8em;
 }
-
-/* 3. Estilos específicos (Colores y Sombras) */
 .btn-primary {
     background: var(--blue);
     color: var(--white);
     box-shadow: 0 4px 16px rgba(26, 115, 232, 0.25);
 }
-
 .btn-primary:hover {
     background: var(--blue-dark);
     box-shadow: 0 8px 24px rgba(26, 115, 232, 0.35);
 }
-
 .btn-outline {
     background: transparent;
     color: var(--text);
-    border: 0.5px solid var(--black); 
+    border: 0.5px solid var(--black);
 }
-
 .btn-outline:hover {
     border-color: var(--blue);
     color: var(--blue);
 }
-
 .btn-login {
     background-color: var(--blue);
     color: var(--white);
 }
-
-.btn-login:hover { 
+.btn-login:hover {
     background-color: var(--blue-dark);
     color: var(--black);
 }
-
 .btn-register {
     background: var(--white);
     color: var(--black);
 }
-
-.btn-register:hover { 
-    background: var(--blue-dark); 
-    color: var(--white); 
+.btn-register:hover {
+    background: var(--blue-dark);
+    color: var(--white);
 }
-
-.btn-pink {
+.btn-pink , .btn-perfil-pink{
     background: var(--pink);
     color: var(--black);
-    box-shadow: 0 4px 16px rgba(255,77,141,0.25);
 }
-
 .btn-pink:hover {
     background: #ef5e91;
-    box-shadow: 0 8px 24px rgba(255,77,141,0.35);
+    box-shadow: 0 8px 24px rgba(255, 77, 141, 0.35);
 }
-
-/* 4. Efecto de elevación (Hover común) */
 .btn-primary:hover, .btn-pink:hover, .btn-outline:hover {
     transform: translateY(-2px);
 }
 
+#navGuest,
+#navUser {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-/* NAVBAR*/
+/* NAVBAR */
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #0f1117;
-  height: 64px;
-}
-.nav-inner {
-  /* max-width: 70em; */
-  margin: 0 auto;
-  padding: 0 2em;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  gap: 2em;
-}
-.logo {
- display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-accent);
-  font-weight: 900;
-  font-size: 1.2rem;
-  color: var(--white); 
-  flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #0f1117;
+    height: 64px;
+   
 }
 
-.logo-text { 
-    letter-spacing: 1px; 
+.nav-inner {
+    margin: 0 auto;
+    padding: 0 2em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2em;
 }
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-accent);
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--white);
+    flex-shrink: 0;
+}
+.logo-text { letter-spacing: 1px; }
 
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex: 1;
-}
-.nav-link {
-  padding: 7px 14px;
-  border-radius: 50px;
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--white);
-  transition: all var(--transition);
-  white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
 }
 
-.nav-link:hover, .nav-link.active {
-  color: var(--blue);
-  background: var(--blue-light);
+.nav-link {
+    padding: 7px 14px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--white);
+    transition: all var(--transition);
+    white-space: nowrap;
+}
+.nav-link:hover {
+    color: var(--pink);
 }
 .nav-link.active {
-  background: var(--pink);
-  color: var(--black);
+    background: var(--pink);
+    color: var(--black);
 }
+
 .nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
 }
 
 /* MENU HAMBURGUESA */
 .hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  width: 36px;
-  height: 36px;
-  padding: 4px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    padding: 4px;
+    flex-shrink: 0;
+    /* Área de toque mínima recomendada */
+    min-width: 44px;
+    min-height: 44px;
 }
 .hamburger span {
-  display: block;
-  width: 22px;
-  height: 2.5px;
-  background: var(--white);
-  border-radius: 2px;
-  transition: all var(--transition);
+    display: block;
+    width: 22px;
+    height: 2.5px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animación → X cuando está activo */
+.hamburger.is-active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hamburger.is-active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.is-active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* MENU MOVIL */
+.nav-mobile-panel {
+    display: none; /* oculto en desktop */
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: #0f1117;
+    border-bottom: 3px solid var(--blue);
+    z-index: 99;
+    overflow-y: auto;
+    /* Máximo alto: pantalla menos el navbar */
+    max-height: calc(100dvh - 64px);
+    animation: slideDown 0.28s ease-out;
+}
+
+.nav-mobile-panel.mobile-open {
+    display: flex;
+}
+
+/* Links dentro del panel */
+.nav-mobile-panel .nav-links-mobile {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.25rem 0.5rem;
+    gap: 4px;
+}
+
+.nav-mobile-panel .nav-link {
+    font-size: 1rem;
+    padding: 11px 16px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: left;
+    white-space: normal;
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.nav-mobile-panel .nav-link:last-child {
+    border-bottom: none;
+}
+.nav-mobile-panel .nav-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+}
+.nav-mobile-panel .nav-link.active {
+    background: var(--pink);
+    color: var(--black);
+}
+
+/* Divisor entre links y botones */
+.nav-mobile-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 1.25rem;
+}
+
+/* Botones dentro del panel */
+.nav-mobile-panel .nav-actions-mobile {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 1.25rem 1.25rem;
+    gap: 10px;
+}
+.nav-mobile-panel .btn-login,
+.nav-mobile-panel .btn-register {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* ANIMACION */
+@keyframes slideDown {
+    from { transform: translateY(-6px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* Responsive */
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .nav-inner {
+        gap: 1em;
+        padding: 0 1.5em;
+    }
+    .nav-link {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    .btn-login, .btn-register {
+        padding: 7px 14px;
+        font-size: 0.8rem;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .hamburger { display: flex; }
+
+
+    .nav-links,
+    .nav-actions {
+        display: none;
+    }
+
+
+    .nav-mobile-panel {
+        top: 64px;
+    }
+}
+
+
+@media screen and (min-width: 321px) and (max-width: 425px) {
+    .navbar { height: 56px; }
+
+    .nav-inner {
+        padding: 0 1em;
+        justify-content: space-between;
+        gap: 0;
+    }
+    .logo { font-size: 1rem; }
+
+    .nav-mobile-panel {
+        top: 56px;
+        max-height: calc(100dvh - 56px);
+    }
+
+    .nav-mobile-panel .nav-link { font-size: 0.95rem; padding: 10px 14px; }
+
+    .nav-mobile-panel .btn-login,
+    .nav-mobile-panel .btn-register { font-size: 0.9rem; padding: 11px; }
+}
+
+
+@media screen and (max-width: 320px) {
+    .navbar { height: 52px; }
+
+    .nav-inner {
+        padding: 0 0.875em;
+        justify-content: space-between;
+        gap: 0;
+    }
+    .logo { font-size: 0.9rem; }
+
+    .hamburger {
+        width: 32px;
+        height: 32px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+    .hamburger span { width: 18px; }
+
+    .nav-mobile-panel {
+        top: 52px;
+        max-height: calc(100dvh - 52px);
+    }
+
+    .nav-mobile-panel .nav-links-mobile { padding: 0.875rem 1rem 0.5rem; }
+    .nav-mobile-panel .nav-link { font-size: 0.88rem; padding: 9px 12px; }
+
+    .nav-mobile-panel .nav-actions-mobile { padding: 0.5rem 1rem 1rem; }
+    .nav-mobile-panel .btn-login,
+    .nav-mobile-panel .btn-register { font-size: 0.85rem; padding: 10px; }
 }

@@ -16,12 +16,24 @@
 
         <!-- Botones desktop -->
         <div class="nav-actions">
-            <a href="/Pages/iniciarSesion.html" class="btn-login">Iniciar sesión</a>
-            <a href="/Pages/registro.html" class="btn-register">Registrarse</a>
+
+            <!-- NO LOGUEADO -->
+            <div id="navGuest">
+                <a href="/Pages/iniciarSesion.html" class="btn-login">Iniciar sesión</a>
+                <a href="/Pages/registro.html" class="btn-register">Registrarse</a>
+            </div>
+            
+            <!-- LOGUEADO -->
+            <div id="navUser" style="display: none;">
+                <a href="/Pages/miPerfil.html" class="btn-perfil-pink">Mi perfil</a>
+                <button id="btnLogout" class="btn-login">Cerrar sesión</button>
+            </div>
+
         </div>
 
         <!-- Botón hamburguesa -->
-        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuMobile">
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false"
+            aria-controls="menuMobile">
             <span></span>
             <span></span>
             <span></span>

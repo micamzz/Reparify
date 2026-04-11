@@ -1,38 +1,51 @@
 @import url('variables.css');
 
-body{
+body {
     background: url('../image/fondo-sobreNos.jpg');
     background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
 
-img{
+img {
     max-width: 100%;
 }
 
 
-.heroSobreNosotros , .sobre-container{
-    padding: 0em 12em;
+.heroSobreNosotros {
+    padding: 2em 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:2em;
+    gap: 2em;
+}
+
+.sobre-container {
+    padding: 0.6em 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
 }
 
 .heroSobreNosotros {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center; 
-    gap: 1em;
+    padding-top: 3.75em;
 }
+
 
 .hero-imageSobreNosotros {
     width: 100%;
-    max-width: 500px; 
-    filter: drop-shadow(8px 8px 0px var(--pink-light)); /* Sombra en la imagen 1*/
+    max-width: 500px;
+    filter: drop-shadow(8px 8px 0px var(--pink-light));
+    /* Sombra en la imagen 1*/
+}
+
+.titulo-seccion {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    /* Tamaño fluido según pantalla */
+    color: var(--text);
+    line-height: 1.2;
 }
 
 .hero-subtituloSobreNosotros {
@@ -41,32 +54,39 @@ img{
     letter-spacing: 1px;
     color: var(--blue);
     font-weight: 800;
-     display: flex;
-    align-items: center;    
-    justify-content: center; 
-    gap: 15px;              
-    width: 100%;            
-    margin-top:2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 2em;
+}
+
+.descripcion{   
+    color: var(--text);
 }
 
 /* LINEAS AZULES LATERALES */
 .line {
-    flex-grow: 1;           
-    height: 4px;            
-    background-color: var(--blue); 
-    border-radius: 10px;    
-    max-width: 3em;        /* Para que la linea no sea infinita */
+    flex-grow: 1;
+    height: 4px;
+    background-color: var(--blue);
+    border-radius: 10px;
+    max-width: 3em;
+    /* Para que la linea no sea infinita */
 }
 
 .hero-subtituloSobreNosotros p {
     color: var(--blue);
     font-weight: 700;
     text-transform: uppercase;
-    white-space: nowrap;    /* Evita que el texto se baje si la pantalla es chica */
-    margin: 0;              /* Quitamos márgenes por defecto del p */
+    white-space: nowrap;
+    margin: 0;
+
 }
+
 /* TEXTO RESALTADO DE LA ORACIÓN */
-.resaltar-texto{
+.resaltar-texto {
     color: var(--blue);
     font-weight: 700;
 }
@@ -80,22 +100,261 @@ img{
 
 .testimonio-card {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     align-items: center;
-    max-width: 650px; 
-    border: 3px solid var(--black); 
+    max-width: 650px;
+    border: 3px solid var(--black);
     border-radius: var(--radius-lg);
-    box-shadow: 12px 12px 0px var(--pink); 
-    overflow: hidden; 
+    box-shadow: 12px 12px 0px var(--pink);
+    overflow: hidden;
     transition: transform var(--transition);
 }
 
-.testimonio-card:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 16px 16px 0px var(--blue);
-}
 
 .testimonio-contenido {
     padding: 40px;
     width: 60%;
+}
+
+
+/* RESPONSIVE */
+
+/*TABLET*/
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    .heroSobreNosotros,
+    .sobre-container {
+        padding: 2em 8%;
+    }
+
+    .heroSobreNosotros {
+        padding-top: 3em;
+    }
+
+    .hero-imageSobreNosotros {
+        max-width: 380px;
+    }
+
+    .testimonio-section {
+        padding: 3em 5em;
+    }
+
+    .testimonio-card {
+        max-width: 90%;
+    }
+
+    .testimonio-contenido {
+        padding: 28px;
+    }
+}
+
+/* TELEFONO + GRANDE  */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+    .heroSobreNosotros,
+    .sobre-container {
+        padding: 2em 5%;
+    }
+
+    .heroSobreNosotros {
+        padding-top: 2.5em;
+    }
+
+    .hero-imageSobreNosotros {
+        max-width: 300px;
+    }
+
+    .titulo-seccion {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .descripcion {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    /* Testimonio apilado */
+    .testimonio-section {
+        padding: 2.5em 1.5em;
+    }
+
+    .testimonio-card {
+        flex-direction: column;
+        max-width: 420px;
+        width: 100%;
+    }
+
+    .testimonio-img {
+        width: 100%;
+        height: 240px;
+        overflow: hidden;
+        border-bottom: 3px solid var(--black);
+    }
+
+    .testimonio-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .testimonio-texto {
+        width: 100%;
+        padding: 1.5em;
+        text-align: center;
+    }
+
+    .line {
+        max-width: 40px;
+    }
+}
+
+/* TELEFONO */
+@media screen and (min-width: 321px) and (max-width: 425px) {
+
+    .heroSobreNosotros,
+    .sobre-container {
+        padding: 0.25em 4%;
+        gap: 1.25em;
+    }
+
+    .heroSobreNosotros {
+        padding-top: 2em;
+    }
+
+    .hero-imageSobreNosotros {
+        max-width: 220px;
+    }
+
+    .titulo-seccion {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .descripcion {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    .hero-subtituloSobreNosotros {
+        font-size: 0.9rem;
+        gap: 10px;
+        margin-top: 1.25em;
+    }
+
+    .hero-subtituloSobreNosotros p {
+        font-size: 0.85rem;
+    }
+
+    .line {
+        max-width: 30px;
+    }
+
+    /* Testimonio */
+    .testimonio-section {
+        padding: 2em 1em;
+    }
+
+    .testimonio-card {
+        flex-direction: column;
+        max-width: 100%;
+        width: 100%;
+        box-shadow: 6px 6px 0px var(--pink);
+    }
+
+    .testimonio-img {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+
+    }
+
+    .testimonio-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .testimonio-texto {
+        width: 100%;
+        padding: 1.25em;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+}
+
+/* TELEFONO CHICO*/
+@media screen and (max-width: 320px) {
+
+    .heroSobreNosotros,
+    .sobre-container {
+        padding: 0.25em 3%;
+        gap: 1em;
+    }
+
+    .heroSobreNosotros {
+        padding-top: 1.5em;
+    }
+
+    .hero-imageSobreNosotros {
+        max-width: 180px;
+    }
+
+    .titulo-seccion {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .descripcion {
+        font-size: 0.85rem;
+        line-height: 1.55;
+        text-align: center;
+    }
+
+    .hero-subtituloSobreNosotros {
+        font-size: 0.8rem;
+        gap: 8px;
+        margin-top: 1em;
+    }
+
+    .hero-subtituloSobreNosotros p {
+        font-size: 0.78rem;
+    }
+
+    .line {
+        max-width: 24px;
+        height: 3px;
+    }
+
+    /* Testimonio */
+    .testimonio-section {
+        padding: 1.5em 0.75em;
+    }
+
+    .testimonio-card {
+        flex-direction: column;
+        max-width: 100%;
+        width: 100%;
+        box-shadow: 4px 4px 0px var(--pink);
+    }
+
+    .testimonio-img {
+        width: 100%;
+        height: 170px;
+        overflow: hidden;
+    }
+
+    .testimonio-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .testimonio-texto {
+        width: 100%;
+        padding: 1em;
+        text-align: center;
+        font-size: 0.85rem;
+    }
 }

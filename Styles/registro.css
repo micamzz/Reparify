@@ -2,6 +2,7 @@
 
 body {
     font-family: var(--font-main);
+    color: var(--font-main);
      background-image: url('../image/fondo-iniciar.jpg ');
     background-size: cover;
     background-position: center;
@@ -10,11 +11,13 @@ body {
 }
 
 /*Estructura general */ 
+
 .registro-main {
-    min-height: calc(100vh - 64px); /* descuenta el navbar */
+    min-height: calc(100vh - 64px); 
     display: flex;
     align-items: center;
     padding: 3em 0 4em;
+    flex-direction: column;
 }
 
 .registro-container {
@@ -28,6 +31,21 @@ body {
     align-items: center;
 }
 
+/* TITULO Y SUBTITULO */
+.hero-title {
+  font-family: var(--font-accent);
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.hero-subtitle {
+  font-size: em;
+  font-weight:400;
+  color: var(--text-muted);
+  margin: 0.5em 0 1em 0;
+}
 /* Columna izquierda - Texto */
 .registro-texto {
     display: flex;
@@ -40,6 +58,12 @@ body {
     font-weight: 800;
     color: var(--text);
     line-height: 1.15;
+    
+}
+
+.titulo-h1{
+      color: var(--blue);
+    font-weight: 700;
 }
 
 .registro-subtitulo {
@@ -51,15 +75,20 @@ body {
 /* Formulario */
 .registro-card {
     background: var(--white);
-    border-radius: 20px;
-    border: 1.5px solid var(--border);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
-    padding: 2.5em 2em;
+    border-radius: 15px;
+   border-top: 2px solid #000000;
+   border-left: 2px solid #000000;
+    box-shadow: 4px 4px 0 var(--yellow);
+    padding: 2em 2em;
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 0.3em;
 }
 
+.registro-card:hover {
+    box-shadow: 6px 6px 0 var(--pink);
+
+}
 .form-bienvenido {
     font-size: 1.6rem;
     font-weight: 800;
@@ -74,7 +103,7 @@ body {
     margin-bottom: 0.75em;
 }
 
-/* ---- CAMPOS ---- */
+/* CAMPOS  */
 #formRegistro {
     display: flex;
     flex-direction: column;
@@ -121,7 +150,7 @@ body {
 }
 
 .campo-input:focus {
-    border-color: var(--blue);
+    border-color: var(--orange);
     background: var(--white);
 }
 
@@ -161,7 +190,7 @@ body {
     display: block;
 }
 
-/* ---- BOTÓN REGISTRAR ---- */
+/*  BOTÓN REGISTRAR  */
 .btn-registrar {
     width: 100%;
     background: var(--blue);
@@ -199,16 +228,21 @@ body {
 .form-login-link {
     font-size: 0.85rem;
     color: var(--text-muted);
-    text-align: center;
+    text-align: right;
     margin-top: 0.75em;
 }
-.form-login-link a {
+.form-recuperar-link{
+     font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: right;
+    margin-top: 0.75em;
+}
+
+.form-login-link a , .form-recuperar-link{
     color: var(--blue);
     font-weight: 600;
     text-decoration: none;
-    transition: opacity 0.2s;
 }
-.form-login-link a:hover { opacity: 0.75; }
 
 /* Imagen persona= */
 .registro-imagen {

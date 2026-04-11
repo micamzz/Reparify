@@ -17,4 +17,5 @@
   --font-main: 'Inter', sans-serif;
   --font-accent: 'Inter', sans-serif;
   --transition: 0.25s cubic-bezier(.4,0,.2,1);
+  --border: #e5e7eb;
 }

@@ -36,9 +36,15 @@
 
                 <form id="formRegistro" novalidate>
 
+                    <!-- Nombre completo -->
+                    <div class="campo-grupo">
+                        <label class="campo-label" for="nombre">Nombre completo</label>
+                        <input class="campo-input" type="text" id="datosNombre" name="nombre" />
+                        <span class="campo-error" id="error-nombre"></span>
+                    </div>
                     <!-- Email -->
                     <div class="campo-grupo">
-                        <label class="campo-label" for="email">Email / Usuario</label>
+                        <label class="campo-label" for="email">Email</label>
                         <input class="campo-input" type="text" id="email" name="email" placeholder="ejemplo@gmail.com"
                             autocomplete="email" />
                         <span class="campo-error" id="error-email"></span>

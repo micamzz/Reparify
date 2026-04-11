@@ -1,5 +1,11 @@
 @import url('variables.css');
 /*  FOOTER*/
+.containerFooter {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
 .footer {
   background: #0f1117;
   color: rgba(255,255,255,0.85);
@@ -32,7 +38,7 @@
   margin-bottom: 10px;
   transition: color var(--transition);
 }
-.footer-col a:hover { color: var(--white); }
+.footer-col a:hover { color: var(--pink); }
 .footer-bottom {
    border-top: 1px solid rgba(255,255,255,0.08);
   padding: 20px 24px;
@@ -41,4 +47,47 @@
 .footer-bottom p {
   font-size: 0.82rem;
   color: rgba(255,255,255,0.35);
+}
+
+/* RESPONSIVE */
+/* --- TABLETS (Menos de 992px) --- */
+@media (max-width: 992px) {
+  .footer-inner {
+    /* Pasamos a 2 columnas arriba y 2 abajo */
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 20px;
+  }
+
+  .footer-brand {
+    /* Hacemos que la marca ocupe las dos columnas si queremos destacar el logo */
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+/* --- MÓVILES (Menos de 600px) --- */
+@media (max-width: 600px) {
+  .footer {
+    padding-top: 40px;
+  }
+
+  .footer-inner {
+    /* Todo en una sola columna vertical */
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-brand {
+    grid-column: span 1;
+  }
+
+  .footer-col a:hover {
+    transform: none; /* Quitamos el efecto lateral en móvil para evitar saltos de pantalla */
+  }
+
+  .footer-bottom {
+    padding: 20px;
+  }
 }
