@@ -1,0 +1,514 @@
+@import url('variables.css');
+
+body {
+    font-family: var(--font-main);
+    background-image: url('../image/fondo-registroProfesional.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.color-blue {
+    color: var(--blue);
+}
+
+
+/* LAYOUT PRINCIPAL */
+.regpro-main {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    padding: 3em 24px;
+}
+
+.regpro-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.15fr 0.85fr;
+    gap: 2.5em;
+    align-items: center;
+}
+
+
+/* COLUMNA IZQUIERDA */
+
+.regpro-titulo {
+     font-size: 3em;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 0.5em;
+}
+
+.regpro-subtitulo {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+
+/* CARD DEL FORMULARIO */
+
+.regpro-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 2.25em 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border-top: 2px solid #000000;
+    border-left: 2px solid #000000;
+    box-shadow: 8px 8px 0 var(--orange);
+}
+
+.regpro-card:hover {
+    box-shadow: 6px 6px 0 var(--blue);
+
+}
+
+.card-titulo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--orange);
+    text-align: center;
+    margin: 0;
+}
+
+.card-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 0;
+}
+
+
+/* INDICADOR DE PASOS */
+
+.pasos-indicador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 0.5em 0;
+}
+
+.paso-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #ddd;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: background 0.3s, color 0.3s;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+.paso-dot.completado,
+.paso-dot.activo {
+    background: var(--pink);
+    color: var(--black);
+    box-shadow: 3px 3px 0 var(--blue);
+}
+
+
+
+.paso-linea {
+    flex: 1;
+    height: 3px;
+    background: #ddd;
+    max-width: 80px;
+    transition: background 0.3s;
+}
+
+.paso-linea.activa {
+    background: var(--blue);
+    border: 2px solid var(--blue);
+}
+
+
+/* CONTENIDO DE CADA PASO */
+
+.paso-contenido {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+}
+
+.paso-contenido.activo {
+    display: flex;
+}
+
+.paso-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 0 0 0.75em 0;
+}
+
+
+/* CAMPOS */
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    margin-bottom: 0.75em;
+}
+
+.campo-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.campo-input {
+    width: 100%;
+    background: #f5f5f5;
+    border: 1.5px solid transparent;
+    border-radius: 8px;
+    padding: 0.75em 0.875em;
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.22s, background 0.22s;
+}
+
+.campo-input:focus {
+    border-color: var(--blue);
+    background: var(--white);
+}
+
+.campo-input.input-error {
+    border-color: #e53e3e;
+    background: #fff5f5;
+}
+
+.campo-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875em center;
+    padding-right: 2.5em;
+}
+
+/* Input file personalizado */
+.campo-label-file {
+    cursor: pointer;
+    display: block;
+}
+
+.input-file-hidden {
+    display: none;
+}
+
+.campo-file {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.campo-file.con-archivo {
+    color: var(--blue);
+    font-weight: 600;
+}
+
+/* Wrapper contraseña */
+.input-password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-password-wrapper .campo-input {
+    padding-right: 2.5em;
+}
+
+.toggle-pass {
+    position: absolute;
+    right: 0.75em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+    padding: 0;
+}
+
+.toggle-pass:hover {
+    opacity: 1;
+}
+
+/* Error */
+.campo-error {
+    font-size: 0.76rem;
+    color: #e53e3e;
+    font-weight: 500;
+    min-height: 1em;
+    padding-left: 2px;
+}
+
+/* Checkbox de términos */
+.campo-check {
+    margin-bottom: 0.5em;
+}
+
+.check-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.check-label input[type="checkbox"] {
+    accent-color: var(--blue);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Link ya tenés cuenta */
+.ya-cuenta {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 0 0 0.75em 0;
+}
+
+.ya-cuenta a {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.ya-cuenta a:hover {
+    opacity: 0.75;
+}
+
+
+/* BOTONES */
+
+.btn-continuar {
+    width: 100%;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 13px;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.22s, transform 0.22s;
+}
+
+.btn-continuar:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+}
+
+.pasos-btns {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    margin-top: 0.25em;
+}
+
+.btn-volver {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.22s, color 0.22s;
+}
+
+.btn-volver:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+/* Mensaje final */
+.form-mensaje {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    min-height: 1em;
+    margin: 0.25em 0 0;
+}
+
+.form-mensaje.exito {
+    color: #38a169;
+}
+
+.form-mensaje.error {
+    color: #e53e3e;
+}
+
+
+/* COLUMNA DERECHA: imagen */
+
+.regpro-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.regpro-img {
+    max-width: 100%;
+    max-height: 480px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* RESPONSIVE TABLET (769px - 1024px) */
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .regpro-layout {
+        grid-template-columns: 0.9fr 1.1fr 0.7fr;
+        gap: 1.75em;
+    }
+
+    .regpro-titulo {
+        font-size: 1.7rem;
+    }
+
+    .regpro-img {
+        max-height: 360px;
+    }
+}
+
+
+/* RESPONSIVE PHABLET (426px - 768px) */
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    .regpro-main {
+        padding: 2em 16px;
+        align-items: flex-start;
+    }
+
+    .regpro-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+
+    .regpro-texto {
+        text-align: center;
+    }
+
+    .regpro-imagen {
+        display: none;
+    }
+
+    .regpro-card {
+        padding: 2em 1.75em;
+    }
+}
+
+
+/* RESPONSIVE TELÉFONO (321px - 425px) */
+
+@media screen and (min-width: 321px) and (max-width: 425px) {
+    .regpro-main {
+        padding: 1.5em 12px;
+        align-items: flex-start;
+    }
+
+    .regpro-layout {
+        grid-template-columns: 1fr;
+        gap: 1.25em;
+    }
+
+    .regpro-texto {
+        text-align: center;
+    }
+
+    .regpro-titulo {
+        font-size: 1.55rem;
+    }
+
+    .regpro-imagen {
+        display: none;
+    }
+
+    .regpro-card {
+        padding: 1.75em 1.25em;
+    }
+
+    .card-titulo {
+        font-size: 1.25rem;
+    }
+
+    .pasos-btns {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* RESPONSIVE TELÉFONO MUY PEQUEÑO (≤ 320px) */
+
+@media screen and (max-width: 320px) {
+    .regpro-main {
+        padding: 1.25em 10px;
+        align-items: flex-start;
+    }
+
+    .regpro-layout {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .regpro-texto {
+        text-align: center;
+    }
+
+    .regpro-titulo {
+        font-size: 1.35rem;
+    }
+
+    .regpro-imagen {
+        display: none;
+    }
+
+    .regpro-card {
+        padding: 1.5em 1em;
+    }
+
+    .card-titulo {
+        font-size: 1.1rem;
+    }
+
+    .campo-input {
+        font-size: 0.84rem;
+        padding: 0.7em 0.75em;
+    }
+
+    .btn-continuar {
+        padding: 11px;
+        font-size: 0.9rem;
+    }
+
+    .pasos-btns {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+}
