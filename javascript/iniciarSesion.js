@@ -1,7 +1,4 @@
-/* ============================================================
-   REPARIFY – iniciarSesion.js
-
-   Flujo:
+/* 
    1. Valida que los campos no estén vacíos
    2. Busca el email en localStorage ('reparify_usuarios')
    3. Si existe y la contraseña coincide → inicia sesión
@@ -9,15 +6,10 @@
    5. Redirige al index
 
    Si el email no existe o la contraseña no coincide → error.
-
-   Solo se carga en iniciarSesion.html
-   ============================================================ */
+    */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --------------------------------------------------------
-       REFERENCIAS AL DOM
-    -------------------------------------------------------- */
     const form        = document.getElementById('formLogin');
     const inputEmail  = document.getElementById('emailLogin');
     const inputPass   = document.getElementById('passwordLogin');
@@ -133,19 +125,17 @@ document.addEventListener('DOMContentLoaded', () => {
         
         /* Todo correcto → iniciamos sesión */
         guardarSesion(usuario);
-
-        btnSubmit.disabled = true;
+ btnSubmit.disabled = true;
         btnSubmit.textContent = 'Ingresando...';
-
+ 
         formMensaje.textContent = `¡Bienvenido/a de nuevo! Redirigiendo...`;
         formMensaje.classList.add('exito');
-
+ 
         /* Redirigir al index después de 1.5s */
         setTimeout(() => {
             window.location.href = '/index.html';
         }, 1500);
     });
-
 
     /*  VER / OCULTAR CONTRASEÑA */
     document.querySelectorAll('.toggle-pass').forEach(btn => {

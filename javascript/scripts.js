@@ -1,15 +1,14 @@
-/* ============================================================
+/*
    REPARIFY – scripts.js
    Funcionalidades exclusivas del index.html.
    NO manejes aquí el navbar ni el hamburger (están en header.js).
-   ============================================================ */
+ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --------------------------------------------------
+    /* 
        1. SCROLL REVEAL
-       Anima las cards cuando entran al viewport.
-    -------------------------------------------------- */
+       Anima las cards cuando entran al viewport.*/
     const revealTargets = document.querySelectorAll(
         '.step-card, .testimonial-card, .cta-card, .stat, .trust-item'
     );
@@ -32,13 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         revealTargets.forEach(el => revealObserver.observe(el));
     }
 
-
-    /* --------------------------------------------------
+    /*
        2. SLIDER DE TESTIMONIOS
-       Solo se inicializa si el slider existe en la página.
-    -------------------------------------------------- */
+       Solo se inicializa si el slider existe en la página.*/
     const track = document.getElementById('testimonialsTrack');
-    const dots  = document.querySelectorAll('.dot');
+    const dots = document.querySelectorAll('.dot');
 
     if (track && dots.length > 0) {
         let currentSlide = 0;
@@ -66,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function startAutoSlide() {
             slideInterval = setInterval(() => {
-                const cards     = track.querySelectorAll('.testimonial-card');
+                const cards = track.querySelectorAll('.testimonial-card');
                 const maxOffset = Math.max(0, cards.length - cardsPerView);
                 const next = currentSlide >= maxOffset ? 0 : currentSlide + 1;
                 goToSlide(next);
@@ -91,10 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
         track.addEventListener('touchend', e => {
             const diff = touchStartX - e.changedTouches[0].clientX;
             if (Math.abs(diff) > 40) {
-                const cards     = track.querySelectorAll('.testimonial-card');
+                const cards = track.querySelectorAll('.testimonial-card');
                 const maxOffset = Math.max(0, cards.length - cardsPerView);
                 if (diff > 0) goToSlide(Math.min(currentSlide + 1, maxOffset));
-                else          goToSlide(Math.max(currentSlide - 1, 0));
+                else goToSlide(Math.max(currentSlide - 1, 0));
             }
             startAutoSlide();
         }, { passive: true });
@@ -108,11 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* --------------------------------------------------
+    /* 
        3. NAVBAR HIDE/SHOW EN SCROLL
        Oculta el navbar al bajar, lo muestra al subir.
        Cierra el menú móvil antes de ocultar el navbar.
-    -------------------------------------------------- */
+     */
     const navbar = document.querySelector('.navbar');
     let lastScrollY = window.scrollY;
 
@@ -135,10 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* --------------------------------------------------
+    /* 
        4. SMOOTH SCROLL
        Scroll suave para links internos tipo href="#seccion".
-    -------------------------------------------------- */
+     */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             const target = document.querySelector(anchor.getAttribute('href'));
@@ -150,10 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    /* --------------------------------------------------
+    /* 
        5. RIPPLE EFFECT EN BOTONES
        Efecto de onda al hacer click en los botones principales.
-    -------------------------------------------------- */
+     */
     const rippleStyle = document.createElement('style');
     rippleStyle.textContent = `@keyframes ripple { to { transform: scale(2.5); opacity: 0; } }`;
     document.head.appendChild(rippleStyle);
@@ -161,8 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.btn-primary, .btn-pink, .btn-outline').forEach(btn => {
         btn.addEventListener('click', function (e) {
             const ripple = document.createElement('span');
-            const rect   = this.getBoundingClientRect();
-            const size   = Math.max(rect.width, rect.height);
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
 
             ripple.style.cssText = `
                 position: absolute;

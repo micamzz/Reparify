@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const form        = document.getElementById('formRegistro');
+    const inputNombre  = document.getElementById('datosNombre');
     const inputEmail  = document.getElementById('email');
     const inputPass   = document.getElementById('password');
     const inputRepeat = document.getElementById('repetirPassword');
@@ -47,9 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
  
     /* Guarda el nuevo usuario en el array del localStorage */
-    function guardarUsuario(email, password) {
+    function guardarUsuario(nombre,email, password) {
         const usuarios = obtenerUsuarios();
         usuarios.push({
+            nombre:        nombre.trim(),
             email:         email.toLowerCase().trim(),
             password:      password,
             fechaRegistro: new Date().toISOString()
@@ -124,13 +126,14 @@ document.addEventListener('DOMContentLoaded', () => {
         formMensaje.textContent = '';
         formMensaje.className = 'form-mensaje';
 
+        const valNombre = inputNombre.value.trim();
         const ok = validarEmail() & validarPassword() & validarRepetir();
 
         if (!ok) {
             return;
         }
         /* Todo válido → guardamos en localStorage */
-        guardarUsuario(inputEmail.value, inputPass.value);
+        guardarUsuario(valNombre,inputEmail.value, inputPass.value);
  
         /* Deshabilitamos el botón para evitar doble submit */
         btnSubmit.disabled = true;
