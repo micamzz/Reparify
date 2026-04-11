@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reparify – Mi Perfil</title>
+
+    <!-- LINKS CSS -->
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/miPerfil.css" />
+
+    <!-- Link emojis -->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+     <!-- Link fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div id="nav-placeholder"></div>
+
+    <main class="perfil-main">
+        <div class="perfil-container">
+
+            <!-- BANNER VALORACIÓN PENDIENTE -->
+            <div class="banner-valoracion" id="bannerValoracion">
+                <div class="banner-izq">
+                    <span class="banner-star">⭐</span>
+                    <div class="banner-texto">
+                        <strong>¡Tenés una valoración pendiente!</strong>
+                        <p>El profesional <span id="bannerProfesional"></span> está esperando tu evaluación del servicio
+                            "<span id="bannerServicio"></span>"</p>
+                    </div>
+                </div>
+                <div class="banner-der">
+                    <button class="btn-valorar-ahora" id="btnValorarAhora">Valorar ahora</button>
+                    <button class="btn-banner-cerrar" id="btnBannerCerrar" aria-label="Cerrar">✕</button>
+                </div>
+            </div>
+
+            <!-- CARD DE PERFIL -->
+            <div class="perfil-card">
+                <div class="perfil-card-top">
+                    <div class="perfil-foto-wrapper">
+                        <img src="../image/perfil/avatar.jpg" alt="Foto de perfil" class="perfil-foto" id="perfilFoto"
+                            onerror="this.style.display='none'" />
+                        <span class="perfil-online"></span>
+                    </div>
+                    <div class="perfil-info">
+                        <div class="perfil-nombre-row">
+                            <h1 class="perfil-nombre" id="perfilNombre">Cargando...</h1>
+                        </div>
+                        <p class="perfil-dato">📍 <span id="perfilUbicacion">Sin ubicación</span></p>
+                        <p class="perfil-dato">👤 Usuario desde: <span id="perfilDesde">—</span></p>
+                    </div>
+                </div>
+
+                <div class="perfil-stats">
+                    <div class="perfil-stat">
+                        <span class="stat-icon">⭐</span>
+                        <span class="stat-valor" id="statValoracion">—</span>
+                        <span class="stat-etiqueta">Valoración</span>
+                    </div>
+                    <div class="perfil-stat">
+                        <span class="stat-icon">🔧</span>
+                        <!-- Empieza en 0, se actualiza desde miPerfil.js -->
+                        <span class="stat-valor" id="statServicios">0</span>
+                        <span class="stat-etiqueta">Servicios solicitados</span>
+                    </div>
+                    <div class="perfil-stat">
+                        <span class="stat-icon">📅</span>
+                        <span class="stat-valor" id="statProximo">—</span>
+                        <span class="stat-etiqueta">Próximo servicio</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN MIS DATOS-->
+            <h2 class="seccion-titulo">Mis Datos</h2>
+
+            <div class="datos-layout">
+
+                <!-- Menú lateral -->
+                <nav class="datos-menu">
+                    <button class="menu-item active" data-panel="misDatos">
+                        <span class="material-symbols-outlined">person</span> Mis Datos
+                    </button>
+                    <button class="menu-item" data-panel="misReservas">
+                        <span class="material-symbols-outlined">calendar_today</span> Mis reservas
+                    </button>
+                    <button class="menu-item" data-panel="perfilesGuardados">
+                        <span class="material-symbols-outlined">bookmark</span> Perfiles guardados
+                    </button>
+                    <button class="menu-item" data-panel="perfilesGuardados">
+                        <span class="material-symbols-outlined">notifications</span> Configuración
+                    </button>
+                    
+                </nav>
+
+                <!-- Paneles -->
+                <div class="datos-contenido">
+
+                    <!-- Panel: Mis Datos -->
+                    <div class="panel active" id="panel-misDatos">
+                        <h3 class="panel-titulo">Información Personal</h3>
+                        <form id="formMisDatos" novalidate>
+
+                            <div class="campo-grupo">
+                                <label class="campo-label" for="datosNombre">Nombre completo</label>
+                                <input class="campo-input" type="text" id="datosNombre"
+                                    placeholder="Tu nombre completo" />
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label class="campo-label" for="datosTelefono">Teléfono</label>
+                                <input class="campo-input" type="tel" id="datosTelefono"
+                                    placeholder="+54 11 9 5599 5555" />
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label class="campo-label" for="datosEmail">
+                                    Correo electrónico
+                                    <span class="label-nota">(no modificable)</span>
+                                </label>
+                                <!-- readOnly y estilos se aplican desde miPerfil.js -->
+                                <input class="campo-input" type="email" id="datosEmail"
+                                    placeholder="tucorreo@email.com" />
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label class="campo-label" for="datosDireccion">Dirección</label>
+                                <input class="campo-input" type="text" id="datosDireccion"
+                                    placeholder="Calle Mayor 123, Ciudad" />
+                            </div>
+
+                            <button type="submit" class="btn-guardar">Guardar cambios</button>
+                            <p class="datos-mensaje" id="datosMensaje"></p>
+
+                        </form>
+                    </div>
+
+                    <!-- Panel: Mis Reservas -->
+                    <div class="panel" id="panel-misReservas">
+                        <h3 class="panel-titulo">Mis Reservas</h3>
+                        <p class="panel-vacio">No tenés reservas activas por el momento.</p>
+                    </div>
+
+                    <!-- Panel: Perfiles Guardados -->
+                    <div class="panel" id="panel-perfilesGuardados">
+                        <h3 class="panel-titulo">Perfiles Guardados</h3>
+                        <p class="panel-vacio">No guardaste ningún profesional todavía.</p>
+                    </div>
+
+                    <!-- Panel: Configuracion -->
+                    <div class="panel" id="panel-configuracion">
+                        <h3 class="panel-titulo">Configuración</h3>
+                        <p class="panel-vacio">No guardaste ningún profesional todavía.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--HISTORIAL-->
+            <h2 class="seccion-titulo">Historial de servicios solicitados</h2>
+
+            <div class="historial-wrapper">
+                <table class="historial-tabla">
+                    <thead>
+                        <tr>
+                            <th>Servicio</th>
+                            <th>Técnico</th>
+                            <th>Fecha</th>
+                            <th>Estado Validación</th>
+                            <th>Valoración</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="historialBody">
+                        <!-- Se rellena desde historial.js -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- main.js carga navbar + footer -->
+    <script type="module" src="../javascript/main.js"></script>
+    <!-- historial.js primero: define agregarServicio() que miPerfil.js puede necesitar -->
+    <script src="../javascript/historial.js"></script>
+    <script src="../javascript/miPerfil.js"></script>
+
+</body>
+
+</html>

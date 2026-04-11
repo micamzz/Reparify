@@ -32,7 +32,6 @@
                 </div>
 
                 <div class="diag-hero-body">
-
                     <!-- FORMULARIO -->
                     <div class="diag-form-card">
                         <!-- Upload -->
@@ -53,16 +52,17 @@
                         <div class="diag-inputs">
                             <div class="input-group">
                                 <span class="input-icon">🔍</span>
-                                <input type="text" placeholder="Describe tu problema" class="diag-input" />
+                                <input id="problemaInput" type="text" placeholder="Describe tu problema" class="diag-input" />
                             </div>
                             <div class="input-group input-group-tip">
                                 <span class="input-icon">💡</span>
-                                <input type="text" placeholder="Tip: más detalles, mejor respuesta a tu problema."
-                                    class="diag-input diag-input-tip" />
+                                <input type="text" placeholder="Tip: más detalles, mejor respuesta a tu problema."   class="diag-input diag-input-tip" />
                             </div>
                         </div>
 
-                        <button class="btn-diagnostico">Obtener diagnóstico</button>
+                        <button id="btnDiagnostico" class="btn-diagnostico">Obtener diagnóstico</button>
+
+                        <p id="respuestaIA"></p>
                         
                     </div>
 
@@ -83,12 +83,11 @@
                             <p>¡Disfruta de tus problemas resueltos con Reparify!</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- ===== HISTORIAS EN VIDEO ===== -->
+        <!-- HISTORIAS EN VIDEO  -->
         <section class="diag-videos">
 
 
@@ -102,7 +101,7 @@
                     </div>
                     <h2 class="videos-titulo">Experiencias en video</h2>
                     <p class="videos-desc">Conoce las historias de clientes que resolvieron sus problemas con
-                        Reparify.</p>
+                       <span class="resaltar-texto">Reparify.</span></p>
                 </div>
 
                 <div class="videos-grid">
@@ -241,72 +240,14 @@
         </section>
 
         <!-- Preguntas frecuentes-->
+         <!-- FAQ: se renderiza desde eresProfesional.js -->
         <section class="diag-faq">
-
             <div class="diag-container">
                 <h2 class="faq-titulo">PREGUNTAS FRECUENTES</h2>
-
-                <div class="faq-lista">
-
-                    <details class="faq-item">
-                        <summary class="faq-pregunta">
-                            ¿Qué tipo de problemas puede diagnosticar Reparify?
-                            <span class="faq-chevron">›</span>
-                        </summary>
-                        <div class="faq-respuesta">
-                            <p>Reparify puede diagnosticar problemas de plomería, electricidad, gas, climatización,
-                                carpintería, albañilería y más. Solo subí una foto o video y nuestra IA analizará el
-                                caso.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary class="faq-pregunta">
-                            ¿Qué tan preciso es el diagnóstico de la IA?
-                            <span class="faq-chevron">›</span>
-                        </summary>
-                        <div class="faq-respuesta">
-                            <p>Nuestra IA tiene un 98% de precisión en el análisis de problemas domésticos, basada en
-                                miles de casos resueltos por profesionales verificados.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary class="faq-pregunta">
-                            ¿Necesito registrarme para usar el servicio?
-                            <span class="faq-chevron">›</span>
-                        </summary>
-                        <div class="faq-respuesta">
-                            <p>Podés obtener un diagnóstico básico sin registrarte. Para contactar profesionales y
-                                acceder al historial completo, sí necesitás una cuenta gratuita.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary class="faq-pregunta">
-                            ¿Cuánto tiempo tarda el diagnóstico?
-                            <span class="faq-chevron">›</span>
-                        </summary>
-                        <div class="faq-respuesta">
-                            <p>El diagnóstico es instantáneo. En menos de 30 segundos obtenés una evaluación completa
-                                del problema y las opciones para resolverlo.</p>
-                        </div>
-                    </details>
-
-                    <details class="faq-item">
-                        <summary class="faq-pregunta">
-                            ¿Qué formato de archivos puedo subir?
-                            <span class="faq-chevron">›</span>
-                        </summary>
-                        <div class="faq-respuesta">
-                            <p>Aceptamos imágenes JPG, PNG y WEBP, y videos en formato MP4, MOV y AVI de hasta 100 MB.
-                                También podés describir el problema solo con texto.</p>
-                        </div>
-                    </details>
-
-                </div>
+                <div class="faq-lista" id="faqLista"></div>
             </div>
         </section>
+
 
     </main>
 
@@ -317,7 +258,8 @@
     <!-- JAVASCRIPT -->
     
     <script type="module" src="../javascript/main.js"></script>
-    <script src="../scripts.js"></script>
+    <script src="../javascript/diagnostico.js"></script>
+   
     
 
 </body>

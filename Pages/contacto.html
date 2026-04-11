@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reparify – Contacto</title>
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/contacto.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="nav-placeholder"></div>
+
+    <main class="contacto-main">
+
+        <div class="contacto-card">
+
+            <!-- Lado izquierdo: ilustración con fondo blanco curvo -->
+            <div class="contacto-izq">
+                <!-- Imagen la agregás vos -->
+                <img
+                    src="../image/contacto-hero.png"
+                    alt="Profesionales Reparify"
+                    class="contacto-img"
+                />
+            </div>
+
+            <!-- Lado derecho: formulario sobre fondo azul -->
+            <div class="contacto-der">
+
+                <h1 class="contacto-titulo">¿Te podemos ayudar?</h1>
+                <p class="contacto-desc">
+                    Cuéntanos tu problema y nuestro equipo<br />
+                    de soporte se pondrá en contacto contigo.
+                </p>
+
+                <form id="formContacto" novalidate>
+
+                    <div class="campo-grupo">
+                        <input
+                            class="campo-input"
+                            type="text"
+                            id="contactoNombre"
+                            placeholder="Nombre"
+                            autocomplete="name"
+                        />
+                        <span class="campo-error" id="error-nombre"></span>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <input
+                            class="campo-input"
+                            type="text"
+                            id="contactoEmail"
+                            placeholder="Email"
+                            autocomplete="email"
+                        />
+                        <span class="campo-error" id="error-email"></span>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <textarea
+                            class="campo-input campo-textarea"
+                            id="contactoMensaje"
+                            placeholder="Escribe tu consulta aquí..."
+                            rows="6"
+                        ></textarea>
+                        <span class="campo-error" id="error-mensaje"></span>
+                    </div>
+
+                    <button type="submit" class="btn-enviar">Enviar</button>
+
+                    <p class="contacto-feedback" id="contactoFeedback"></p>
+
+                </form>
+
+            </div>
+        </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="../javascript/main.js"></script>
+    <script src="../javascript/contacto.js"></script>
+
+</body>
+</html>
