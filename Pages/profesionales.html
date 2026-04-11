@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reparify – Profesionales</title>
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/buscarProfesionales.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <main class="prof-main">
+
+        <!-- HERO -->
+        <section class="hero-buscar">
+            <div class="buscar-container">
+                <h1 class="hero-titulo">Encuentra a tu profesional ideal</h1>
+                <p class="hero-desc">Más de 500 profesionales verificados listos para ayudarte.</p>
+
+                <form class="buscar-form" id="formBusqueda">
+                    <div class="buscar-input-wrapper">
+                        <span class="buscar-icon">🔍</span>
+                        <input
+                            type="text"
+                            id="inputServicio"
+                            class="buscar-input"
+                            placeholder="¿Qué servicio necesitas? Ej. Plomero"
+                        />
+                    </div>
+                    <div class="buscar-input-wrapper">
+                        <span class="buscar-icon">📍</span>
+                        <input
+                            type="text"
+                            id="inputZona"
+                            class="buscar-input"
+                            placeholder="Zona"
+                        />
+                    </div>
+                    <button type="submit" class="btn-buscar">Buscar</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- CATEGORÍAS -->
+        <section class="categorias">
+            <div class="buscar-container">
+                <h2 class="seccion-titulo">Profesiones más populares</h2>
+
+                <div class="categorias-grid">
+                    <!-- Las imágenes las agregás vos -->
+                    <div class="categoria-card" data-profesion="Carpintería">
+                        <div class="categoria-icono">
+                            <img src="../image/profesionales/card-1.png" alt="Carpintería"
+                                onerror="this.style.display='none'" />
+                        </div>
+                        <span class="categoria-nombre">CARPINTERÍA</span>
+                    </div>
+                    <div class="categoria-card" data-profesion="Plomería">
+                        <div class="categoria-icono">
+                            <img src="../image/profesionales/card-2.png" alt="Plomería"
+                                onerror="this.style.display='none'" />
+                        </div>
+                        <span class="categoria-nombre">PLOMERÍA</span>
+                    </div>
+                    <div class="categoria-card" data-profesion="Pinturería">
+                        <div class="categoria-icono">
+                            <img src="../image/profesionales/card-3.png" alt="Pinturería"
+                                onerror="this.style.display='none'" />
+                        </div>
+                        <span class="categoria-nombre">PINTURERÍA</span>
+                    </div>
+                    <div class="categoria-card" data-profesion="Gasista">
+                        <div class="categoria-icono">
+                            <img src="../image/profesionales/card-4.png" alt="Gasista"
+                                onerror="this.style.display='none'" />
+                        </div>
+                        <span class="categoria-nombre">GASISTA</span>
+                    </div>
+                    <div class="categoria-card" data-profesion="Electricista">
+                        <div class="categoria-icono">
+                            <img src="../image/profesionales/card-5.png" alt="Electricista"
+                                onerror="this.style.display='none'" />
+                        </div>
+                        <span class="categoria-nombre">ELECTRICISTA</span>
+                    </div>
+                    <div class="categoria-card" data-profesion="Albañilería">
+                        <div class="categoria-icono">
+                            <img src="../image/profesionales/card-6.png" alt="Albañilería"
+                                onerror="this.style.display='none'" />
+                        </div>
+                        <span class="categoria-nombre">ALBAÑILERÍA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDER DESTACADOS -->
+        <section class="destacados">
+            <div class="buscar-container">
+                <h2 class="seccion-titulo">
+                    Nuestros profesionales <span class="color-orange">destacados</span>
+                </h2>
+
+                <div class="slider-wrapper">
+                    <button class="slider-btn slider-btn-prev" id="sliderPrev" aria-label="Anterior">‹</button>
+                    <div class="slider-overflow">
+                        <div class="slider-track" id="sliderTrack">
+                            <!-- Se rellena desde profesionales.js -->
+                        </div>
+                    </div>
+                    <button class="slider-btn slider-btn-next" id="sliderNext" aria-label="Siguiente">›</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTADOS DE BÚSQUEDA / FILTRO -->
+        <section class="seccion-resultados" id="seccionResultados" style="display:none;">
+            <div class="buscar-container">
+                <h2 class="seccion-titulo" id="resultadosTitulo"></h2>
+                <div class="resultados-grid" id="resultadosGrid"></div>
+            </div>
+        </section>
+
+        <!-- MAPA POR ZONA -->
+        <section class="seccion-mapa">
+            <div class="buscar-container">
+                <h2 class="seccion-titulo">
+                    <span class="color-blue">Busca un profesional</span> por tus alrededores
+                </h2>
+
+                <div class="mapa-layout">
+                    <div class="mapa-filtros">
+                        <h3 class="filtros-titulo">Filtros</h3>
+
+                        <div class="filtro-grupo">
+                            <p class="filtro-label">Zona</p>
+                            <div class="filtro-zonas" id="filtroZonas">
+                                <label class="zona-chip">
+                                    <input type="radio" name="zona" value="todas" checked /> Todas
+                                </label>
+                                <label class="zona-chip">
+                                    <input type="radio" name="zona" value="Belgrano" /> Belgrano
+                                </label>
+                                <label class="zona-chip">
+                                    <input type="radio" name="zona" value="Colegiales" /> Colegiales
+                                </label>
+                                <label class="zona-chip">
+                                    <input type="radio" name="zona" value="Palermo" /> Palermo
+                                </label>
+                                <label class="zona-chip">
+                                    <input type="radio" name="zona" value="Villa Crespo" /> Villa Crespo
+                                </label>
+                                <label class="zona-chip">
+                                    <input type="radio" name="zona" value="Recoleta" /> Recoleta
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filtro-grupo">
+                            <p class="filtro-label">Calificación mínima</p>
+                            <select class="filtro-select" id="filtroCalificacion">
+                                <option value="0">Todas</option>
+                                <option value="4">4 ★ o más</option>
+                                <option value="4.5">4.5 ★ o más</option>
+                                <option value="5">Solo 5 ★</option>
+                            </select>
+                        </div>
+
+                        <button class="btn-aplicar-filtros" id="btnAplicarFiltros">Aplicar filtros</button>
+                        <button class="btn-limpiar-filtros" id="btnLimpiarFiltros">Limpiar filtros</button>
+                    </div>
+
+                    <div class="mapa-contenedor" id="mapaContenedor"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="../javascript/main.js"></script>
+    <script src="../javascript/profesionales.js"></script>
+
+</body>
+</html>
