@@ -3,10 +3,11 @@
 body {
     font-family: var(--font-main);
     background-image: url('../image/fondo-profesionales.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: contain
 }
-
+img{
+    max-width: 100%;
+}
 .buscar-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -61,24 +62,17 @@ body {
     align-items: center;
     gap: 8px;
     background: var(--white);
-    border: 1.5px solid #ddd;
-    border-radius: 8px;
+    border: 1.5px solid var(--orange);
+    border-radius: 4px;
     padding: 0 1em;
-}
-
-.buscar-icon {
-    font-size: 1rem;
-    flex-shrink: 0;
 }
 
 .buscar-input {
     width: 100%;
     border: none;
     outline: none;
-    font-family: var(--font-main);
     font-size: 0.9rem;
     padding: 0.85em 0;
-    background: transparent;
     color: var(--text);
 }
 
@@ -90,17 +84,46 @@ body {
     border: none;
     border-radius: 8px;
     padding: 0.85em 2em;
-    font-family: var(--font-main);
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.22s, transform 0.22s;
     white-space: nowrap;
 }
 
 .btn-buscar:hover {
     background: var(--blue-dark);
     transform: translateY(-2px);
+}
+
+/* INPUT BUSCADOR */
+.buscar-input-wrapper {
+    position: relative; /* AGREGUE ESTO */
+}
+
+.sugerencias-custom {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    z-index: 999;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.sugerencia-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+.sugerencia-item:hover {
+    background-color: #f4f7ff; /* AGREGUE ESTO */
+    color: #186CFF;
 }
 
 
@@ -118,7 +141,6 @@ body {
 
 .categoria-card {
     background: var(--white);
-    border: 2px solid var(--black);
     border-radius: var(--radius);
     padding: 1.5em 1em;
     display: flex;
@@ -128,16 +150,18 @@ body {
     cursor: pointer;
     transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
     user-select: none;
+    border-top: 2px solid #000000;
+   border-left: 2px solid #000000;
+    box-shadow: 8px 8px 0 var(--orange);
 }
 
 .categoria-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+     box-shadow: 8px 8px 0 var(--blue);
 }
 
 .categoria-card.activa {
     border-color: var(--blue);
-    background: var(--blue-light);
 }
 
 .categoria-icono {
@@ -214,19 +238,20 @@ body {
 .slider-card {
     min-width: calc(33.333% - 14px);
     background: var(--white);
-    border: 2px solid var(--black);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
     display: flex;
     flex-direction: column;
+    border: 3px solid var(--black);
+    box-shadow: 6px 6px 0px var(--pink);
 }
 
 .slider-foto-wrapper {
     width: 100%;
     aspect-ratio: 4 / 3;
     overflow: hidden;
-    background: #eee;
+    background: transparent
 }
 
 .slider-foto {
@@ -290,18 +315,18 @@ body {
 }
 
 .resultado-card {
-    background: var(--white);
-    border: 2px solid var(--black);
-    border-radius: var(--radius-lg);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.22s, box-shadow 0.22s;
+    min-width: calc(33.333% - 14px);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 3px solid var(--black);
+    box-shadow: 4px 6px 0px var(--orange);
 }
 
 .resultado-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
 }
 
 .resultado-foto-wrapper {
@@ -399,6 +424,7 @@ body {
 }
 
 .btn-agendar-cita {
+    text-align: center;
     background: var(--blue);
     color: var(--white);
     border: none;

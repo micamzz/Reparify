@@ -4,7 +4,6 @@ body {
     font-family: var(--font-main);
     background: url(/image/fondo-eresProfesional.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
 /* CONTENEDOR COMPARTIDO */

@@ -2,11 +2,9 @@
 
 body {
     font-family: var(--font-main);
-    color: var(--font-main);
-     background-image: url('../image/fondo-iniciar.jpg ');
+    color: var(--text);
+     background-image: url('../image/fondo-iniciar.jpg');
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     /* min-height: 100vh; */
 }
 
@@ -26,7 +24,7 @@ body {
     padding: 0 24px;
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1.2fr 1fr;
+    grid-template-columns: 1fr 1.15fr 0.85fr;
     gap: 2em;
     align-items: center;
 }
@@ -41,23 +39,25 @@ body {
 }
 
 .hero-subtitle {
-  font-size: em;
+  font-size: 1em;
   font-weight:400;
   color: var(--text-muted);
   margin: 0.5em 0 1em 0;
 }
 /* Columna izquierda - Texto */
 .registro-texto {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
+    font-size: 1.6em;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 0.5em;
 }
 
 .registro-titulo {
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     font-weight: 800;
     color: var(--text);
     line-height: 1.15;
+    margin-bottom: 0.5em;
     
 }
 
@@ -75,10 +75,10 @@ body {
 /* Formulario */
 .registro-card {
     background: var(--white);
-    border-radius: 15px;
+    border-radius: var(--radius-lg);
    border-top: 2px solid #000000;
    border-left: 2px solid #000000;
-    box-shadow: 4px 4px 0 var(--yellow);
+    box-shadow: 8px 8px 0 var(--yellow);
     padding: 2em 2em;
     display: flex;
     flex-direction: column;
@@ -92,7 +92,7 @@ body {
 .form-bienvenido {
     font-size: 1.6rem;
     font-weight: 800;
-    color: var(--text);
+    color: var(--blue);
     text-align: center;
 }
 
