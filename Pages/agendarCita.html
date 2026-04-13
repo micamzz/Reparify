@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reparify – Agendar cita</title>
+
+    <link rel="stylesheet" href="../styles/header.css" />
+      <link rel="stylesheet" href="../Styles/style.css">
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/agendarCita.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="body-agendarCita">
+
+    <div id="nav-placeholder"></div>
+
+      <!-- POPUP: solo si no está logueado -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-card">
+            <h2 class="popup-titulo">Iniciá sesión para continuar</h2>
+            <p class="popup-desc">
+                Necesitás una cuenta para ver el perfil completo
+                de los profesionales y contactarlos.
+            </p>
+            <div class="popup-btns">
+                <a href="./iniciarSesion.html" class="popup-btn-primary">Iniciar sesión</a>
+                <a href="./registro.html" class="popup-btn-secondary">Registrarse gratis</a>
+            </div>
+            <button class="popup-cerrar" id="popupCerrar" aria-label="Cerrar">✕</button>
+        </div>
+    </div>
+
+    <main class="agenda-main">
+        <div class="agenda-container">
+
+            <h1 class="agenda-titulo">Agenda tu cita</h1>
+
+                <!-- Carrusel de profesionales Se llena desde js -->
+                <div class="pros-carrusel" id="prosCarrusel">
+                </div>
+
+            </section>
+
+            <!-- SECCIÓN: Coordina tu reparación -->
+            <section class="agenda-seccion" id="seccionCoordinar">
+                <h2 class="agenda-subtitulo">Coordina tu reparación</h2>
+
+                <div class="coordinar-card">
+
+                    <!-- CALENDARIO -->
+                    <div class="calendario-col">
+                        <div class="cal-header">
+                            <span class="cal-titulo">Selecciona una fecha</span>
+                        </div>
+
+                        <div class="cal-nav">
+                            <span class="cal-mes-actual" id="calMesActual">—</span>
+                            <div class="cal-nav-btns">
+                                <button class="cal-btn-nav" id="calPrev" aria-label="Mes anterior">‹</button>
+                                <button class="cal-btn-nav" id="calNext" aria-label="Mes siguiente">›</button>
+                            </div>
+                        </div>
+
+                        <div class="cal-grid">
+                            <div class="cal-dia-nombre">D</div>
+                            <div class="cal-dia-nombre">L</div>
+                            <div class="cal-dia-nombre">M</div>
+                            <div class="cal-dia-nombre">X</div>
+                            <div class="cal-dia-nombre">J</div>
+                            <div class="cal-dia-nombre">V</div>
+                            <div class="cal-dia-nombre">S</div>
+                        </div>
+                        <div class="cal-dias" id="calDias">
+                            <!-- Se rellena desde agendarCita.js -->
+                        </div>
+                    </div>
+
+                    <!-- HORARIOS -->
+                    <div class="horarios-col">
+                        <h3 class="horarios-titulo" id="horariosTitulo">
+                            Disponibilidad de <span id="proNombreHorario">—</span>
+                        </h3>
+                        <p class="horarios-desc">Seleccioná el horario que prefieras</p>
+
+                        <div class="horarios-grid" id="horariosGrid">
+                            <!-- Se rellena desde agendarCita.js -->
+                        </div>
+
+                        <button class="btn-confirmar" id="btnConfirmar" disabled>
+                            Confirmar reserva
+                        </button>
+                        <a href="javascript:history.back()" class="btn-cancelar">Cancelar</a>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- MODAL: Confirmación de reserva -->
+    <div class="modal-overlay" id="modalConfirmacion" style="display:none">
+        <div class="modal-card">
+            <button class="modal-cerrar" id="modalCerrar" aria-label="Cerrar">✕</button>
+            <div class="modal-icono">✅</div>
+            <h3 class="modal-titulo">¡Reserva Confirmada!</h3>
+            <p class="modal-desc">Tu visita técnica ha sido agendada con éxito.</p>
+
+            <div class="modal-detalles">
+                <div class="modal-detalle">
+                    <span class="modal-detalle-icono">👤</span>
+                    <div>
+                        <p class="modal-detalle-label">Profesional</p>
+                        <p class="modal-detalle-valor" id="modalPro">—</p>
+                    </div>
+                </div>
+                <div class="modal-detalle">
+                    <span class="modal-detalle-icono">📅</span>
+                    <div>
+                        <p class="modal-detalle-label">Fecha y hora</p>
+                        <p class="modal-detalle-valor" id="modalFechaHora">—</p>
+                    </div>
+                </div>
+                <div class="modal-detalle">
+                    <span class="modal-detalle-icono">📍</span>
+                    <div>
+                        <p class="modal-detalle-label">Ubicación</p>
+                        <p class="modal-detalle-valor" id="modalUbicacion">—</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-btns">
+                <a href="/index.html" class="modal-btn-secondary">Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="../javascript/main.js"></script>
+    <script src="../javascript/agendarCita.js"></script>
+
+</body>
+</html>
