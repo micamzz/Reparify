@@ -1,0 +1,195 @@
+/* Reset General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*  BODY GENERAL */
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* BODY DE CADA PAGINA */
+
+.body-home {
+    background-image: url('../image/fondo-home.jpg ');
+}
+
+/* Inicio Sesion - Registrasrse - Recuperar contra */
+.body-IniciarSesion,
+.body-recuperarContra {
+    background-image: url('../image/fondo-iniciar.jpg');
+}
+
+/* Registrarse Profesional */
+.body-registroProfesional {
+    background-image: url('../image/fondo-registroProfesional.jpg');
+}
+
+
+.body-agendarCita {
+    background-image: url('/image/fondo-diagnostico.jpg');
+}
+
+.body-buscarProfesionales {
+    background-image: url('../image/fondo-profesionales.jpg');
+    background-size: contain
+}
+
+.body-contacto {
+    background-image: url('../image/fondo-Contactar.jpg');
+
+}
+
+/* Mi perfil - vista de usuario y profesional */
+.body-miPerfilUsuario,
+.body-miPerfilProfesional {
+    background-image: url('../image/fondo-perfilUsuario.jpg');
+}
+
+
+.body-obtenerDiagnostico {
+    background-image: url('../image/fondo-diagnostico.jpg');
+}
+
+.body-perfilProfesional {
+    background: url('/image/fondo-perfilUsuario.jpg');
+}
+
+
+.body-sobreNosotros {
+    background-image: url('../image/fondo-sobreNos.jpg');
+}
+
+.body-trabajaConNosotros {
+    background: url('../image/fondo-eresProfesional.jpg');
+}
+
+/* FUENTE DE H1,H2,H3,H4 GENERAL */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+p {
+  font-size: var(--fs-p);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+/* ESTILOS GENERALES DE BOTONES */
+
+/* BOTONES*/
+.btn,
+.btn-primary,
+.btn-outline,
+.btn-pink,
+.btn-login,
+.btn-register,
+.btn-perfil-pink {
+    display: inline-block;
+    text-align: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+    border-radius: 10px;
+    border: none;
+}
+
+.btn-primary,
+.btn-pink,
+.btn-outline {
+    padding: 13px 28px;
+    font-size: 0.95rem;
+}
+
+.btn-login,
+.btn-register,
+.btn-perfil-pink {
+    padding: 9px 20px;
+    font-size: 0.88rem;
+    border-radius: 0.8em;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: var(--white);
+    /* box-shadow: 0 4px 16px rgba(26, 115, 232, 0.25); */
+}
+
+.btn-primary:hover {
+    background: var(--blue-dark);
+    box-shadow: 0 8px 24px rgba(26, 115, 232, 0.35);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 0.5px solid var(--black);
+}
+
+.btn-outline:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.btn-login {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.btn-login:hover {
+    background-color: var(--blue-dark);
+    color: var(--black);
+}
+
+.btn-register {
+    background: var(--white);
+    color: var(--black);
+}
+
+.btn-register:hover {
+    background: var(--blue-dark);
+    color: var(--white);
+}
+
+.btn-pink,
+.btn-perfil-pink {
+    background: var(--pink);
+    color: var(--black);
+}
+
+.btn-pink:hover {
+    background: #ef5e91;
+    box-shadow: 0 8px 24px rgba(255, 77, 141, 0.35);
+}
+
+.btn-primary:hover,
+.btn-pink:hover,
+.btn-outline:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Responsive */
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    .btn-login,
+    .btn-register {
+        padding: 7px 14px;
+        font-size: 0.8rem;
+    }
+}
