@@ -315,27 +315,6 @@
     box-shadow: 10px 10px 0px var(--blue);
 }
 
-.panel {
-    display: none;
-}
-
-.panel.active {
-    display: block;
-}
-
-.panel-titulo {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--black);
-    margin-bottom: 1.25em;
-}
-
-.panel-vacio {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    padding: 1em 0;
-}
-
 /*  CAMPOS  */
 .campo-grupo {
     display: flex;
@@ -401,45 +380,6 @@
 
 .datos-mensaje.error {
     color: #e53e3e;
-}
-
-
-
-/* Badges de estado */
-.badge-estado {
-    display: inline-block;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.76rem;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.badge-progreso {
-    background: #e8f4ff;
-    color: var(--blue);
-}
-
-.badge-finalizado {
-    background: #e6f9f0;
-    color: #1a7a3a;
-}
-
-.badge-cancelado {
-    background: #fff0f0;
-    color: #c53030;
-}
-
-/* Badge valoración pendiente */
-.badge-pendiente {
-    display: inline-block;
-    padding: 3px 9px;
-    border-radius: 20px;
-    font-size: 0.76rem;
-    font-weight: 700;
-    background: #fff0f0;
-    color: #c53030;
-    border: 1px solid #fca5a5;
 }
 
 

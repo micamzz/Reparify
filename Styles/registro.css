@@ -37,33 +37,12 @@
   color: var(--text-muted);
   margin: 0.5em 0 1em 0;
 }
-/* Columna izquierda - Texto */
-.registro-texto {
-    font-size: 1.6em;
-    font-weight: 800;
-    line-height: 1.2;
-    color: var(--text);
-    margin-bottom: 0.5em;
-}
 
-.registro-titulo {
-    font-weight: 800;
-    color: var(--text);
-    line-height: 1.15;
-    margin-bottom: 0.5em;
-    
-}
-
-.titulo-h1{
-      color: var(--blue);
+.color-blue{
+    color: var(--blue);
     font-weight: 700;
 }
 
-.registro-subtitulo {
-    font-size: 1rem;
-    color: var(--text-muted);
-    font-weight: 400;
-}
 
 /* Formulario */
 .registro-card {
@@ -103,13 +82,6 @@
     gap: 0.25em;
 }
 
-.campo-grupo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25em;
-    margin-bottom: 0.75em;
-}
-
 .campo-label {
     font-size: 0.82rem;
     font-weight: 600;
@@ -124,17 +96,6 @@
     align-items: center;
 }
 
-.campo-input {
-    width: 100%;
-    background: #f5f5f5;
-    border: 1.5px solid transparent;
-    border-radius: var(--radius-md);
-    padding: 0.75em 2.5em 0.75em 0.875em;
-    font-size: 0.9rem;
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.22s, background 0.22s;
-}
 
 /* Input sin wrapper (email) */
 .campo-grupo > .campo-input {
@@ -151,26 +112,6 @@
     border-color: #e53e3e;
     background: #fff5f5;
 }
-
-/* Estado ok */
-.campo-input.input-ok {
-    border-color: #38a169;
-}
-
-/* Botón mostrar/ocultar contraseña */
-.toggle-pass {
-    position: absolute;
-    right: 0.75em;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    padding: 0;
-    line-height: 1;
-    opacity: 0.5;
-    transition: opacity 0.2s;
-}
-.toggle-pass:hover { opacity: 1; }
 
 
 /*  BOTÓN REGISTRAR  */

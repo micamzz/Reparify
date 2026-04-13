@@ -210,17 +210,8 @@
       box-shadow: 6px 6px 0 var(--orange);
 }
 
-.panel {
-    display: none;
-}
-
-.panel.active {
-    display: block;
-}
 
 .panel-titulo {
-    font-size: 1.1rem;
-    font-weight: 800;
     color: var(--text);
     margin: 0 0 1.5rem;
     padding-bottom: 0.75rem;
@@ -228,9 +219,6 @@
 }
 
 .panel-vacio {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    padding: 1rem 0;
     margin-top:1.5rem;
 }
 
@@ -258,7 +246,6 @@
     font-size: 0.93rem;
     color: var(--text);
     background: var(--bg);
-    transition: border-color var(--transition);
     box-sizing: border-box;
 }
 
@@ -329,12 +316,6 @@
 .badge-progreso {
     background: #fef9c3;
     color: #ca8a04;
-}
-
-.estrellas {
-    color: var(--yellow);
-    font-size: 0.95rem;
-    letter-spacing: 1px;
 }
 
 /* ── CONFIGURACIÓN ── */
