@@ -86,12 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mensajeEl.className   = 'form-mensaje';
 
         const email = inputEmail.value.trim();
-
-        /* Validación de formato */
-        if (!email) {
-            mostrarError('Ingresá tu email para continuar.');
-            return;
-        }
+        
         if (!esEmailValido(email)) {
             mostrarError('Ingresá un email válido. Ej: nombre@mail.com');
             return;
