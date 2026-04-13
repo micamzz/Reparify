@@ -1,12 +1,5 @@
 @import url('variables.css');
 
-body {
-    font-family: var(--font-main);
-    background-image: url('../image/fondo-registroProfesional.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-}
 
 .color-blue {
     color: var(--blue);
@@ -174,7 +167,6 @@ body {
     border: 1.5px solid transparent;
     border-radius: 8px;
     padding: 0.75em 0.875em;
-    font-family: var(--font-main);
     font-size: 0.88rem;
     color: var(--text);
     outline: none;
@@ -309,7 +301,6 @@ body {
     border: none;
     border-radius: 8px;
     padding: 13px;
-    font-family: var(--font-main);
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
@@ -334,7 +325,6 @@ body {
     border: 1.5px solid #ddd;
     border-radius: 8px;
     padding: 12px;
-    font-family: var(--font-main);
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;

@@ -1,10 +1,6 @@
 @import url('variables.css');
 
-body {
-    font-family: var(--font-main);
-    background-image: url('../image/fondo-profesionales.jpg');
-    background-size: contain
-}
+
 img{
     max-width: 100%;
 }
@@ -411,7 +407,6 @@ img{
     border: 1.5px solid var(--black);
     border-radius: 8px;
     padding: 9px;
-    font-family: var(--font-main);
     font-size: 0.85rem;
     font-weight: 600;
     text-decoration: none;
@@ -430,11 +425,9 @@ img{
     border: none;
     border-radius: 8px;
     padding: 9px;
-    font-family: var(--font-main);
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background 0.22s;
 }
 
 .btn-agendar-cita:hover {
@@ -509,7 +502,6 @@ img{
     border: 1.5px solid #ddd;
     border-radius: 8px;
     padding: 8px 10px;
-    font-family: var(--font-main);
     font-size: 0.88rem;
     color: var(--text);
     outline: none;
@@ -527,7 +519,6 @@ img{
     border: none;
     border-radius: 8px;
     padding: 11px;
-    font-family: var(--font-main);
     font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
@@ -545,7 +536,6 @@ img{
     border: 1.5px solid #ddd;
     border-radius: 8px;
     padding: 10px;
-    font-family: var(--font-main);
     font-size: 0.88rem;
     font-weight: 500;
     cursor: pointer;

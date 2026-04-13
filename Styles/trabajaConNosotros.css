@@ -1,10 +1,5 @@
 @import url('variables.css');
 
-body {
-    font-family: var(--font-main);
-    background: url(/image/fondo-eresProfesional.jpg);
-    background-size: cover;
-}
 
 /* CONTENEDOR COMPARTIDO */
 .prof-container {
@@ -80,7 +75,6 @@ body {
     color: var(--white);
     border-radius: 8px;
     padding: 13px 32px;
-    font-family: var(--font-main);
     font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
@@ -173,7 +167,6 @@ body {
     color: var(--black);
     border-radius: 8px;
     padding: 12px 32px;
-    font-family: var(--font-main);
     font-size: 0.95rem;
     font-weight: 700;
     text-decoration: none;

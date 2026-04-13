@@ -1,12 +1,5 @@
 @import url('variables.css');
 
-body {
-    font-family: var(--font-main);
-    color: var(--text);
-     background-image: url('../image/fondo-iniciar.jpg');
-    background-size: cover;
-    /* min-height: 100vh; */
-}
 
 /*Estructura general */ 
 
@@ -137,7 +130,6 @@ body {
     border: 1.5px solid transparent;
     border-radius: 8px;
     padding: 0.75em 2.5em 0.75em 0.875em;
-    font-family: var(--font-main);
     font-size: 0.9rem;
     color: var(--text);
     outline: none;
@@ -198,12 +190,10 @@ body {
     border: none;
     border-radius: 8px;
     padding: 13px;
-    font-family: var(--font-main);
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
     margin-top: 0.5em;
-    transition: background 0.22s, transform 0.22s;
 }
 .btn-registrar:hover {
     background: var(--blue-dark);
@@ -256,6 +246,24 @@ body {
     max-height: 420px;
     object-fit: contain;
     display: block;
+}
+
+/* RECUPERAR CONTRASEÑA */
+.recuperar-icono {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 0.25em;
+}
+ 
+.recuperar-desc-confirmacion {
+    line-height: 1.7;
+    margin-bottom: 1.25em;
+}
+ 
+.titulo-main {
+    text-align: center;
+    margin-bottom: 1.5em;
+    padding: 0 24px;
 }
 
 /* RESPONSIVE  */

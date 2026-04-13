@@ -5,11 +5,6 @@ img {
     display: block;
 }
 
-body {
-    background: url('../image/fondo-diagnostico.jpg');
-    background-size: cover;
-    font-family: var(--font-main);
-}
 
 .diag-main {
     overflow-x: hidden;
@@ -191,7 +186,6 @@ body {
     border: none;
     outline: none;
     width: 100%;
-    font-family: var(--font-main);
     font-size: 0.88rem;
     color: var(--text);
     background: transparent;
@@ -199,6 +193,7 @@ body {
 
 .diag-input-tip {
     font-size: 0.82rem;
+     font-style: italic;
 }
 
 /* Botón diagnóstico */
@@ -209,7 +204,6 @@ body {
     border: none;
     border-radius: 8px;
     padding: 13px;
-    font-family: var(--font-main);
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
@@ -445,7 +439,6 @@ body {
     border: none;
     border-radius: 8px;
     padding: 12px 32px;
-    font-family: var(--font-main);
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
