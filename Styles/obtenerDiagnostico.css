@@ -171,7 +171,7 @@ img {
     align-items: center;
     gap: 0.5em;
     border: 1.5px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 0.6em 0.875em;
     background-color: var(--white);
 }
@@ -202,7 +202,7 @@ img {
     background: var(--blue);
     color: var(--white);
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 13px;
     font-size: 1rem;
     font-weight: 700;
@@ -437,7 +437,7 @@ img {
     background: var(--pink);
     color: var(--black);
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 12px 32px;
     font-size: 0.95rem;
     font-weight: 700;

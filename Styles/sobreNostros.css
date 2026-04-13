@@ -30,7 +30,7 @@ img {
 .hero-imageSobreNosotros {
     width: 100%;
     max-width: 500px;
-    filter: drop-shadow(8px 8px 0px var(--pink-light));
+    filter: drop-shadow(var(--sombra-rosa-claro));
     /* Sombra en la imagen 1*/
 }
 

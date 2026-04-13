@@ -114,11 +114,7 @@
 }
 
 .campo-error {
-    font-size: 0.76rem;
-    color: 000000;
-    font-weight: 500;
-    min-height: 1em;
-    padding-left: 2px;
+    color: #000000;;
 }
 
 /* Botón enviar */

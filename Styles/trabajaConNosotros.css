@@ -73,7 +73,7 @@
     align-self: flex-end;
     background: var(--blue);
     color: var(--white);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 13px 32px;
     font-size: 1rem;
     font-weight: 700;
@@ -119,13 +119,7 @@
     align-items: center;
     text-align: center;
     gap: 0.75em;
-    transition: transform 0.22s, box-shadow 0.22s;
     box-shadow: 3px 3px 0px var(--black);
-}
-
-.porque-card:hover {
-    transform: translateY(-4px);
-     box-shadow: 3px 3px 0px var(--orange);
 }
 
 .card-icono {
@@ -160,25 +154,6 @@
     display: flex;
     justify-content: center;
 }
-
-.btn-registrate-pink {
-    display: inline-block;
-    background: var(--pink);
-    color: var(--black);
-    border-radius: 8px;
-    padding: 12px 32px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background 0.22s, transform 0.22s;
-     box-shadow: 3px 3px 0px var(--black);
-}
-
-.btn-registrate-pink:hover {
-    background: #ef5e91;
-    transform: translateY(-2px);
-}
-
 
 /* FAQ */
 
@@ -362,10 +337,7 @@ details[open] .faq-chevron {
         height: 48px;
     }
 
-    .btn-registrate-pink {
-        width: 100%;
-        text-align: center;
-    }
+
 
     .faq-pregunta {
         font-size: 0.88rem;
@@ -421,12 +393,6 @@ details[open] .faq-chevron {
 
     .porque-card {
         padding: 1em;
-    }
-
-    .btn-registrate-pink {
-        width: 100%;
-        text-align: center;
-        font-size: 0.9rem;
     }
 
     .faq-titulo {

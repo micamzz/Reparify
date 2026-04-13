@@ -78,7 +78,7 @@ img{
     background: var(--blue);
     color: var(--white);
     border: none;
-    border-radius: 8px;
+    border-radius:var(--radius-md);
     padding: 0.85em 2em;
     font-size: 0.95rem;
     font-weight: 700;
@@ -103,7 +103,7 @@ img{
     width: 100%;
     background: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     z-index: 999;
     display: none;
     max-height: 200px;
@@ -148,12 +148,12 @@ img{
     user-select: none;
     border-top: 2px solid #000000;
    border-left: 2px solid #000000;
-    box-shadow: 8px 8px 0 var(--orange);
+   box-shadow: var(--sombra-naranja);
 }
 
 .categoria-card:hover {
     transform: translateY(-4px);
-     box-shadow: 8px 8px 0 var(--blue);
+     box-shadow: var(--sombra-azul);
 }
 
 .categoria-card.activa {
@@ -405,7 +405,7 @@ img{
     background: var(--white);
     color: var(--black);
     border: 1.5px solid var(--black);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 9px;
     font-size: 0.85rem;
     font-weight: 600;
@@ -423,7 +423,7 @@ img{
     background: var(--blue);
     color: var(--white);
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 9px;
     font-size: 0.85rem;
     font-weight: 600;
@@ -500,7 +500,7 @@ img{
 .filtro-select {
     width: 100%;
     border: 1.5px solid #ddd;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 8px 10px;
     font-size: 0.88rem;
     color: var(--text);
@@ -517,7 +517,7 @@ img{
     background: var(--blue);
     color: var(--white);
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 11px;
     font-size: 0.9rem;
     font-weight: 700;
@@ -534,7 +534,7 @@ img{
     background: transparent;
     color: var(--text-muted);
     border: 1.5px solid #ddd;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 10px;
     font-size: 0.88rem;
     font-weight: 500;

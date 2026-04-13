@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function mostrarError(inputId, errorId, msg) {
         const input = document.getElementById(inputId);
         const error = document.getElementById(errorId);
-        if (input)  input.classList.add('input-error');
-        if (error)  error.textContent = msg;
+        if (input) input.classList.add('input-error');
+        if (error) error.textContent = msg;
     }
 
     function limpiarError(inputId, errorId) {
@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const dot = document.getElementById(`dot${i}`);
             if (!dot) continue;
             dot.classList.remove('activo', 'completado');
-            if (i < paso)       dot.classList.add('completado');
+            if (i < paso) dot.classList.add('completado');
             else if (i === paso) dot.classList.add('activo');
         }
         for (let i = 1; i <= 2; i++) {
             const linea = document.getElementById(`linea${i}`);
             if (!linea) continue;
             if (i < paso) linea.classList.add('activa');
-            else          linea.classList.remove('activa');
+            else linea.classList.remove('activa');
         }
     }
 
@@ -82,10 +82,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const formPaso1 = document.getElementById('formPaso1');
     const campos1 = [
-        { inputId: 'p1Nombre',   errorId: 'err-p1Nombre'   },
-        { inputId: 'p1Dni',      errorId: 'err-p1Dni'      },
+        { inputId: 'p1Nombre', errorId: 'err-p1Nombre' },
+        { inputId: 'p1Dni', errorId: 'err-p1Dni' },
         { inputId: 'p1Telefono', errorId: 'err-p1Telefono' },
-        { inputId: 'p1Email',    errorId: 'err-p1Email'    },
+        { inputId: 'p1Email', errorId: 'err-p1Email' },
         { inputId: 'p1Password', errorId: 'err-p1Password' }
     ];
 
@@ -97,10 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
             limpiarTodosLosErrores(campos1);
             let valido = true;
 
-            const nombre   = document.getElementById('p1Nombre').value.trim();
-            const dni      = document.getElementById('p1Dni').value.trim();
+            const nombre = document.getElementById('p1Nombre').value.trim();
+            const dni = document.getElementById('p1Dni').value.trim();
             const telefono = document.getElementById('p1Telefono').value.trim();
-            const email    = document.getElementById('p1Email').value.trim();
+            const email = document.getElementById('p1Email').value.trim();
             const password = document.getElementById('p1Password').value;
 
             if (!nombre) {
@@ -136,9 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const formPaso2 = document.getElementById('formPaso2');
     const campos2 = [
         { inputId: 'p2Especialidad', errorId: 'err-p2Especialidad' },
-        { inputId: 'p2Zona',         errorId: 'err-p2Zona'         },
-        { inputId: 'p2Matricula',    errorId: 'err-p2Matricula'    },
-        { inputId: 'p2Certificado',  errorId: 'err-p2Certificado'  }
+        { inputId: 'p2Zona', errorId: 'err-p2Zona' },
+        { inputId: 'p2Matricula', errorId: 'err-p2Matricula' },
+        { inputId: 'p2Certificado', errorId: 'err-p2Certificado' }
     ];
 
     campos2.forEach(c => bindLimpiarAlEscribir(c.inputId, c.errorId));
@@ -163,10 +163,10 @@ document.addEventListener('DOMContentLoaded', () => {
             limpiarTodosLosErrores(campos2);
             let valido = true;
 
-            const especialidad  = document.getElementById('p2Especialidad').value;
-            const zona          = document.getElementById('p2Zona').value;
-            const matricula     = document.getElementById('p2Matricula').value.trim();
-            const certificado   = document.getElementById('p2Certificado').files[0];
+            const especialidad = document.getElementById('p2Especialidad').value;
+            const zona = document.getElementById('p2Zona').value;
+            const matricula = document.getElementById('p2Matricula').value.trim();
+            const certificado = document.getElementById('p2Certificado').files[0];
 
             if (!especialidad) {
                 mostrarError('p2Especialidad', 'err-p2Especialidad', 'Seleccioná una especialidad.'); valido = false;
@@ -198,8 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const formPaso3 = document.getElementById('formPaso3');
     const campos3 = [
-        { inputId: 'p3Email',    errorId: 'err-p3Email'    },
-        { inputId: 'p3Cbu',      errorId: 'err-p3Cbu'      },
+        { inputId: 'p3Email', errorId: 'err-p3Email' },
+        { inputId: 'p3Cbu', errorId: 'err-p3Cbu' },
         { inputId: 'p3Domicilio', errorId: 'err-p3Domicilio' }
     ];
 
@@ -214,14 +214,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const mensajeEl = document.getElementById('formMensajePro');
             mensajeEl.textContent = '';
-            mensajeEl.className   = 'form-mensaje';
+            mensajeEl.className = 'form-mensaje';
 
             let valido = true;
 
-            const emailFact  = document.getElementById('p3Email').value.trim();
-            const cbu        = document.getElementById('p3Cbu').value.trim();
-            const domicilio  = document.getElementById('p3Domicilio').value.trim();
-            const terminos   = document.getElementById('p3Terminos').checked;
+            const emailFact = document.getElementById('p3Email').value.trim();
+            const cbu = document.getElementById('p3Cbu').value.trim();
+            const domicilio = document.getElementById('p3Domicilio').value.trim();
+            const terminos = document.getElementById('p3Terminos').checked;
 
             if (!emailFact) {
                 mostrarError('p3Email', 'err-p3Email', 'El email de facturación es obligatorio.'); valido = false;
@@ -257,9 +257,10 @@ document.addEventListener('DOMContentLoaded', () => {
             mensajeEl.textContent = '¡Registro exitoso! Redirigiendo...';
             mensajeEl.classList.add('exito');
 
+            /* Damos tiempo al navegador para confirmar el localStorage antes de redirigir */
             setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 1800);
+                window.location.href = '/index.html';
+            }, 1500);
         });
     }
 
@@ -268,50 +269,110 @@ document.addEventListener('DOMContentLoaded', () => {
        El objeto del profesional usa el mismo formato que los
        hardcodeados en profesionales.js para que se integren sin problemas. */
 
+    // function guardarProfesional() {
+    //     const existentes = JSON.parse(localStorage.getItem('reparify_profesionales') || '[]');
+
+    //     /* Generamos un id único mayor a los hardcodeados (que van del 1 al 15) */
+    //     const nuevoId = existentes.length > 0
+    //         ? Math.max(...existentes.map(p => p.id)) + 1
+    //         : 100;
+
+    //     const nuevoProfesional = {
+    //         id: nuevoId,
+    //         nombre: datosPro.paso1.nombre,
+    //         profesion: datosPro.paso2.especialidad,
+    //         ubicacion: `${datosPro.paso2.zona}, CABA`,
+    //         zona: datosPro.paso2.zona,
+    //         desde: formatearFechaActual(),
+    //         trabajos: 0,
+    //         valoracion: 0,
+    //         respuesta: 'N/A',
+    //         foto: '',          /* sin foto por ahora */
+    //         /* Guardamos el resto de los datos para uso futuro */
+    //         dni: datosPro.paso1.dni,
+    //         telefono: datosPro.paso1.telefono,
+    //         email: datosPro.paso1.email,
+    //         matricula: datosPro.paso2.matricula,
+    //         cbu: datosPro.paso3.cbu,
+    //         domicilio: datosPro.paso3.domicilio,
+    //         esRegistrado: true
+    //     };
+
+    //     existentes.push(nuevoProfesional);
+    //     localStorage.setItem('reparify_profesionales', JSON.stringify(existentes));
+
+    //      const usuarios = JSON.parse(localStorage.getItem('reparify_usuarios') || '[]');
+
+    //       usuarios.push({
+    //     nombre: datosPro.paso1.nombre,
+    //     email: datosPro.paso1.email,
+    //     password: datosPro.paso1.password,
+    //     tipo: 'profesional' 
+    // });
+
+    //     /* También guardamos la sesión del profesional si es necesario */
+    //     localStorage.setItem('reparify_sesion_pro', JSON.stringify({
+    //         email: datosPro.paso1.email,
+    //         nombre: datosPro.paso1.nombre,
+    //         profesion: datosPro.paso2.especialidad,
+    //         fechaLogin: new Date().toISOString()
+    //     }));
+    // }
+
     function guardarProfesional() {
-        const existentes = JSON.parse(localStorage.getItem('reparify_profesionales') || '[]');
+    const existentes = JSON.parse(localStorage.getItem('reparify_profesionales') || '[]');
 
-        /* Generamos un id único mayor a los hardcodeados (que van del 1 al 15) */
-        const nuevoId = existentes.length > 0
-            ? Math.max(...existentes.map(p => p.id)) + 1
-            : 100;
+    const nuevoId = existentes.length > 0
+        ? Math.max(...existentes.map(p => p.id)) + 1
+        : 100;
 
-        const nuevoProfesional = {
-            id:         nuevoId,
-            nombre:     datosPro.paso1.nombre,
-            profesion:  datosPro.paso2.especialidad,
-            ubicacion:  `${datosPro.paso2.zona}, CABA`,
-            zona:       datosPro.paso2.zona,
-            desde:      formatearFechaActual(),
-            trabajos:   0,
-            valoracion: 0,
-            respuesta:  'N/A',
-            foto:       '',          /* sin foto por ahora */
-            /* Guardamos el resto de los datos para uso futuro */
-            dni:        datosPro.paso1.dni,
-            telefono:   datosPro.paso1.telefono,
-            email:      datosPro.paso1.email,
-            matricula:  datosPro.paso2.matricula,
-            cbu:        datosPro.paso3.cbu,
-            domicilio:  datosPro.paso3.domicilio,
-            esRegistrado: true
-        };
+    const nuevoProfesional = {
+        id: nuevoId,
+        nombre: datosPro.paso1.nombre,
+        profesion: datosPro.paso2.especialidad,
+        ubicacion: `${datosPro.paso2.zona}, CABA`,
+        zona: datosPro.paso2.zona,
+        desde: formatearFechaActual(),
+        trabajos: 0,
+        valoracion: 0,
+        respuesta: 'N/A',
+        foto: '',
+        dni: datosPro.paso1.dni,
+        telefono: datosPro.paso1.telefono,
+        email: datosPro.paso1.email,
+        password: datosPro.paso1.password, // 🔥 IMPORTANTE
+        matricula: datosPro.paso2.matricula,
+        cbu: datosPro.paso3.cbu,
+        domicilio: datosPro.paso3.domicilio,
+        esRegistrado: true
+    };
 
-        existentes.push(nuevoProfesional);
-        localStorage.setItem('reparify_profesionales', JSON.stringify(existentes));
+    existentes.push(nuevoProfesional);
+    localStorage.setItem('reparify_profesionales', JSON.stringify(existentes));
 
-        /* También guardamos la sesión del profesional si es necesario */
-        localStorage.setItem('reparify_sesion_pro', JSON.stringify({
-            email:      datosPro.paso1.email,
-            nombre:     datosPro.paso1.nombre,
-            profesion:  datosPro.paso2.especialidad,
-            fechaLogin: new Date().toISOString()
-        }));
-    }
+    // 🔥🔥 AGREGAR ESTO
+    const usuarios = JSON.parse(localStorage.getItem('reparify_usuarios') || '[]');
 
+    usuarios.push({
+        nombre: datosPro.paso1.nombre,
+        email: datosPro.paso1.email,
+        password: datosPro.paso1.password,
+        tipo: 'profesional' // 👈 clave
+    });
+
+    localStorage.setItem('reparify_usuarios', JSON.stringify(usuarios));
+
+    // sesión
+    localStorage.setItem('reparify_sesion', JSON.stringify({
+        email: datosPro.paso1.email,
+        nombre: datosPro.paso1.nombre,
+        tipo: 'profesional',
+        fechaLogin: new Date().toISOString()
+    }));
+}
     function formatearFechaActual() {
-        const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
-                        'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+        const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+            'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
         const hoy = new Date();
         return `${meses[hoy.getMonth()]} ${hoy.getFullYear()}`;
     }
@@ -320,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* VERIFICAR SI EL EMAIL YA EXISTE como profesional o usuario */
 
     function emailYaRegistrado(email) {
-        const profStorage  = JSON.parse(localStorage.getItem('reparify_profesionales') || '[]');
+        const profStorage = JSON.parse(localStorage.getItem('reparify_profesionales') || '[]');
         const usersStorage = JSON.parse(localStorage.getItem('reparify_usuarios') || '[]');
         const emailMin = email.toLowerCase();
         return (
@@ -336,8 +397,8 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             const input = document.getElementById(btn.dataset.target);
             if (!input) return;
-            const ver      = input.type === 'password';
-            input.type     = ver ? 'text' : 'password';
+            const ver = input.type === 'password';
+            input.type = ver ? 'text' : 'password';
             btn.textContent = ver ? '🙈' : '👁';
         });
     });

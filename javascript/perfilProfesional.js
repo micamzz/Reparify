@@ -92,12 +92,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (popupOverlay) popupOverlay.classList.add('oculto');
     }
 
-
-    /* OBTENER EL ID DEL PROFESIONAL DE LA URL */
+ /* OBTENER ID DE LA URL DESDE EL PERFIL DEL PROFESIONAL Y PAG PROFESIONALES */
     const params = new URLSearchParams(window.location.search);
-    const id     = parseInt(params.get('id')) || 1;
+    const idStr = params.get('id');
+    const id = parseInt(idStr) || 1;
 
-
+    const btnAgendar = document.getElementById('linkAgendar');
+    if (btnAgendar && idStr) {
+        btnAgendar.href = `./agendarCita.html?id=${idStr}`;
+    }
+    
     /* BUSCAR EL PROFESIONAL */
     const profesionalesStorage = JSON.parse(localStorage.getItem('reparify_profesionales') || '[]');
     const profesionalesBase    = obtenerBaseProfesionales();
@@ -139,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
             .join('');
     }
 
-
     /* RENDER SERVICIOS */
     const serviciosGrid = document.getElementById('serviciosGrid');
     if (serviciosGrid && ext.servicios.length > 0) {
@@ -150,48 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `).join('');
     }
-
-
-    /* RENDER CERTIFICACIONES con slider */
-    const certsTrack = document.getElementById('certsTrack');
-    const certsDots  = document.getElementById('certsDots');
-    let certIndex = 0;
-
-    if (certsTrack && ext.certificaciones.length > 0) {
-        certsTrack.innerHTML = ext.certificaciones.map(c => `
-            <div class="cert-card ${!c.imagen ? 'sin-imagen' : ''}">
-                ${c.imagen
-                    ? `<img src="${c.imagen}" alt="${c.label}" onerror="this.parentElement.classList.add('sin-imagen');this.style.display='none'" />`
-                    : `<span>${c.label}</span>`
-                }
-            </div>
-        `).join('');
-
-        /* Dots */
-        if (certsDots) {
-            certsDots.innerHTML = ext.certificaciones.map((_, i) => `
-                <button class="cert-dot ${i === 0 ? 'activo' : ''}" data-i="${i}"></button>
-            `).join('');
-
-            certsDots.querySelectorAll('.cert-dot').forEach(dot => {
-                dot.addEventListener('click', () => {
-                    certIndex = parseInt(dot.dataset.i);
-                    moverCerts();
-                    certsDots.querySelectorAll('.cert-dot').forEach(d => d.classList.remove('activo'));
-                    dot.classList.add('activo');
-                });
-            });
-        }
-    }
-
-    function moverCerts() {
-        if (!certsTrack) return;
-        const card = certsTrack.querySelector('.cert-card');
-        if (!card) return;
-        const ancho = card.offsetWidth + 16;
-        certsTrack.style.transform = `translateX(-${certIndex * ancho}px)`;
-    }
-
 
     /* RENDER HISTORIAL */
     const historialBody = document.getElementById('historialBody');
@@ -216,30 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   // <td><button class="btn-ver-detalles">👁 Ver Detalles</button></td>
 
-    /* BOTÓN GUARDAR PERFIL */
-    const btnGuardar = document.getElementById('btnGuardar');
-    if (btnGuardar && sesion) {
-        const KEY_GUARDADOS = `reparify_guardados_${sesion.email}`;
-        const guardados = JSON.parse(localStorage.getItem(KEY_GUARDADOS) || '[]');
-
-        if (guardados.includes(id)) {
-            btnGuardar.classList.add('guardado');
-        }
-
-        btnGuardar.addEventListener('click', () => {
-            const lista = JSON.parse(localStorage.getItem(KEY_GUARDADOS) || '[]');
-            if (lista.includes(id)) {
-                const nueva = lista.filter(i => i !== id);
-                localStorage.setItem(KEY_GUARDADOS, JSON.stringify(nueva));
-                btnGuardar.classList.remove('guardado');
-            } else {
-                lista.push(id);
-                localStorage.setItem(KEY_GUARDADOS, JSON.stringify(lista));
-                btnGuardar.classList.add('guardado');
-            }
-        });
-    }
-
+ 
 
     /* MODAL CONTACTAR */
     const btnContactar   = document.getElementById('btnContactar');
@@ -321,21 +259,21 @@ document.addEventListener('DOMContentLoaded', () => {
        para que este archivo funcione de forma independiente) */
     function obtenerBaseProfesionales() {
         return [
-            { id:1,  nombre:'María González',    profesion:'Carpintería',  ubicacion:'Palermo',          zona:'Palermo',      desde:'Enero 2022',      trabajos:120, valoracion:4.8, respuesta:'1h',   foto:'../image/profesionales/maria-gonzalez.jpg' },
-            { id:2,  nombre:'Roberto Silva',      profesion:'Plomería',     ubicacion:'Palermo, CABA',    zona:'Palermo',      desde:'Marzo 2021',      trabajos:140, valoracion:5.0, respuesta:'30min',foto:'../image/profesionales/roberto-silva.jpg' },
-            { id:3,  nombre:'Carlos Ramírez',     profesion:'Albañilería',  ubicacion:'Belgrano, CABA',   zona:'Belgrano',     desde:'Junio 2020',      trabajos:110, valoracion:4.5, respuesta:'2h',   foto:'../image/profesionales/carlos-ramirez.jpg' },
-            { id:4,  nombre:'Ana Martínez',       profesion:'Electricista', ubicacion:'Recoleta, CABA',   zona:'Recoleta',     desde:'Agosto 2022',     trabajos:85,  valoracion:4.9, respuesta:'45min',foto:'../image/profesionales/ana-martinez.jpg' },
-            { id:5,  nombre:'Jorge Pérez',        profesion:'Gasista',      ubicacion:'Colegiales, CABA', zona:'Colegiales',   desde:'Febrero 2021',    trabajos:95,  valoracion:4.7, respuesta:'1h',   foto:'../image/profesionales/jorge-perez.jpg' },
-            { id:6,  nombre:'Lucía Fernández',    profesion:'Pinturería',   ubicacion:'Villa Crespo, CABA',zona:'Villa Crespo',desde:'Mayo 2023',       trabajos:60,  valoracion:4.6, respuesta:'2h',   foto:'../image/profesionales/lucia-fernandez.jpg' },
-            { id:7,  nombre:'Diego Romero',       profesion:'Plomería',     ubicacion:'Belgrano, CABA',   zona:'Belgrano',     desde:'Enero 2020',      trabajos:200, valoracion:4.9, respuesta:'20min',foto:'../image/profesionales/diego-romero.jpg' },
-            { id:8,  nombre:'Sofía López',        profesion:'Electricista', ubicacion:'Palermo, CABA',    zona:'Palermo',      desde:'Septiembre 2022', trabajos:70,  valoracion:4.8, respuesta:'1h',   foto:'../image/profesionales/sofia-lopez.jpg' },
-            { id:9,  nombre:'Martín Torres',      profesion:'Carpintería',  ubicacion:'Colegiales, CABA', zona:'Colegiales',   desde:'Abril 2021',      trabajos:130, valoracion:4.7, respuesta:'30min',foto:'../image/profesionales/martin-torres.jpg' },
-            { id:10, nombre:'Valentina Ruiz',     profesion:'Albañilería',  ubicacion:'Recoleta, CABA',   zona:'Recoleta',     desde:'Noviembre 2021',  trabajos:90,  valoracion:4.6, respuesta:'45min',foto:'../image/profesionales/valentina-ruiz.jpg' },
-            { id:11, nombre:'Pablo Díaz',         profesion:'Gasista',      ubicacion:'Palermo, CABA',    zona:'Palermo',      desde:'Julio 2020',      trabajos:115, valoracion:5.0, respuesta:'15min',foto:'../image/profesionales/pablo-diaz.jpg' },
-            { id:12, nombre:'Camila Sánchez',     profesion:'Pinturería',   ubicacion:'Belgrano, CABA',   zona:'Belgrano',     desde:'Marzo 2023',      trabajos:45,  valoracion:4.5, respuesta:'2h',   foto:'../image/profesionales/camila-sanchez.jpg' },
-            { id:13, nombre:'Tomás Vargas',       profesion:'Carpintería',  ubicacion:'Villa Crespo, CABA',zona:'Villa Crespo',desde:'Octubre 2020',    trabajos:160, valoracion:4.9, respuesta:'1h',   foto:'../image/profesionales/tomas-vargas.jpg' },
-            { id:14, nombre:'Florencia Medina',   profesion:'Electricista', ubicacion:'Villa Crespo, CABA',zona:'Villa Crespo',desde:'Junio 2022',      trabajos:80,  valoracion:4.7, respuesta:'40min',foto:'../image/profesionales/florencia-medina.jpg' },
-            { id:15, nombre:'Nicolás Herrera',    profesion:'Plomería',     ubicacion:'Colegiales, CABA', zona:'Colegiales',   desde:'Diciembre 2021',  trabajos:105, valoracion:4.8, respuesta:'30min',foto:'../image/profesionales/nicolas-herrera.jpg' }
+            { id:1,  nombre:'María González',    profesion:'Carpintería',  ubicacion:'Palermo',          zona:'Palermo',      desde:'Enero 2022',      trabajos:120, valoracion:4.8, respuesta:'1h',   foto:'../image/profesionales/persona1.png' },
+            { id:2,  nombre:'Roberto Silva',      profesion:'Plomería',     ubicacion:'Palermo, CABA',    zona:'Palermo',      desde:'Marzo 2021',      trabajos:140, valoracion:5.0, respuesta:'30min',foto:'../image/profesionales/persona2.png'},
+            { id:3,  nombre:'Carlos Ramírez',     profesion:'Albañilería',  ubicacion:'Belgrano, CABA',   zona:'Belgrano',     desde:'Junio 2020',      trabajos:110, valoracion:4.5, respuesta:'2h',   foto:'../image/profesionales/persona3.png' },
+            { id:4,  nombre:'Ana Martínez',       profesion:'Electricista', ubicacion:'Recoleta, CABA',   zona:'Recoleta',     desde:'Agosto 2022',     trabajos:85,  valoracion:4.9, respuesta:'45min',foto:'../image/profesionales/persona4.png' },
+            { id:5,  nombre:'Jorge Pérez',        profesion:'Gasista',      ubicacion:'Colegiales, CABA', zona:'Colegiales',   desde:'Febrero 2021',    trabajos:95,  valoracion:4.7, respuesta:'1h',   foto:'../image/profesionales/persona5.png'},
+            { id:6,  nombre:'Lucía Fernández',    profesion:'Pinturería',   ubicacion:'Villa Crespo, CABA',zona:'Villa Crespo',desde:'Mayo 2023',       trabajos:60,  valoracion:4.6, respuesta:'2h',   foto:'../image/profesionales/persona6.png' },
+            { id:7,  nombre:'Diego Romero',       profesion:'Plomería',     ubicacion:'Belgrano, CABA',   zona:'Belgrano',     desde:'Enero 2020',      trabajos:200, valoracion:4.9, respuesta:'20min',foto:'../image/profesionales/persona7.png' },
+            { id:8,  nombre:'Sofía López',        profesion:'Electricista', ubicacion:'Palermo, CABA',    zona:'Palermo',      desde:'Septiembre 2022', trabajos:70,  valoracion:4.8, respuesta:'1h',   foto:'../image/profesionales/persona8.png' },
+            { id:9,  nombre:'Martín Torres',      profesion:'Carpintería',  ubicacion:'Colegiales, CABA', zona:'Colegiales',   desde:'Abril 2021',      trabajos:130, valoracion:4.7, respuesta:'30min',foto:'../image/profesionales/persona9.png'},
+            { id:10, nombre:'Valentina Ruiz',     profesion:'Albañilería',  ubicacion:'Recoleta, CABA',   zona:'Recoleta',     desde:'Noviembre 2021',  trabajos:90,  valoracion:4.6, respuesta:'45min',foto:'../image/profesionales/persona10.png' },
+            { id:11, nombre:'Pablo Díaz',         profesion:'Gasista',      ubicacion:'Palermo, CABA',    zona:'Palermo',      desde:'Julio 2020',      trabajos:115, valoracion:5.0, respuesta:'15min',foto:'../image/profesionales/persona11.png' },
+            { id:12, nombre:'Camila Sánchez',     profesion:'Pinturería',   ubicacion:'Belgrano, CABA',   zona:'Belgrano',     desde:'Marzo 2023',      trabajos:45,  valoracion:4.5, respuesta:'2h',   foto:'../image/profesionales/persona12.png' },
+            { id:13, nombre:'Tomás Vargas',       profesion:'Carpintería',  ubicacion:'Villa Crespo, CABA',zona:'Villa Crespo',desde:'Octubre 2020',    trabajos:160, valoracion:4.9, respuesta:'1h',   foto:'../image/profesionales/persona13.png' },
+            { id:14, nombre:'Florencia Medina',   profesion:'Electricista', ubicacion:'Villa Crespo, CABA',zona:'Villa Crespo',desde:'Junio 2022',      trabajos:80,  valoracion:4.7, respuesta:'40min',foto:'../image/profesionales/persona14.png' },
+            { id:15, nombre:'Nicolás Herrera',    profesion:'Plomería',     ubicacion:'Colegiales, CABA', zona:'Colegiales',   desde:'Diciembre 2021',  trabajos:105, valoracion:4.8, respuesta:'30min',foto:'../image/profesionales/persona15.png' }
         ];
     }
 

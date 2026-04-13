@@ -10,12 +10,28 @@
   --text-muted: #6b7280;
   --white: #ffffff;
   --bg: #f9fafc;
-  --radius: 16px;
-  --radius-lg: 24px;
-  --shadow: 0 4px 24px rgba(26,115,232,0.10);
+
+  /* SOMBRAS*/
+
+--sombra-offset: 8px 8px 0; /* Para no repetir los números si cambias el diseño */
+--sombra-naranja: var(--sombra-offset) var(--orange);
+--sombra-azul: var(--sombra-offset) var(--blue);
+--sombra-amarilla: var(--sombra-offset) var(--yellow);
+--sombra-rosa-claro: var(--sombra-offset) var(--pink--light);
+
+
   --shadow-card: 0 8px 32px rgba(0,0,0,0.08);
+
+  /* FUENTES */
   --font-main: 'Inter', sans-serif;
   --font-accent: 'Inter', sans-serif;
-  --transition: 0.25s cubic-bezier(.4,0,.2,1);
+
   --border: #e5e7eb;
+  /* border -radius */
+  --radius: 16px;
+  --radius-lg: 24px;
+   --radius-sm: 6px;    /* botones pequeños, badges */
+  --radius-md: 8px;    /* inputs, cards internas */
+  --radius-xl: 20px;   /* badges redondeados */
+  --radius-pill: 50px;
 }

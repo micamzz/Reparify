@@ -1,0 +1,426 @@
+/* ============================================================
+   components.css — Reparify
+   Componentes compartidos. Reemplaza los bloques duplicados
+   en: registro, registroProfesional, contacto, miPerfil,
+       miPerfilProfesional, perfilProfesional.
+   
+   USO: agregar en cada HTML DESPUÉS de variables.css y style.css
+   <link rel="stylesheet" href="../styles/components.css">
+   ============================================================ */
+
+@import url('variables.css');
+
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    margin-bottom: 1em;
+}
+
+.campo-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding-left: 2px;
+}
+
+.campo-input {
+    width: 100%;
+    background: #f5f5f5;
+    border: 1.5px solid transparent;
+    border-radius: 8px;
+    padding: 0.75em 0.875em;
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.22s, background 0.22s;
+    box-sizing: border-box;
+}
+
+.campo-input:focus {
+    border-color: var(--blue);
+    background: var(--white);
+}
+
+.campo-input.input-error {
+    border-color: #e53e3e;
+    background: #fff5f5;
+}
+
+.campo-input.input-ok {
+    border-color: #38a169;
+}
+
+.campo-input::placeholder {
+    color: #aaa;
+}
+
+/* Textarea dentro de .campo-grupo */
+.campo-textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* Wrapper input + botón ojo (contraseñas) */
+.input-password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-password-wrapper .campo-input {
+    padding-right: 2.5em;
+}
+
+/* Input directo sin wrapper (ej: email) */
+.campo-grupo > .campo-input {
+    padding-right: 0.875em;
+}
+
+/* Botón mostrar/ocultar contraseña */
+.toggle-pass {
+    position: absolute;
+    right: 0.75em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0;
+    line-height: 1;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.toggle-pass:hover {
+    opacity: 1;
+}
+
+/* Mensaje de error debajo del input */
+.campo-error {
+    font-size: 0.78rem;
+    color: #e53e3e;
+    font-weight: 500;
+    min-height: 1em;
+    padding-left: 2px;
+    display: block;
+}
+
+/* Botón guardar / enviar genérico */
+.btn-guardar {
+    width: 100%;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 0.5em;
+    transition: background 0.22s, transform 0.22s;
+}
+
+.btn-guardar:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+}
+
+/* Mensaje de resultado (éxito / error) */
+.datos-mensaje {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-align: center;
+    min-height: 1em;
+    margin-top: 0.5em;
+}
+
+.datos-mensaje.exito { color: #38a169; }
+.datos-mensaje.error { color: #e53e3e; }
+
+
+/* ============================================================
+   2. TABLA DE HISTORIAL
+   Reemplaza .historial-* duplicado en miPerfil,
+   miPerfilProfesional y perfilProfesional
+   ============================================================ */
+
+.historial-wrapper {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+.historial-tabla {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.historial-tabla th {
+    background: var(--white);
+    text-align: left;
+    padding: 14px 16px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--text);
+    border-bottom: 1.5px solid var(--border);
+    white-space: nowrap;
+}
+
+.historial-tabla td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    color: var(--text);
+    vertical-align: middle;
+}
+
+.historial-tabla tr:last-child td {
+    border-bottom: none;
+}
+
+.historial-tabla tr:hover td {
+    background: #fafafa;
+}
+
+.tabla-vacia {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2em;
+}
+
+
+/* ============================================================
+   3. BADGES DE ESTADO
+   Reemplaza .badge-* duplicado en miPerfil,
+   miPerfilProfesional y perfilProfesional
+   ============================================================ */
+
+.badge-estado {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge-progreso {
+    background: #e8f4ff;
+    color: var(--blue);
+}
+
+.badge-finalizado {
+    background: #e6f9f0;
+    color: #1a7a3a;
+}
+
+.badge-cancelado {
+    background: #fff0f0;
+    color: #c53030;
+}
+
+.badge-pendiente {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    background: #fff0f0;
+    color: #c53030;
+    border: 1px solid #fca5a5;
+}
+
+
+/* ============================================================
+   4. STATS (íconos + número + etiqueta)
+   Reemplaza .stat-* duplicado en miPerfil y miPerfilProfesional
+   ============================================================ */
+
+.stat-icon {
+    font-size: 1rem;
+}
+
+.stat-valor {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--black);
+}
+
+.stat-etiqueta {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-align: center;
+}
+
+
+/* ESTRELLAS */
+
+.estrellas {
+    color: var(--yellow);
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+
+/* ============================================================
+   6. MENÚ LATERAL (tabs de perfil)
+   Reemplaza .menu-item duplicado en miPerfil
+   y miPerfilProfesional
+   ============================================================ */
+
+.datos-menu {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 0.75em;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.menu-item {
+    background: none;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+.menu-item.active {
+    font-weight: 700;
+}
+
+.menu-item:hover .material-symbols-outlined,
+.menu-item.active .material-symbols-outlined {
+    color: var(--blue);
+}
+
+.material-symbols-outlined {
+    font-size: 1em;
+    color: #374151;
+    transition: color 0.2s;
+}
+
+.icon-red {
+    color: rgb(255, 78, 78);
+}
+
+
+/* ============================================================
+   7. PANELES (contenido de cada tab)
+   ============================================================ */
+
+.panel {
+    display: none;
+}
+
+.panel.active {
+    display: block;
+}
+
+.panel-titulo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 1.25em;
+}
+
+.panel-vacio {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding: 1em 0;
+}
+
+.seccion-titulo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--black);
+    margin: 0;
+}
+
+
+/* ============================================================
+   8. ANIMACIONES COMPARTIDAS
+   ============================================================ */
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+}
+
+
+/* ============================================================
+   9. RESPONSIVE COMPARTIDO — tablas y menú lateral
+   ============================================================ */
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    .datos-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .menu-item {
+        flex: 1 1 auto;
+        text-align: center;
+        justify-content: center;
+        font-size: 0.82rem;
+        padding: 9px 10px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .historial-tabla th,
+    .historial-tabla td {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+
+    .seccion-titulo {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .historial-tabla th,
+    .historial-tabla td {
+        padding: 8px 10px;
+        font-size: 0.76rem;
+    }
+
+    .seccion-titulo {
+        font-size: 1.15rem;
+    }
+}

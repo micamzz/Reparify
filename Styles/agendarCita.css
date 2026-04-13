@@ -202,7 +202,7 @@
 
 .horario-btn {
     border: 1.5px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     background: var(--white);
     padding: 10px;
     font-size: 0.85rem;
@@ -257,7 +257,7 @@
     background: var(--blue);
     color: var(--white);
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 13px;
     font-size: 0.95rem;
     font-weight: 700;
@@ -398,7 +398,7 @@
     display: block;
     background: var(--blue);
     color: var(--white);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 12px;
 
     font-size: 0.9rem;
@@ -414,7 +414,7 @@
     background: transparent;
     color: var(--text-muted);
     border: 1.5px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     padding: 11px;
     font-size: 0.88rem;
     font-weight: 600;
@@ -462,76 +462,7 @@
 
 
 
-.popup-titulo {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.5em;
-}
 
-.popup-desc {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.65;
-    margin-bottom: 1.5em;
-}
-
-.popup-btns {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.popup-btn-primary {
-    display: block;
-    background: var(--blue);
-    color: var(--white);
-    border-radius: 8px;
-    padding: 12px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background 0.22s;
-}
-
-.popup-btn-primary:hover {
-    background: var(--blue-dark);
-}
-
-.popup-btn-secondary {
-    display: block;
-    background: transparent;
-    color: var(--text-muted);
-    border: 1.5px solid #ddd;
-    border-radius: 8px;
-    padding: 11px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: border-color 0.22s, color 0.22s;
-}
-
-.popup-btn-secondary:hover {
-    border-color: var(--blue);
-    color: var(--blue);
-}
-
-.popup-cerrar {
-    position: absolute;
-    top: 0.875em;
-    right: 0.875em;
-    background: none;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    color: var(--text-muted);
-    transition: color 0.2s;
-    padding: 4px;
-}
-
-.popup-cerrar:hover {
-    color: var(--black);
-}
 /* RESPONSIVE TABLET (769px - 1024px) */
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {

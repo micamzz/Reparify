@@ -243,9 +243,9 @@ function cardProfesionalHTML(p) {
                 <p class="slider-dato">🔧 +${p.trabajos} trabajos realizados</p>
                 <p class="slider-dato">⏱ Respuesta en menos de ${p.respuesta}</p>
             </div>
-            <div class="slider-acciones">
+           <div class="slider-acciones">     
                 <a href="./perfilProfesional.html?id=${p.id}" class="btn-ver-perfil">Ver perfil</a>
-                <a href="./perfilProfesional.html?id=${p.id} class="btn-agendar-cita"" class="btn-ver-perfil">Contactar</a>
+                <a href="./agendarCita.html?id=${p.id}" class="btn-agendar-cita" >Agendar Cita</a>
             </div>
         </div>
     `;
@@ -408,7 +408,9 @@ function renderResultados(lista, termino) {
                 </div>
                 <div class="resultado-acciones">
                     <a href="./perfilProfesional.html?id=${p.id}" class="btn-ver-perfil">Ver perfil</a>
-                    <button class="btn-agendar-cita" data-id="${p.id}">Agendar cita</button>
+
+                    <a href="./agendarCita.html?id=${p.id}" class="btn-agendar-cita"  data-id="${p.id}">Agendar cita</a>
+                   
                 </div>
             </div>
         `;
