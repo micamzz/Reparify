@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reparify – Recuperar contraseña</title>
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/registro.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="body-recuperarContra">
+
+    <div id="nav-placeholder"></div>
+
+    <main class="registro-main">
+
+        <section class="titulo-main">
+            <h1 class="hero-title">¿Olvidaste tu <span class="titulo-h1">contraseña?</span></h1>
+            <p class="hero-subtitle">Te ayudamos a recuperar el acceso a tu cuenta.</p>
+        </section>
+
+        <div class="registro-container">
+
+            <!-- Imagen izquierda (misma que iniciarSesion) -->
+            <div class="registro-imagen">
+                <img src="../image/iniciarSesion-Registrarse/persona-2.png"
+                    alt="Persona usando Reparify"
+                    class="img-persona-registro" />
+            </div>
+
+            <!-- Card del formulario -->
+            <div class="registro-card" id="cardRecuperar">
+
+                <!-- ESTADO 1: formulario -->
+                <div id="vistaFormulario">
+                    <h2 class="form-bienvenido">Recuperar acceso</h2>
+                    <p class="form-desc">
+                        Ingresá el email con el que te registraste y<br />
+                        te enviaremos las instrucciones.
+                    </p>
+
+                    <form id="formRecuperar" novalidate>
+
+                        <div class="campo-grupo">
+                            <label class="campo-label" for="emailRecuperar">Email</label>
+                            <input
+                                class="campo-input"
+                                type="text"
+                                id="emailRecuperar"
+                                name="emailRecuperar"
+                                placeholder="ejemplo@gmail.com"
+                                autocomplete="email"
+                            />
+                            <span class="campo-error" id="error-emailRecuperar"></span>
+                        </div>
+
+                        <button type="submit" class="btn-registrar" id="btnRecuperar">
+                            Recuperar contraseña
+                        </button>
+
+                        <p class="form-mensaje" id="formMensajeRecuperar"></p>
+
+                    </form>
+
+                    <p class="form-login-link">
+                        ¿Recordaste tu contraseña?
+                        <a href="./iniciarSesion.html">Iniciá sesión</a>
+                    </p>
+                </div>
+
+                <!-- ESTADO 2: confirmación (oculto hasta que se envía) -->
+                <div id="vistaConfirmacion" style="display:none;">
+                    <div class="recuperar-icono">📬</div>
+                    <h2 class="form-bienvenido">¡Revisá tu correo!</h2>
+                    <p class="form-desc recuperar-desc-confirmacion">
+                        Si el email <strong id="emailEnviado"></strong> está
+                        registrado en Reparify, vas a recibir un mensaje con
+                        las instrucciones para restablecer tu contraseña.<br /><br />
+                        Si no lo ves en tu bandeja principal, revisá la carpeta
+                        de <em>spam</em> o <em>correo no deseado</em>.
+                    </p>
+                    <button class="btn-registrar" id="btnReintentar">
+                        Intentar con otro email
+                    </button>
+                    <p class="form-login-link" style="margin-top:1em;">
+                        <a href="./iniciarSesion.html">Volver al inicio de sesión</a>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Imagen derecha -->
+            <div class="registro-imagen">
+                <img src="../image/iniciarSesion-Registrarse/persona-1.png"
+                    alt="Persona usando Reparify"
+                    class="img-persona-registro" />
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="../javascript/main.js"></script>
+    <script src="../javascript/recuperarContrasenia.js"></script>
+
+</body>
+</html>
