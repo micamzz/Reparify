@@ -6,21 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reparify – Obtén un diagnóstico</title>
 
+    <!-- Links CSS -->
     <link rel="stylesheet" href="../Styles/footer.css" />
+      <link rel="stylesheet" href="../Styles/style.css">
     <link rel="stylesheet" href="../Styles/header.css" />
     <link rel="stylesheet" href="../Styles/obtenerDiagnostico.css" />
+
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
 </head>
 
-<body>
+<body class="body-obtenerDiagnostico">
 
     <!-- HEADER -->
-
     <div id="nav-placeholder"></div>
 
-    <main class="diag-main">
+     <main class="diag-main">
 
         <!--  TÍTULO + FORMULARIO + PASOS-->
         <section class="diag-hero">
@@ -34,7 +36,7 @@
                 <div class="diag-hero-body">
                     <!-- FORMULARIO -->
                     <div class="diag-form-card">
-                        <!-- Upload -->
+                        <!-- Subir foto o video -->
                         <div class="upload-area">
                             <div class="upload-icons">
                                 <button class="upload-btn" type="button" aria-label="Subir foto">
@@ -45,25 +47,25 @@
                                 </button>
                             </div>
                             <p class="upload-label">Haz clic para subir tus fotos y/o videos</p>
-                           
-                        </div>
 
+                        </div>
                         <!-- Inputs texto -->
                         <div class="diag-inputs">
                             <div class="input-group">
                                 <span class="input-icon">🔍</span>
-                                <input id="problemaInput" type="text" placeholder="Describe tu problema" class="diag-input" />
+                                <input id="problemaInput" type="text" placeholder="Describe tu problema"
+                                    class="diag-input" />
                             </div>
-                            <div class="input-group input-group-tip">
-                                <span class="input-icon">💡</span>
-                                <input type="text" placeholder="Tip: más detalles, mejor respuesta a tu problema."   class="diag-input diag-input-tip" />
+                            <div class="input-group-tip">
+                                <span class="input-icon diag-input diag-input-tip">💡Tip: más detalles, mejor respuesta
+                                    a tu problema.</span>
+
                             </div>
                         </div>
 
+
                         <button id="btnDiagnostico" class="btn-diagnostico">Obtener diagnóstico</button>
 
-                        <p id="respuestaIA"></p>
-                        
                     </div>
 
                     <!-- PASOS -->
@@ -101,74 +103,79 @@
                     </div>
                     <h2 class="videos-titulo">Experiencias en video</h2>
                     <p class="videos-desc">Conoce las historias de clientes que resolvieron sus problemas con
-                       <span class="resaltar-texto">Reparify.</span></p>
+                        <span class="resaltar-texto">Reparify.</span>
+                    </p>
                 </div>
 
                 <div class="videos-grid">
 
-   
-    <a href="https://www.youtube.com/watch?v=iukKWyyBu9s" target="_blank" style="text-decoration: none; color: inherit;">
-        <div class="video-card">
-            <div class="video-thumb">
-                <img src="../image/diagnostico/Installing_A_Faucet_original_481023 1.png" alt="Fuga de agua resuelta en 24 horas" />
-                <div class="video-overlay">
-                    <button class="play-btn" aria-label="Reproducir">▶</button>
-                </div>
-                <span class="video-duracion">3:08</span> 
-                <span class="video-categoria categoria-fontaneria">Fontanería</span>
-            </div>
-            <div class="video-info">
-                <p class="video-titulo">Fuga de agua resuelta en 24 horas</p>
-                <span class="video-autor">María González</span>
-                <div class="video-stars">★★★★★</div>
-            </div>
-        </div>
-    </a>
 
-    
-    <a href="https://www.youtube.com/watch?v=2WLCVXXNigc" target="_blank" style="text-decoration: none; color: inherit;">
-        <div class="video-card">
-            <div class="video-thumb">
-                <img src="../image/diagnostico/electricista.png" alt="Instalación eléctrica completa" />
-                <div class="video-overlay">
-                    <button class="play-btn" aria-label="Reproducir">▶</button>
-                </div>
-                <span class="video-duracion">4:47</span>
-                <span class="video-categoria categoria-electrica">Eléctrica</span>
-            </div>
-            <div class="video-info">
-                <p class="video-titulo">Instalación eléctrica completa</p>
-                <span class="video-autor">Carlos Ramírez</span>
-                <div class="video-stars">★★★★★</div>
-            </div>
-        </div>
-    </a>
+                    <a href="https://www.youtube.com/watch?v=iukKWyyBu9s" target="_blank"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <img src="../image/diagnostico/Installing_A_Faucet_original_481023 1.png"
+                                    alt="Fuga de agua resuelta en 24 horas" />
+                                <div class="video-overlay">
+                                    <button class="play-btn" aria-label="Reproducir">▶</button>
+                                </div>
+                                <span class="video-duracion">3:08</span>
+                                <span class="video-categoria categoria-fontaneria">Fontanería</span>
+                            </div>
+                            <div class="video-info">
+                                <p class="video-titulo">Fuga de agua resuelta en 24 horas</p>
+                                <span class="video-autor">María González</span>
+                                <div class="video-stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </a>
 
-   
-    <a href="https://www.youtube.com/watch?v=wiIKBQ5E0Hw" target="_blank" style="text-decoration: none; color: inherit;">
-        <div class="video-card">
-            <div class="video-thumb">
-                <img src="../image/diagnostico/img-2.jpg" alt="Aire acondicionado como nuevo" />
-                <div class="video-overlay">
-                    <button class="play-btn" aria-label="Reproducir">▶</button>
-                </div>
-                <span class="video-duracion">3:26</span> 
-                <span class="video-categoria categoria-climatizacion">Climatización</span>
-            </div>
-            <div class="video-info">
-                <p class="video-titulo">Aire acondicionado como nuevo</p>
-                <span class="video-autor">Ana Martínez</span>
-                <div class="video-stars">★★★★★</div>
-            </div>
-        </div>
-    </a>
 
-</div>
+                    <a href="https://www.youtube.com/watch?v=2WLCVXXNigc" target="_blank"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <img src="../image/diagnostico/electricista.png" alt="Instalación eléctrica completa" />
+                                <div class="video-overlay">
+                                    <button class="play-btn" aria-label="Reproducir">▶</button>
+                                </div>
+                                <span class="video-duracion">4:47</span>
+                                <span class="video-categoria categoria-electrica">Eléctrica</span>
+                            </div>
+                            <div class="video-info">
+                                <p class="video-titulo">Instalación eléctrica completa</p>
+                                <span class="video-autor">Carlos Ramírez</span>
+                                <div class="video-stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </a>
+
+
+                    <a href="https://www.youtube.com/watch?v=wiIKBQ5E0Hw" target="_blank"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <img src="../image/diagnostico/img-2.jpg" alt="Aire acondicionado como nuevo" />
+                                <div class="video-overlay">
+                                    <button class="play-btn" aria-label="Reproducir">▶</button>
+                                </div>
+                                <span class="video-duracion">3:26</span>
+                                <span class="video-categoria categoria-climatizacion">Climatización</span>
+                            </div>
+                            <div class="video-info">
+                                <p class="video-titulo">Aire acondicionado como nuevo</p>
+                                <span class="video-autor">Ana Martínez</span>
+                                <div class="video-stars">★★★★★</div>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
 
                 <!-- BOTON DE VER MAS TESTIMONIOS -->
-                <div class="videos-cta">
+                <!-- <div class="videos-cta">
                     <button class="btn-ver-mas">Ver más testimonios</button>
-                </div>
+                </div> -->
 
             </div>
         </section>
@@ -201,7 +208,7 @@
                         </div>
                     </div>
                     <div class="ad-caso-profesional">
-                   
+
                     </div>
 
                     <div class="ad-cards">
@@ -209,7 +216,8 @@
                         <!-- Antes -->
                         <div class="ad-card ad-card-antes">
                             <div class="ad-card-badge badge-antes">① Antes</div>
-                            <img src="../image/diagnostico/calefon-before.png" alt="Estado del calefón antes de la reparación" />
+                            <img src="../image/diagnostico/calefon-before.png"
+                                alt="Estado del calefón antes de la reparación" />
                             <p class="ad-card-desc">Calefón con 8 años de uso, sin mantenimiento. No calentaba agua
                                 correctamente.</p>
                             <div class="ad-tags">
@@ -240,7 +248,7 @@
         </section>
 
         <!-- Preguntas frecuentes-->
-         <!-- FAQ: se renderiza desde eresProfesional.js -->
+        <!-- FAQ: se renderiza desde eresProfesional.js -->
         <section class="diag-faq">
             <div class="diag-container">
                 <h2 class="faq-titulo">PREGUNTAS FRECUENTES</h2>
@@ -252,15 +260,15 @@
     </main>
 
     <!-- FOOTER-->
-    
+
     <div id="footer-placeholder"></div>
-    
+
     <!-- JAVASCRIPT -->
-    
+
     <script type="module" src="../javascript/main.js"></script>
     <script src="../javascript/diagnostico.js"></script>
-   
-    
+
+
 
 </body>
 

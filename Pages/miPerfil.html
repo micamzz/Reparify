@@ -8,6 +8,7 @@
 
     <!-- LINKS CSS -->
     <link rel="stylesheet" href="../styles/header.css" />
+      <link rel="stylesheet" href="../Styles/style.css">
     <link rel="stylesheet" href="../styles/footer.css" />
     <link rel="stylesheet" href="../styles/miPerfil.css" />
 
@@ -17,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
-<body>
+<body class="body-miPerfilUsuario">
 
     <!-- NAVBAR -->
     <div id="nav-placeholder"></div>
@@ -47,14 +48,11 @@
                     <div class="perfil-foto-wrapper">
                         <img src="../image/perfil/avatar.jpg" alt="Foto de perfil" class="perfil-foto" id="perfilFoto"
                             onerror="this.style.display='none'" />
-                        <span class="perfil-online"></span>
                     </div>
                     <div class="perfil-info">
                         <div class="perfil-nombre-row">
                             <h1 class="perfil-nombre" id="perfilNombre">Cargando...</h1>
                         </div>
-                        <p class="perfil-dato">📍 <span id="perfilUbicacion">Sin ubicación</span></p>
-                        <p class="perfil-dato">👤 Usuario desde: <span id="perfilDesde">—</span></p>
                     </div>
                 </div>
 
@@ -91,12 +89,12 @@
                     <button class="menu-item" data-panel="misReservas">
                         <span class="material-symbols-outlined">calendar_today</span> Mis reservas
                     </button>
-                    <button class="menu-item" data-panel="perfilesGuardados">
+                    <!-- <button class="menu-item" data-panel="perfilesGuardados">
                         <span class="material-symbols-outlined">bookmark</span> Perfiles guardados
-                    </button>
-                    <button class="menu-item" data-panel="perfilesGuardados">
+                    </button> -->
+                    <!-- <button class="menu-item" data-panel="perfilesGuardados">
                         <span class="material-symbols-outlined">notifications</span> Configuración
-                    </button>
+                    </button> -->
                     
                 </nav>
 
@@ -148,16 +146,16 @@
                     </div>
 
                     <!-- Panel: Perfiles Guardados -->
-                    <div class="panel" id="panel-perfilesGuardados">
+                    <!-- <div class="panel" id="panel-perfilesGuardados">
                         <h3 class="panel-titulo">Perfiles Guardados</h3>
                         <p class="panel-vacio">No guardaste ningún profesional todavía.</p>
-                    </div>
+                    </div> -->
 
                     <!-- Panel: Configuracion -->
-                    <div class="panel" id="panel-configuracion">
+                    <!-- <div class="panel" id="panel-configuracion">
                         <h3 class="panel-titulo">Configuración</h3>
                         <p class="panel-vacio">No guardaste ningún profesional todavía.</p>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
@@ -191,7 +189,6 @@
 
     <!-- main.js carga navbar + footer -->
     <script type="module" src="../javascript/main.js"></script>
-    <!-- historial.js primero: define agregarServicio() que miPerfil.js puede necesitar -->
     <script src="../javascript/historial.js"></script>
     <script src="../javascript/miPerfil.js"></script>
 

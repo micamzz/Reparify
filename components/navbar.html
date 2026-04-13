@@ -10,30 +10,36 @@
             <a href="/index.html" class="nav-link">Inicio</a>
             <a href="/index.html#steps-comofunciona" class="nav-link">Cómo funciona</a>
             <a href="/Pages/obtenerDiagnostico.html" class="nav-link">Obtén un diagnóstico</a>
-            <a href="#" class="nav-link">Profesionales</a>
+            <a href="/Pages/profesionales.html" class="nav-link">Profesionales</a>
             <a href="/Pages/sobreNosotros.html" class="nav-link">Sobre nosotros</a>
         </nav>
 
         <!-- Botones desktop -->
         <div class="nav-actions">
 
-            <!-- NO LOGUEADO -->
+            <!--  sin sesión activa -->
             <div id="navGuest">
                 <a href="/Pages/iniciarSesion.html" class="btn-login">Iniciar sesión</a>
                 <a href="/Pages/registro.html" class="btn-register">Registrarse</a>
             </div>
-            
-            <!-- LOGUEADO -->
-            <div id="navUser" style="display: none;">
+
+            <!-- usuario regular logueado -->
+            <div id="navUser" style="display:none;">
                 <a href="/Pages/miPerfil.html" class="btn-perfil-pink">Mi perfil</a>
                 <button id="btnLogout" class="btn-login">Cerrar sesión</button>
+            </div>
+
+            <!--  profesional logueado -->
+            <div id="navProfesional" style="display:none;">
+                <a href="/Pages/miPerfilProfesional.html" class="btn-perfil-pink">Mi perfil</a>
+                <button id="btnLogoutPro" class="btn-login">Cerrar sesión</button>
             </div>
 
         </div>
 
         <!-- Botón hamburguesa -->
-        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false"
-            aria-controls="menuMobile">
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú"
+            aria-expanded="false" aria-controls="menuMobile">
             <span></span>
             <span></span>
             <span></span>
@@ -41,7 +47,7 @@
 
     </div>
 
-    <!-- links + botones en un solo contenedor -->
+    <!-- Panel móvil -->
     <div class="nav-mobile-panel" id="menuMobile" role="navigation" aria-label="Menú móvil">
 
         <nav class="nav-links-mobile">
@@ -54,9 +60,22 @@
 
         <div class="nav-mobile-divider"></div>
 
-        <div class="nav-actions-mobile">
+        <!-- Mobile: sin sesión -->
+        <div class="nav-actions-mobile" id="navMobileGuest">
             <a href="/Pages/iniciarSesion.html" class="btn-login">Iniciar sesión</a>
             <a href="/Pages/registro.html" class="btn-register">Registrarse</a>
+        </div>
+
+        <!-- Mobile: usuario logueado -->
+        <div class="nav-actions-mobile" id="navMobileUser" style="display:none;">
+            <a href="/Pages/miPerfil.html" class="btn-perfil-pink">Mi perfil</a>
+            <button id="btnLogoutMobile" class="btn-login">Cerrar sesión</button>
+        </div>
+
+        <!-- Mobile: profesional logueado -->
+        <div class="nav-actions-mobile" id="navMobilePro" style="display:none;">
+            <a href="/Pages/miPerfilProfesional.html" class="btn-perfil-pink">Mi perfil</a>
+            <button id="btnLogoutMobilePro" class="btn-login">Cerrar sesión</button>
         </div>
 
     </div>
