@@ -1,0 +1,632 @@
+@import url('variables.css');
+
+
+/* LAYOUT PRINCIPAL */
+
+.agenda-main {
+    padding: 2.5em 0 4em;
+    min-height: calc(100vh - 64px);
+}
+
+.agenda-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.agenda-titulo {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 800;
+    color: var(--blue);
+    text-align: center;
+    margin: 0;
+}
+
+.agenda-seccion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+}
+
+.agenda-subtitulo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+}
+
+/* CARD PRINCIPAL (calendario + horarios) */
+
+.coordinar-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    border-bottom: 4px solid var(--orange);
+    padding: 1.75em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    box-shadow: var(--shadow-card);
+}
+
+
+/* CALENDARIO */
+
+.cal-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1em;
+}
+
+.cal-titulo {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.cal-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.875em;
+}
+
+.cal-mes-actual {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.cal-nav-btns {
+    display: flex;
+    gap: 4px;
+}
+
+.cal-btn-nav {
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.cal-btn-nav:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+/* Grid del calendario */
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-bottom: 4px;
+}
+
+.cal-dia-nombre {
+    text-align: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    padding: 4px 0;
+}
+
+.cal-dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.cal-dia {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    transition: background 0.2s, color 0.2s;
+}
+
+.cal-dia:hover:not(.cal-dia-deshabilitado):not(.cal-dia-pasado) {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+.cal-dia.seleccionado {
+    background: var(--blue);
+    color: var(--white);
+    font-weight: 700;
+}
+
+/* Domingo siempre deshabilitado, feriados, días pasados */
+.cal-dia-deshabilitado {
+    color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.cal-dia-pasado {
+    color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.cal-dia-vacio {
+    /* celda vacía para alinear */
+    pointer-events: none;
+}
+
+/* Sábado con estilo especial (trabaja hasta 13hs) */
+.cal-dia-sabado:not(.cal-dia-deshabilitado):not(.cal-dia-pasado) {
+    color: var(--orange);
+}
+
+
+/* HORARIOS */
+
+.horarios-titulo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 4px;
+}
+
+.horarios-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin: 0 0 1em;
+}
+
+.horarios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 1.25em;
+    min-height: 120px;
+}
+
+.horario-btn {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    background: var(--white);
+    padding: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+    text-align: center;
+}
+
+.horario-btn:hover:not(:disabled) {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.horario-btn.seleccionado {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--white);
+    font-weight: 700;
+}
+
+/* Ocupado por el profesional */
+.horario-btn.ocupado-pro {
+    background: #f5f5f5;
+    color: #bbb;
+    border-color: #eee;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+/* Ya reservado por el usuario en este horario */
+.horario-btn.ocupado-usuario {
+    background: #fff5f5;
+    color: #e53e3e;
+    border-color: #fca5a5;
+    cursor: not-allowed;
+    font-size: 0.75rem;
+}
+
+.horario-vacio {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    padding: 2em 0;
+}
+
+/* Botones de acción */
+.btn-confirmar {
+    width: 100%;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 13px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.22s, transform 0.22s;
+    margin-bottom: 10px;
+}
+
+.btn-confirmar:hover:not(:disabled) {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+}
+
+.btn-confirmar:disabled {
+    background: #c5d8ff;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-cancelar {
+    display: block;
+    text-align: center;
+    color: var(--blue);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-cancelar:hover { opacity: 0.7; }
+
+
+/* MODAL DE CONFIRMACIÓN */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 150;
+    padding: 24px;
+    backdrop-filter: blur(3px);
+}
+
+.modal-card {
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: var(--radius-lg);
+    padding: 2em 1.75em;
+    max-width: 380px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75em;
+    text-align: center;
+    animation: modalEntrada 0.28s ease;
+}
+
+@keyframes modalEntrada {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 0.875em;
+    right: 0.875em;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+.modal-cerrar:hover { color: var(--black); }
+
+.modal-icono { font-size: 2.5rem; }
+
+.modal-titulo {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0;
+}
+
+.modal-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.modal-detalles {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 1em;
+    text-align: left;
+}
+
+.modal-detalle {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.modal-detalle-icono { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+
+.modal-detalle-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin: 0;
+}
+
+.modal-detalle-valor {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+}
+
+.modal-btns {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modal-btn-primary {
+    display: block;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 12px;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.22s;
+}
+.modal-btn-primary:hover { background: var(--blue-dark); }
+
+.modal-btn-secondary {
+    display: block;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 11px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: border-color 0.22s, color 0.22s;
+}
+.modal-btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
+
+/* POPUP: bloquea el contenido si no está logueado */
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 24px;
+    backdrop-filter: blur(4px);
+}
+
+.popup-overlay.oculto {
+    display: none;
+}
+
+.popup-card {
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: var(--radius-lg);
+    padding: 2.5em 2em;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 6px 6px 0  var(--orange);
+    animation: popupEntrada 0.3s ease;
+}
+
+@keyframes popupEntrada {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+
+
+.popup-titulo {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5em;
+}
+
+.popup-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 1.5em;
+}
+
+.popup-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popup-btn-primary {
+    display: block;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.22s;
+}
+
+.popup-btn-primary:hover {
+    background: var(--blue-dark);
+}
+
+.popup-btn-secondary {
+    display: block;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    padding: 11px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.22s, color 0.22s;
+}
+
+.popup-btn-secondary:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+}
+
+.popup-cerrar {
+    position: absolute;
+    top: 0.875em;
+    right: 0.875em;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s;
+    padding: 4px;
+}
+
+.popup-cerrar:hover {
+    color: var(--black);
+}
+/* RESPONSIVE TABLET (769px - 1024px) */
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .coordinar-card {
+        gap: 1.5em;
+    }
+}
+
+
+/* RESPONSIVE PHABLET (426px - 768px) */
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    .coordinar-card {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+
+    .pros-barra {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pros-acciones-barra {
+        justify-content: flex-end;
+    }
+}
+
+
+/* RESPONSIVE TELÉFONO (321px - 425px) */
+
+@media screen and (min-width: 321px) and (max-width: 425px) {
+    .agenda-container {
+        padding: 0 14px;
+        gap: 2em;
+    }
+
+    .coordinar-card {
+        grid-template-columns: 1fr;
+        padding: 1.25em;
+        gap: 1.25em;
+    }
+
+    .pros-barra {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .horarios-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cal-dia {
+        font-size: 0.72rem;
+    }
+}
+
+
+/* RESPONSIVE TELÉFONO MUY PEQUEÑO (≤ 320px) */
+
+@media screen and (max-width: 320px) {
+    .agenda-container {
+        padding: 0 10px;
+        gap: 1.75em;
+    }
+
+    .coordinar-card {
+        grid-template-columns: 1fr;
+        padding: 1em;
+        gap: 1em;
+    }
+
+    .pros-barra {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pros-acciones-barra {
+        justify-content: space-between;
+    }
+
+    .horarios-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+    }
+
+    .horario-btn {
+        font-size: 0.78rem;
+        padding: 8px;
+    }
+
+    .cal-dia {
+        font-size: 0.68rem;
+    }
+
+    .cal-dia-nombre {
+        font-size: 0.65rem;
+    }
+}
