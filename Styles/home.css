@@ -1,0 +1,754 @@
+@import url('variables.css');
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-family: var(--font-accent);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.highlight-blue {
+  color: var(--blue);
+}
+
+
+/*HERO */
+.hero {
+  padding-top: 3.75em
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+  align-items: center;
+  padding-bottom: 3.75em;
+}
+
+
+
+.hero-title {
+  font-family: var(--font-accent);
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.hero-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+
+/* STATS*/
+
+.stats-inner {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  padding: 28px 24px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-number {
+  padding: 6px 18px;
+  font-weight: 700;
+  border-radius: 40px;
+  color: var(--black);
+}
+
+.stat-number.pink {
+  background: var(--pink);
+
+}
+
+.stat-number.yellow {
+  background: var(--yellow);
+
+}
+
+.stat-number.blue {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.stat-number.orange {
+  background: var(--orange);
+}
+
+/* Estrella valoracion */
+.estrella {
+  color: var(--yellow);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* PASOS */
+.steps {
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+
+}
+
+.step.step-left {
+  direction: ltr;
+}
+
+.step.step-right {
+  direction: ltr;
+}
+
+.step.step-left .phone-mockup {
+  order: -1;
+}
+
+.step-card {
+  border: 2px solid var(--border);
+  border-bottom: var(--blue) 6px solid;
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  position: relative;
+}
+
+.step-icon {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+}
+
+.step-card h3 {
+  font-family: var(--font-accent);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.step-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* IMAGENES-TELEFONOS*/
+.phone-screen {
+  width: 70%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* TRUST BAR */
+.trust-inner {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  padding: 20px 24px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* OPINIONES */
+.testimonials {
+  background: transparent;
+  overflow: hidden;
+}
+
+.testimonials-slider {
+  overflow: hidden;
+  position: relative;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s cubic-bezier(.4, 0, .2, 1);
+}
+
+.testimonial-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  min-width: calc(25% - 15px);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
+}
+
+.stars {
+  color: var(--yellow);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.testimonial-text {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.testimonial-author strong {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.testimonial-author span {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* SLIDER DOTS */
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 28px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  padding: 0;
+}
+
+.dot.active {
+  background: var(--blue);
+
+  border-radius: 6px;
+}
+
+/* BOTONES CTA  */
+.cta-section {
+  padding: 60px 0 80px;
+
+}
+
+.cta-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* CARD  */
+.cta-card {
+  background: transparent;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+    box-shadow: 6px 6px 0 var(--blue);
+}
+
+/* CARD SOS PROFESIONAL */
+.cta-pro{
+   box-shadow: 6px 6px 0 var(--pink);
+}
+
+
+.cta-card h3 {
+  font-family: var(--font-accent);
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.cta-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+
+/*RESPONSIVE */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+  /* Hero */
+  .hero-inner {
+    gap: 1.5em;
+    padding-bottom: 2.5em;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  /* Stats */
+  .stats-inner {
+    gap: 28px;
+  }
+
+  /* Pasos */
+  .step {
+    gap: 32px;
+    margin-bottom: 52px;
+  }
+
+  .step-card {
+    padding: 28px 24px;
+  }
+
+  .phone-screen {
+    width: 80%;
+  }
+
+  /* Testimonios */
+  .testimonial-card {
+    min-width: calc(50% - 10px);
+  }
+
+  /* CTA */
+  .cta-inner {
+    gap: 20px;
+  }
+
+  .cta-card {
+    padding: 32px 28px;
+  }
+}
+
+/* RESPONSIVE */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  .hero {
+    padding-top: 2.5em;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-bottom: 2em;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  .hero-image img {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .hero-btns {
+    justify-content: center;
+  }
+
+  /* Stats */
+  .stats-inner {
+    gap: 20px;
+    padding: 20px 16px;
+  }
+
+  /* Pasos: una columna */
+  .steps {
+    padding: 52px 0 24px;
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  .step.step-left .phone-mockup {
+    order: -1;
+  }
+
+  .phone-screen {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .step-card {
+    padding: 28px 24px;
+  }
+
+  /* Trust */
+  .trust-inner {
+    gap: 1em;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Testimonios */
+  .testimonials {
+    padding: 52px 0 40px;
+  }
+
+  .testimonial-card {
+    min-width: calc(50% - 10px);
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 40px 0 60px;
+  }
+
+  .cta-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cta-card {
+    padding: 32px 28px;
+  }
+}
+
+/* TELEFONO */
+@media screen and (min-width: 321px) and (max-width: 425px) {
+
+  /* Hero */
+  .hero {
+    padding-top: 2em;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-bottom: 1.5em;
+    gap: 1.25em;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  .hero-image img {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero-desc {
+    font-size: 0.88rem;
+  }
+
+  .hero-btns {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Stats */
+  .stats-inner {
+    gap: 14px;
+    padding: 16px 12px;
+  }
+
+  .stat-number {
+    padding: 5px 14px;
+    font-size: 0.9rem;
+  }
+
+  /* Pasos */
+  .steps {
+    padding: 40px 0 20px;
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .step.step-left .phone-mockup {
+    order: -1;
+  }
+
+  .phone-screen {
+    width: 65%;
+    margin: 0 auto;
+  }
+
+  .step-card {
+    padding: 24px 20px;
+  }
+
+  .step-card h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Trust */
+  .trust-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .trust-item {
+    font-size: 0.85rem;
+  }
+
+  /* Testimonios */
+  .testimonials {
+    padding: 40px 0 32px;
+  }
+
+  .testimonial-card {
+    min-width: 100%;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 32px 0 48px;
+  }
+
+  .cta-inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cta-card {
+    padding: 28px 20px;
+  }
+
+  .cta-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .cta-card p {
+    font-size: 0.85rem;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  /* OCULTOS */
+  .phone-screen {
+    display: none;
+  }
+
+  .stats-inner {
+    display: none;
+  }
+
+  .testimonials {
+    display: none;
+  }
+}
+
+/* TELEFONO PEQUEÑOS */
+@media screen and (max-width: 320px) {
+
+  /* Hero */
+  .hero {
+    padding-top: 1.5em;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-bottom: 1.25em;
+    gap: 1em;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  .hero-image img {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 1.55rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .hero-desc {
+    font-size: 0.82rem;
+  }
+
+  .hero-btns {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Pasos */
+  .steps {
+    padding: 32px 0 16px;
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+
+  .step-card {
+    padding: 20px 16px;
+  }
+
+  .step-card h3 {
+    font-size: 1rem;
+  }
+
+  .step-card p {
+    font-size: 0.85rem;
+  }
+
+  .step-icon {
+    font-size: 1.5rem;
+  }
+
+  /* Trust */
+  .trust-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .trust-item {
+    font-size: 0.8rem;
+  }
+
+
+  /* CTA */
+  .cta-section {
+    padding: 24px 0 36px;
+  }
+
+  .cta-inner {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cta-card {
+    padding: 22px 16px;
+  }
+
+  .cta-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .cta-card p {
+    font-size: 0.82rem;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* OCULTOS */
+  .phone-screen ,.stats-inner, .testimonials{
+    display: none;
+  }
+
+  
+}
