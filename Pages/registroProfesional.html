@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reparify – Registro Profesional</title>
+
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/registroProfesional.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body class="body-registroProfesional">
+
+    <div id="nav-placeholder"></div>
+
+    <main class="regpro-main">
+        <div class="regpro-layout">
+
+            <!-- Columna izquierda: texto fijo -->
+            <div class="regpro-texto">
+                <h1 class="regpro-titulo">
+                    Crea tu cuenta
+                    profesional en <span class="color-blue">Reparify</span>
+                </h1>
+                <p class="regpro-subtitulo">Regístrate para hacer crecer tu trabajo.</p>
+            </div>
+
+            <!-- Columna central: card con los pasos -->
+            <div class="regpro-card">
+                <h2 class="card-titulo">¡Bienvenido!</h2>
+                <p class="card-desc">Ingresa tus datos para continuar</p>
+
+                <!-- Indicador de pasos -->
+                <div class="pasos-indicador">
+                    <div class="paso-dot activo" id="dot1">1</div>
+                    <div class="paso-linea" id="linea1"></div>
+                    <div class="paso-dot" id="dot2">2</div>
+                    <div class="paso-linea" id="linea2"></div>
+                    <div class="paso-dot" id="dot3">3</div>
+                </div>
+
+                <!-- PASO 1: Datos personales -->
+                <div class="paso-contenido activo" id="paso1">
+                    <p class="paso-label">Datos personales</p>
+                    <form id="formPaso1" novalidate>
+
+                        <div class="campo-grupo">
+                            <input class="campo-input" type="text" id="p1Nombre"
+                                placeholder="Nombre y Apellido" autocomplete="name" />
+                            <span class="campo-error" id="err-p1Nombre"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <input class="campo-input" type="text" id="p1Dni"
+                                placeholder="DNI / CUIT" />
+                            <span class="campo-error" id="err-p1Dni"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <input class="campo-input" type="tel" id="p1Telefono"
+                                placeholder="Teléfono" autocomplete="tel" />
+                            <span class="campo-error" id="err-p1Telefono"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <input class="campo-input" type="text" id="p1Email"
+                                placeholder="Email" autocomplete="email" />
+                            <span class="campo-error" id="err-p1Email"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <div class="input-password-wrapper">
+                                <input class="campo-input" type="password" id="p1Password"
+                                    placeholder="Contraseña" autocomplete="new-password" />
+                                <button type="button" class="toggle-pass" data-target="p1Password"
+                                    aria-label="Ver contraseña">👁</button>
+                            </div>
+                            <span class="campo-error" id="err-p1Password"></span>
+                        </div>
+
+                        <p class="ya-cuenta">
+                            ¿Ya tienes cuenta? <a href="./iniciarSesion.html">Inicia sesión</a>
+                        </p>
+
+                        <button type="submit" class="btn-continuar">Continuar</button>
+
+                    </form>
+                </div>
+
+                <!-- PASO 2: Experiencia y servicio -->
+                <div class="paso-contenido" id="paso2">
+                    <p class="paso-label">Experiencia y servicio</p>
+                    <form id="formPaso2" novalidate>
+
+                        <div class="campo-grupo">
+                            <select class="campo-input campo-select" id="p2Especialidad">
+                                <option value="" disabled selected>Especialidad / oficio</option>
+                                <option value="Carpintería">Carpintería</option>
+                                <option value="Plomería">Plomería</option>
+                                <option value="Pinturería">Pinturería</option>
+                                <option value="Gasista">Gasista</option>
+                                <option value="Electricista">Electricista</option>
+                                <option value="Albañilería">Albañilería</option>
+                            </select>
+                            <span class="campo-error" id="err-p2Especialidad"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <select class="campo-input campo-select" id="p2Zona">
+                                <option value="" disabled selected>Zona de cobertura</option>
+                                <option value="Belgrano">Belgrano</option>
+                                <option value="Colegiales">Colegiales</option>
+                                <option value="Palermo">Palermo</option>
+                                <option value="Villa Crespo">Villa Crespo</option>
+                                <option value="Recoleta">Recoleta</option>
+                            </select>
+                            <span class="campo-error" id="err-p2Zona"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <input class="campo-input" type="text" id="p2Matricula"
+                                placeholder="Matrícula profesional" />
+                            <span class="campo-error" id="err-p2Matricula"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label class="campo-label-file">
+                                <input type="file" id="p2Certificado" accept="image/*,.pdf"
+                                    class="input-file-hidden" />
+                                <span class="campo-input campo-file" id="p2CertificadoLabel">
+                                  Certificado de antecedentes penales
+                                </span>
+                            </label>
+                            <span class="campo-error" id="err-p2Certificado"></span>
+                        </div>
+
+                        <p class="ya-cuenta">
+                            ¿Ya tienes cuenta? <a href="./iniciarSesion.html">Inicia sesión</a>
+                        </p>
+
+                        <div class="pasos-btns">
+                            <button type="button" class="btn-volver" id="btnVolver2">Volver</button>
+                            <button type="submit" class="btn-continuar">Continuar</button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- PASO 3: Facturación -->
+                <div class="paso-contenido" id="paso3">
+                    <p class="paso-label">Facturación</p>
+                    <form id="formPaso3" novalidate>
+
+                        <div class="campo-grupo">
+                            <input class="campo-input" type="text" id="p3Email"
+                                placeholder="Email" autocomplete="email" />
+                            <span class="campo-error" id="err-p3Email"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <input class="campo-input" type="text" id="p3Cbu"
+                                placeholder="CBU / ALIAS" />
+                            <span class="campo-error" id="err-p3Cbu"></span>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <input class="campo-input" type="text" id="p3Domicilio"
+                                placeholder="Domicilio fiscal" autocomplete="street-address" />
+                            <span class="campo-error" id="err-p3Domicilio"></span>
+                        </div>
+
+                        <div class="campo-grupo campo-check">
+                            <label class="check-label">
+                                <input type="checkbox" id="p3Terminos" />
+                                Acepto los Términos y Condiciones
+                            </label>
+                            <span class="campo-error" id="err-p3Terminos"></span>
+                        </div>
+
+                        <p class="ya-cuenta">
+                            ¿Ya tienes cuenta? <a href="./iniciarSesion.html">Inicia sesión</a>
+                        </p>
+
+                        <div class="pasos-btns">
+                            <button type="button" class="btn-volver" id="btnVolver3">Volver</button>
+                            <button type="submit" class="btn-continuar">Continuar</button>
+                        </div>
+
+                        <p class="form-mensaje" id="formMensajePro"></p>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Columna derecha: imagen del profesional -->
+            <div class="regpro-imagen">
+                <img src="../image/profesionales/registro 2.png"
+                    alt="Profesional Reparify"
+                    class="regpro-img"
+                    onerror="this.style.display='none'" />
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="../javascript/main.js"></script>
+    <script src="../javascript/registroProfesional.js"></script>
+
+</body>
+</html>
