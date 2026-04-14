@@ -29,12 +29,6 @@
     justify-content: center;
     padding: 2em 1.5em 0;
     position: relative;
-
-    /*
-     * La curva se logra con un pseudo-elemento que dibuja
-     * un círculo azul grande posicionado fuera del contenedor,
-     * creando la ilusión de una curva entrante desde la derecha.
-     */
 }
 
 
@@ -220,18 +214,34 @@
 
     .contacto-titulo {
         font-size: 1.5rem;
+         color: var(--blue);
     }
 
     .btn-enviar {
         padding: 12px;
         font-size: 0.95rem;
-    }
+        }
+        
+        .contacto-desc {
+            color: var(--text);
+            font-size: 0.9em;
+        }
+        
+        .campo-input {
+            border: 1px solid var(--orange)
+        }
+        
+        .campo-grupo>.campo-input {
+            background-color: var(bg);
 }
-
 
 /* RESPONSIVE TELÉFONO MUY PEQUEÑO (≤ 320px) */
 
 @media screen and (max-width: 320px) {
+
+    .contacto-titulo, .contacto-desc {
+        color:var(--black)
+    }
     .contacto-main {
         padding: 1em 10px;
         align-items: flex-start;
@@ -253,10 +263,12 @@
 
     .contacto-titulo {
         font-size: 1.3rem;
+        color: var(--blue);
     }
 
     .contacto-desc {
-        font-size: 0.88rem;
+        font-size: 0.8rem;
+          color:var(--text)
     }
 
     .campo-input {
@@ -268,4 +280,4 @@
         padding: 11px;
         font-size: 0.9rem;
     }
-}
+}}

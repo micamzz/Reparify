@@ -87,7 +87,6 @@ img{
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
-    white-space: nowrap;
 }
 
 .btn-buscar:hover {
@@ -591,13 +590,10 @@ img{
     }
 
     .buscar-input-wrapper {
-        width: 100%;
+   width:70%;
         min-width: unset;
     }
 
-    .btn-buscar {
-        width: 100%;
-    }
 
     .categorias-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -679,17 +675,22 @@ img{
 
 @media screen and (max-width: 320px) {
 
+    .btn-buscar {
+        width: 100%;
+    }
     .buscar-container {
         padding: 0 14px;
     }
 
     .categorias-grid {
-        grid-template-columns: repeat(2, 1fr);
+        margin-top: 2em;
+        grid-template-columns: repeat(2, 0.5fr);
         gap: 0.75em;
     }
 
     .categoria-card {
-        padding: 1em 0.75em;
+        padding: 0.75em 0.75em;
+        box-shadow: 4px 4px 0px var(--orange);
     }
 
     .categoria-icono {

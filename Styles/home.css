@@ -9,7 +9,7 @@ img {
 .container {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 1.5rem;
 }
 
 .section-title {
@@ -17,7 +17,7 @@ img {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   font-weight: 800;
   text-align: center;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   color: var(--text);
 }
 
@@ -36,7 +36,6 @@ img {
   grid-template-columns: 1fr 1fr;
   gap: 2em;
   align-items: center;
-  padding-bottom: 3.75em;
 }
 
 
@@ -127,9 +126,8 @@ img {
 
 /* PASOS */
 .steps {
-  background: transparent;
-  position: relative;
-  overflow: hidden;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 .step {
@@ -213,6 +211,7 @@ img {
 .testimonials-slider {
   overflow: hidden;
   position: relative;
+  margin-top: 1em;
 }
 
 .testimonials-track {
@@ -289,7 +288,7 @@ img {
   display: flex;
   justify-content: center;
   gap: 6px;
-  margin-top: 28px;
+  margin-top: 2em;
 }
 
 .dot {
@@ -310,7 +309,7 @@ img {
 
 /* BOTONES CTA  */
 .cta-section {
-  padding: 60px 0 80px;
+  padding: 2em 0 3em;
 
 }
 

@@ -155,11 +155,14 @@ button {
     overflow-y: auto;
     /* Máximo alto: pantalla menos el navbar */
     max-height: calc(100dvh - 64px);
-    animation: slideDown 0.28s ease-out;
+    visibility: hidden;      
+    pointer-events: none; 
 }
 
 .nav-mobile-panel.mobile-open {
     display: flex;
+      visibility: visible;     /* ← y esto */
+    pointer-events: auto; 
 }
 
 /* Links dentro del panel */

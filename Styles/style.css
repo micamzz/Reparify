@@ -40,6 +40,7 @@ body {
 
 .body-contacto {
     background-image: url('../image/fondo-Contactar.jpg');
+     background-attachment: fixed;
 
 }
 
@@ -50,7 +51,7 @@ body {
 }
 
 
-.body-obtenerDiagnostico {
+.body-obtenerDiagnostico, .body-trabajaConNosotros {
     background-image: url('../image/fondo-diagnostico.jpg');
 }
 
@@ -63,10 +64,7 @@ body {
     background-image: url('../image/fondo-sobreNos.jpg');
 }
 
-.body-trabajaConNosotros {
-    background: url('../image/fondo-eresProfesional.jpg');
-    background-size: contain;
-}
+
 
 /* FUENTE DE H1,H2,H3,H4 GENERAL */
 

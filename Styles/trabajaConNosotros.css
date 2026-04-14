@@ -78,13 +78,11 @@
     font-size: 1rem;
     font-weight: 700;
     text-decoration: none;
-    transition: background 0.22s, transform 0.22s;
-    box-shadow: 3px 3px 0px var(--black);
+
 }
 
 .btn-registrate:hover {
     background: var(--blue-dark);
-    transform: translateY(-2px);
 }
 
 

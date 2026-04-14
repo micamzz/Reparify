@@ -14,6 +14,21 @@
     gap: 2em;
 }
 
+/* BOTON CAMBIAR FOTO */
+/* BOTÓN CAMBIAR FOTO DE PERFIL */
+.btn-cambiar-foto {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    font-size: 2rem;
+}
+ 
+.btn-cambiar-foto:hover {
+    transform: scale(1.1);
+}
 /* BANNER VALORACIÓN PENDIENTE */
 .banner-valoracion {
     background: var(--yellow);
