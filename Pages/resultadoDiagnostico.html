@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reparify – Resultado del diagnóstico</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/footer.css" />
+    <link rel="stylesheet" href="../styles/resultadoDiagnostico.css" />
+
+    <!-- fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="body-obtenerDiagnostico">
+    <div id="nav-placeholder"></div>
+
+    <main class="res-main">
+        <div class="res-container">
+
+            <!-- TÍTULO -->
+            <div class="res-header">
+                <h1 class="res-titulo">Te acercamos tu diagnóstico</h1>
+            </div>
+
+            <!-- DESCRIPCIÓN DEL USUARIO -->
+            <section class="res-problema">
+                <p class="res-seccion-label">Tu problema:</p>
+                <div class="res-problema-card">
+                    <div class="res-problema-desc-box">
+                        <p class="res-desc-label">Descripción:</p>
+                        <p id="resDescripcionUsuario" class="res-desc-texto"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EVALUACIÓN -->
+            <section class="res-evaluacion">
+                <h2 class="res-seccion-titulo">Evaluación de nuestra inteligencia</h2>
+                <div class="res-eval-grid">
+
+                    <!-- Dificultad -->
+                    <div class="res-eval-card">
+                        <p class="res-eval-label">Nivel de dificultad</p>
+                        <div class="res-barra-wrap">
+                            <div id="resBarra" class="res-barra"></div>
+                            <span id="resDificultad" class="res-badge-dificultad"></span>
+                        </div>
+                        <div id="resSolucionCasera" class="res-solucion-casera"></div>
+                    </div>
+
+                    <!-- Diagnóstico -->
+                    <div class="res-eval-card res-eval-diag">
+                        <p id="resTitulo" class="res-eval-titulo-diag"></p>
+                        <p id="resDescripcionDiag" class="res-eval-texto-diag"></p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- PASOS -->
+            <section class="res-pasos">
+                <h2 class="res-pasos-titulo">
+                    <span class="res-pasos-icono">💡</span>
+                    Sugerencias para arreglarlo vos mismo
+                </h2>
+                <p class="res-pasos-subtitulo">Basado en nuestro análisis, este problema puede ser solucionado por vos mismo siguiendo estos pasos:</p>
+                <ol id="resPasosList" class="res-pasos-lista"></ol>
+
+                <!-- Advertencia -->
+                <div class="res-advertencia">
+                    <span class="res-adv-icono">⚠️</span>
+                    <div>
+                        <p id="resAdvertenciaTitulo" class="res-adv-titulo"></p>
+                        <p id="resAdvertenciaTexto" class="res-adv-texto"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BOTONES -->
+            <div class="res-acciones">
+                <button id="btnResuelto" class="res-btn res-btn-primary">
+                    ¡Ya lo solucioné!
+                </button>
+                <a id="btnAgendar" href="./profesionales.html" class="res-btn res-btn-secondary">
+                    ¡Ver Profesionales disponibles!
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script type="module" src="../javascript/main.js"></script>
+    <script src="../javascript/resultadoDiagnostico.js"></script>
+</body>
+</html>
