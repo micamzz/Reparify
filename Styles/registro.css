@@ -1,5 +1,8 @@
 @import url('variables.css');
 
+body{
+     background-image: url('../image/fondo-registroProfesional.jpg');
+}
 
 /*Estructura general */ 
 
@@ -82,24 +85,12 @@
     gap: 0.25em;
 }
 
-.campo-label {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    padding-left: 2px;
-}
 
 /* Wrapper para input + botón ojo */
 .input-password-wrapper {
     position: relative;
     display: flex;
     align-items: center;
-}
-
-
-/* Input sin wrapper (email) */
-.campo-grupo > .campo-input {
-    padding-right: 0.875em;
 }
 
 .campo-input:focus {
@@ -124,7 +115,6 @@
     padding: 13px;
     font-size: 1rem;
     font-weight: 700;
-    cursor: pointer;
     margin-top: 0.5em;
 }
 .btn-registrar:hover {

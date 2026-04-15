@@ -1,6 +1,8 @@
 @import url('variables.css');
 
-
+body{
+     background-image: url('../image/fondo-perfilUsuario.jpg');
+}
 /* ── LAYOUT ── */
 
 .miproperfil-main {
@@ -37,7 +39,6 @@
 .pro-foto-wrapper {
     position: relative;
     flex-shrink: 0;
-    cursor: pointer;
 }
 
 .foto-overlay {
@@ -178,7 +179,6 @@
     font-size: 0.92rem;
     font-weight: 600;
     color: var(--text-muted);
-    cursor: pointer;
     text-align: left;
     transition: background var(--transition), color var(--transition);
 }
@@ -264,7 +264,6 @@
     padding: 0.7rem 1.8rem;
     font-size: 0.95rem;
     font-weight: 700;
-    cursor: pointer;
     transition: background var(--transition);
 }
 
@@ -352,7 +351,6 @@
     padding: 0.5rem 1.1rem;
     font-size: 0.88rem;
     font-weight: 700;
-    cursor: pointer;
     white-space: nowrap;
     transition: background var(--transition);
 }

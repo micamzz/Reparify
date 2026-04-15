@@ -1,5 +1,8 @@
 @import url('variables.css');
 
+body{
+     background-image: url('../image/fondo-registroProfesional.jpg');
+}
 
 .color-blue {
     color: var(--blue);
@@ -141,8 +144,6 @@
 /* CAMPOS */
 
 .campo-grupo {
-    display: flex;
-    flex-direction: column;
     gap: 0.2em;
     margin-bottom: 0.75em;
 }
@@ -270,7 +271,6 @@
     padding: 13px;
     font-size: 0.95rem;
     font-weight: 700;
-    cursor: pointer;
 }
 
 .btn-continuar:hover {
@@ -293,7 +293,7 @@
     padding: 12px;
     font-size: 0.9rem;
     font-weight: 600;
-    cursor: pointer;
+
     transition: border-color 0.22s, color 0.22s;
 }
 

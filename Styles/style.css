@@ -11,61 +11,6 @@ body {
     background-repeat: no-repeat;
 }
 
-/* BODY DE CADA PAGINA */
-
-.body-home {
-    background-image: url('../image/fondo-home.jpg ');
-}
-
-/* Inicio Sesion - Registrasrse - Recuperar contra */
-.body-IniciarSesion,
-.body-recuperarContra {
-    background-image: url('../image/fondo-iniciar.jpg');
-}
-
-/* Registrarse Profesional */
-.body-registro, .body-registroProfesional {
-    background-image: url('../image/fondo-registroProfesional.jpg');
-}
-
-
-.body-agendarCita {
-    background-image: url('/image/fondo-diagnostico.jpg');
-}
-
-.body-buscarProfesionales {
-    background-image: url('../image/fondo-profesionales.jpg');
-    background-size: contain
-}
-
-.body-contacto {
-    background-image: url('../image/fondo-Contactar.jpg');
-     background-attachment: fixed;
-
-}
-
-/* Mi perfil - vista de usuario y profesional */
-.body-miPerfilUsuario,
-.body-miPerfilProfesional {
-    background-image: url('../image/fondo-perfilUsuario.jpg');
-}
-
-
-.body-obtenerDiagnostico, .body-trabajaConNosotros {
-    background-image: url('../image/fondo-diagnostico.jpg');
-}
-
-.body-perfilProfesional {
-    background: url('/image/fondo-perfilUsuario.jpg');
-}
-
-
-.body-sobreNosotros {
-    background-image: url('../image/fondo-sobreNos.jpg');
-}
-
-
-
 /* FUENTE DE H1,H2,H3,H4 GENERAL */
 
 h1, h2, h3, h4 {
@@ -88,6 +33,14 @@ p {
   color: var(--color-text);
 }
 
+button{
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
 /* ESTILOS GENERALES DE BOTONES */
 
 /* BOTONES*/
@@ -97,12 +50,10 @@ p {
 .btn-pink,
 .btn-login,
 .btn-register,
-.btn-perfil-pink {
+.btn-perfil-pink,.res-btn-secondary {
     display: inline-block;
     text-align: center;
     font-weight: 600;
-    cursor: pointer;
-    transition: all var(--transition);
     border-radius: 10px;
     border: none;
     text-decoration: none;
@@ -123,13 +74,13 @@ p {
     border-radius: 0.8em;
 }
 
-.btn-primary {
+.btn-primary , .res-btn-primary{
     background: var(--blue);
     color: var(--white);
     /* box-shadow: 0 4px 16px rgba(26, 115, 232, 0.25); */
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .res-btn-primary:hover {
     background: var(--blue-dark);
     box-shadow: 0 8px 24px rgba(26, 115, 232, 0.35);
 }
@@ -145,6 +96,7 @@ p {
     color: var(--blue);
 }
 
+/* Botones login y registro */
 .btn-login {
     background-color: var(--blue);
     color: var(--white);
@@ -166,15 +118,16 @@ p {
 }
 
 .btn-pink,
-.btn-perfil-pink {
+.btn-perfil-pink ,.res-btn-secondary {
     background: var(--pink);
     color: var(--black);
      box-shadow: 3px 3px 0px var(--black);
      border-radius:var(--radius-md);
+     color: var(--text);
 }
 
 
-.btn-pink:hover {
+.btn-pink:hover ,.res-btn-secondary:hover {
     background: #ef5e91;
 }
 
@@ -246,7 +199,6 @@ p {
     background: none;
     border: none;
     font-size: 1rem;
-    cursor: pointer;
     color: var(--text-muted);
     transition: color 0.2s;
     padding: 4px;

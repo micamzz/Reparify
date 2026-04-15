@@ -1,5 +1,10 @@
 @import url('variables.css');
 
+body{
+     background-image: url('../image/fondo-Contactar.jpg');
+     background-attachment: fixed;
+
+}
 
 /* MAIN: centra la card en pantalla completa */
 .contacto-main {

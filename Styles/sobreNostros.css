@@ -1,8 +1,7 @@
 @import url('variables.css');
 
-
-img {
-    max-width: 100%;
+body{
+    background-image: url('../image/fondo-sobreNos.jpg');
 }
 
 

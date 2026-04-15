@@ -1,6 +1,8 @@
 @import url('variables.css');
 
-
+body{
+     background-image: url('/image/fondo-diagnostico.jpg');
+}
 /* LAYOUT PRINCIPAL */
 
 .agenda-main {

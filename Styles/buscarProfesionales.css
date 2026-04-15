@@ -1,9 +1,10 @@
 @import url('variables.css');
 
-
-img{
-    max-width: 100%;
+body{
+     background-image: url('../image/fondo-profesionales.jpg');
+    background-size: contain
 }
+
 .buscar-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -58,10 +59,10 @@ img{
     display: flex;
     align-items: center;
     gap: 8px;
-    background:#e6e6e6;
     border: 1.5px solid var(--orange);
     border-radius: 8px;
     padding: 0 1em;
+    background:transparent
 }
 
 .buscar-input {
@@ -71,7 +72,7 @@ img{
     font-size: 0.9rem;
     padding: 0.85em 0;
     color: var(--text-muted);
-     background:#e6e6e6;
+     background:transparent
 }
 
 .buscar-input::placeholder { 
@@ -121,7 +122,7 @@ img{
 }
 
 .sugerencia-item:hover {
-    background-color: #f4f7ff; /* AGREGUE ESTO */
+    background-color: #f4f7ff; 
     color: #186CFF;
 }
 

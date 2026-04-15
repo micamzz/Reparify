@@ -1,10 +1,12 @@
 @import url('variables.css');
 
 img {
-  max-width: 100%;
   display: block;
 }
 
+body{
+  background-image: url('../image/fondo-home.jpg ');
+}
 
 .container {
   max-width: 1140px;
@@ -34,17 +36,14 @@ img {
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2em;
   align-items: center;
 }
 
 
 
 .hero-title {
-  font-family: var(--font-accent);
   font-size: clamp(2rem, 4vw, 2.9rem);
   font-weight: 900;
-  line-height: 1.15;
   margin-bottom: 16px;
   color: var(--text);
 }
@@ -53,7 +52,7 @@ img {
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-muted);
-  margin-bottom: 12px;
+  margin-bottom: 0.8em;
 }
 
 .hero-desc {
@@ -75,9 +74,9 @@ img {
 .stats-inner {
   display: flex;
   justify-content: center;
-  gap: 48px;
   padding: 28px 24px;
   flex-wrap: wrap;
+  gap: 2em;
 }
 
 .stat {
@@ -303,7 +302,6 @@ img {
 
 .dot.active {
   background: var(--blue);
-
   border-radius: 6px;
 }
 

@@ -1,7 +1,9 @@
 @import url('variables.css');
 
+body{
+    background-image: url('../image/fondo-diagnostico.jpg');
+}
 img {
-    max-width: 100%;
     display: block;
 }
 
@@ -102,7 +104,7 @@ img {
 .diag-form-card {
     border: 3px dashed var(--border);
     border-radius: var(--radius-lg);
-    padding: 2em 1.75em;
+    padding: 1em 1em;
     display: flex;
     flex-direction: column;
     gap: 1.25em;
@@ -125,7 +127,6 @@ img {
 .upload-btn {
     background: none;
     border: none;
-    cursor: pointer;
     padding: 0;
 }
 
@@ -168,18 +169,11 @@ img {
 
 .input-group {
     display: flex;
-    align-items: center;
     gap: 0.5em;
     border: 1.5px solid var(--border);
     border-radius: var(--radius-md);
-    padding: 0.6em 0.875em;
+    padding: 2.6em 0.875em;
     background-color: var(--white);
-}
-
-
-.input-icon {
-    font-size: 1rem;
-    flex-shrink: 0;
 }
 
 .diag-input {
@@ -206,7 +200,6 @@ img {
     padding: 13px;
     font-size: 1rem;
     font-weight: 700;
-    cursor: pointer;
     transition: background 0.22s, transform 0.22s;
     box-shadow: 4px 4px 0 var(--black);
 }
@@ -258,7 +251,7 @@ img {
 
 /*VIDEOS */
 .diag-videos {
-    padding: 2em 0;
+    /* padding: 2em 0; */
     position: relative;
     overflow: hidden;
     background: transparent;
@@ -266,7 +259,6 @@ img {
 
 /* Subtítulo con líneas */
 .subtitulo-linea {
-    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--blue);
@@ -275,7 +267,8 @@ img {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    width: 100%;
+   font-size: clamp(1.3rem, 3vw, 1.8rem);
+    margin-bottom: 0.4em;
 
 }
 
@@ -356,7 +349,6 @@ img {
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.9);
     border: none;
-    cursor: pointer;
     font-size: 1rem;
     display: flex;
     align-items: center;
@@ -441,7 +433,6 @@ img {
     padding: 12px 32px;
     font-size: 0.95rem;
     font-weight: 700;
-    cursor: pointer;
     transition: background 0.22s, transform 0.22s;
 }
 
@@ -669,7 +660,7 @@ img {
         gap: 1.25em;
     }
 
-    .diag-form-card,
+    /* .diag-form-card, */
     .diag-pasos-card {
         padding: 1.5em 1.25em;
     }
@@ -679,18 +670,11 @@ img {
     }
 
     /* Videos */
-    .diag-videos {
-        padding: 3em 0;
-    }
-
+  
     .videos-grid {
         grid-template-columns: 1fr;
     }
 
-    /* Antes/Después */
-    .diag-antes-despues {
-        padding: 3em 0;
-    }
 
     .ad-caso-header {
         flex-direction: column;
@@ -782,20 +766,12 @@ img {
         padding: 11px;
     }
 
-    .diag-videos {
-        padding: 2.5em 0;
-    }
-
     .videos-titulo {
         font-size: 1.25rem;
     }
 
     .videos-grid {
         grid-template-columns: 1fr;
-    }
-
-    .diag-antes-despues {
-        padding: 2.5em 0;
     }
 
     .ad-titulo {

@@ -1,5 +1,8 @@
 @import url('variables.css');
 
+body{
+    background-image: url('../image/fondo-diagnostico.jpg');
+}
 
 /* CONTENEDOR COMPARTIDO */
 .prof-container {
@@ -9,8 +12,12 @@
 }
 
 /* COLORES ESPECIALES */
-.color-blue   { color: var(--blue); }
-.color-orange { color: var(--orange); }
+.color-blue   { 
+    color: var(--blue); 
+}
+.color-orange { 
+    color: var(--orange); 
+}
 
 
 /* HERO */
