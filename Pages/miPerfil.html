@@ -43,12 +43,16 @@
                 </div>
             </div>
 
-            <!-- CARD DE PERFIL -->
+                 <!-- CARD DE PERFIL -->
             <div class="perfil-card">
                 <div class="perfil-card-top">
                     <div class="perfil-foto-wrapper">
-                        <img src="../image/perfil/avatar.jpg" alt="Foto de perfil" class="perfil-foto" id="perfilFoto"
-                            onerror="this.style.display='none'" />
+                        <img src="https://ui-avatars.com/api/?name=Usuario&background=dbeafe&color=3b82f6" alt="Foto de perfil" class="perfil-foto" id="perfilFoto"
+                            onerror="this.src=''" />
+                        <input type="file" id="inputFotoPerfil" accept="image/*" style="display:none" />
+                        <label for="inputFotoPerfil" class="btn-cambiar-foto" title="Cambiar foto de perfil">
+                          📷
+                        </label>
                     </div>
                     <div class="perfil-info">
                         <div class="perfil-nombre-row">
@@ -56,6 +60,7 @@
                         </div>
                     </div>
                 </div>
+           
 
                 <div class="perfil-stats">
                     <div class="perfil-stat">

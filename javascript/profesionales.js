@@ -205,6 +205,37 @@ document.addEventListener('DOMContentLoaded', () => {
     configurarFiltrosCategorias();
     configurarSliderControles();
     configurarFiltrosMapa();
+
+    /* Si viene ?profesion=Plomería desde resultadoDiagnostico, filtrar automáticamente */
+    const params    = new URLSearchParams(window.location.search);
+    const profParam = params.get('profesion');
+    if (profParam) {
+        const todos     = obtenerTodosProfesionales();
+        const filtrados = todos.filter(p =>
+            p.profesion.toLowerCase() === profParam.toLowerCase()
+        );
+
+        /* Marcar la categoría activa visualmente */
+        document.querySelectorAll('.categoria-card').forEach(card => {
+            if (card.dataset.profesion &&
+                card.dataset.profesion.toLowerCase() === profParam.toLowerCase()) {
+                card.classList.add('activa');
+            }
+        });
+
+        /* Pre-llenar el input de búsqueda */
+        const inputServicio = document.getElementById('inputServicio');
+        if (inputServicio) inputServicio.value = profParam;
+
+        /* Mostrar resultados y hacer scroll */
+        filtroActivoProfesion = profParam;
+        renderResultados(filtrados, profParam);
+
+        setTimeout(() => {
+            document.getElementById('seccionResultados')
+                ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+    }
 });
 
 

@@ -6,6 +6,19 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    /* Si ya hay sesión activa no tiene sentido registrarse de nuevo */
+    const sesionActiva = JSON.parse(localStorage.getItem('reparify_sesion') || 'null');
+    if (sesionActiva) {
+        /* Si es profesional, ir a su perfil; si es usuario, al index */
+        if (sesionActiva.tipo === 'profesional') {
+            window.location.href = '/Pages/miPerfilProfesional.html';
+        } else {
+            window.location.href = '/index.html';
+        }
+        return;
+    }
+
+
     /* Paso actual (1, 2 o 3) */
     let pasoActual = 1;
 

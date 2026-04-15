@@ -13,19 +13,19 @@ img{
 .color-blue   { color: var(--blue); }
 .color-orange { color: var(--orange); }
 
-.seccion-titulo {
+.seccion-tituloProf {
     font-size: clamp(1.4rem, 3vw, 1.9rem);
     font-weight: 800;
     color: var(--text);
     text-align: center;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 
 /* HERO BÚSQUEDA */
 
 .hero-buscar {
-    padding: 3.5em 0 2.5em;
+    padding: 3.5em 0 2em;
     text-align: center;
 }
 
@@ -129,7 +129,7 @@ img{
 /* CATEGORÍAS */
 
 .categorias {
-    padding: 2em 0 3em;
+    padding: 2em 0 2em;
 }
 
 .categorias-grid {
@@ -440,15 +440,12 @@ img{
 
 /* MAPA */
 
-.seccion-mapa {
-    padding: 2em 0 4em;
-}
-
 .mapa-layout {
     display: grid;
     grid-template-columns: 260px 1fr;
     gap: 1.5em;
     align-items: start;
+   padding: 2em 0 5em;
 }
 
 .mapa-filtros {
