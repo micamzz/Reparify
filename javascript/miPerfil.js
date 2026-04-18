@@ -170,7 +170,6 @@ function renderReservas() {
         panel.innerHTML =
             '<h3 class="panel-titulo">Mis Reservas</h3>' +
             '<div style="text-align:center;padding:2em 0;">' +
-            '<p style="font-size:2rem;margin-bottom:.5em;">📅</p>' +
             '<p style="color:var(--text-muted);margin-bottom:1.25em;">Todavía no tenés reservas.</p>' +
             '<a href="./agendarCita.html" style="display:inline-block;background:var(--blue);color:#fff;' +
             'border-radius:8px;padding:10px 24px;font-weight:700;text-decoration:none;">Agendar una cita</a>' +

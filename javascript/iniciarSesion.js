@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         /* Buscar en usuarios regulares */
         const usuarios = JSON.parse(localStorage.getItem('reparify_usuarios') || '[]');
         const usuario  = usuarios.find(u => u.email.toLowerCase() === emailNorm);
-        if (usuario) return { cuenta: usuario, tipo: 'usuario' };
+        if (usuario) return { cuenta: usuario, tipo: usuario.tipo || 'usuario' };
 
         /* Buscar en profesionales */
         const profesionales = JSON.parse(localStorage.getItem('reparify_profesionales') || '[]');
@@ -157,14 +157,23 @@ document.addEventListener('DOMContentLoaded', () => {
     /* TOGGLE VER/OCULTAR CONTRASEÑA */
 
     document.querySelectorAll('.toggle-pass').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const input = document.getElementById(btn.dataset.target);
-            if (!input) return;
-            const ver       = input.type === 'password';
-            input.type      = ver ? 'text' : 'password';
-            btn.textContent = ver ? '🙈' : '👁';
-            btn.setAttribute('aria-label', ver ? 'Ocultar contraseña' : 'Ver contraseña');
-        });
+    btn.addEventListener('click', () => {
+        const input = document.getElementById(btn.dataset.target);
+        if (!input) return;
+
+        const eyeOpen = btn.querySelector('.eye-icon');
+        const eyeClosed = btn.querySelector('.eye-slash-icon');
+
+        const ver = input.type === 'password';
+        input.type = ver ? 'text' : 'password';
+
+        // Alternar visibilidad de los iconos
+        eyeOpen.style.display = ver ? 'none' : 'block';
+        eyeClosed.style.display = ver ? 'block' : 'none';
+
+        // Ahora 'ver' está definida correctamente
+        btn.setAttribute('aria-label', ver ? 'Ocultar contraseña' : 'Ver contraseña');
+    });
     });
 
 });

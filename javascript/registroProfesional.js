@@ -60,6 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (el) el.addEventListener('input', () => limpiarError(inputId, errorId));
     }
 
+    /* Solo números — bloquea cualquier carácter que no sea dígito */
+    function soloNumeros(inputId) {
+        const el = document.getElementById(inputId);
+        if (!el) return;
+        el.addEventListener('input', () => {
+            el.value = el.value.replace(/\D/g, '');
+        });
+        el.addEventListener('keydown', (e) => {
+            /* Permite: teclas de control, flechas, backspace, tab, etc. */
+            const permitidas = ['Backspace','Delete','ArrowLeft','ArrowRight','Tab','Enter','Home','End'];
+            if (permitidas.includes(e.key)) return;
+            if (!/^\d$/.test(e.key)) e.preventDefault();
+        });
+    }
+
 
     /* INDICADOR DE PASOS: actualiza dots y líneas */
 
@@ -103,6 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     campos1.forEach(c => bindLimpiarAlEscribir(c.inputId, c.errorId));
+
+    /* Restringir a solo números */
+    soloNumeros('p1Dni');
+    soloNumeros('p1Telefono');
 
     if (formPaso1) {
         formPaso1.addEventListener('submit', (e) => {
@@ -155,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     campos2.forEach(c => bindLimpiarAlEscribir(c.inputId, c.errorId));
+    soloNumeros('p2Matricula');
 
     /* Actualiza el label del input file con el nombre del archivo */
     const inputFile = document.getElementById('p2Certificado');
@@ -190,9 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!matricula) {
                 mostrarError('p2Matricula', 'err-p2Matricula', 'La matrícula es obligatoria.'); valido = false;
             }
-            if (!certificado) {
-                mostrarError('p2Certificado', 'err-p2Certificado', 'Adjuntá el certificado de antecedentes.'); valido = false;
-            }
+            /* Certificado opcional — no es obligatorio */
 
             if (!valido) return;
 
@@ -200,8 +218,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 especialidad,
                 zona,
                 matricula,
-                certificadoNombre: certificado.name
+                certificadoNombre: certificado ? certificado.name : null
             };
+
+            /* Pre-llenar email de facturación con el email del paso 1 */
+            const inputEmailFact = document.getElementById('p3Email');
+            if (inputEmailFact && datosPro.paso1.email) {
+                inputEmailFact.value    = datosPro.paso1.email;
+                inputEmailFact.readOnly = true;
+                inputEmailFact.style.opacity = '0.7';
+                inputEmailFact.style.cursor  = 'not-allowed';
+                inputEmailFact.title = 'Se usa el email del paso 1';
+            }
+
             irAPaso(3);
         });
     }
@@ -272,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             /* Damos tiempo al navegador para confirmar el localStorage antes de redirigir */
             setTimeout(() => {
-                window.location.href = '/index.html';
+                window.location.href = './iniciarSesion.html';
             }, 1500);
         });
     }
@@ -375,13 +404,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     localStorage.setItem('reparify_usuarios', JSON.stringify(usuarios));
 
-    // sesión
-    localStorage.setItem('reparify_sesion', JSON.stringify({
-        email: datosPro.paso1.email,
-        nombre: datosPro.paso1.nombre,
-        tipo: 'profesional',
-        fechaLogin: new Date().toISOString()
-    }));
+    /* No iniciamos sesión automáticamente.
+       El profesional debe ir al login y autenticarse manualmente. */
 }
     function formatearFechaActual() {
         const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
@@ -406,14 +430,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* TOGGLE VER/OCULTAR CONTRASEÑA */
 
+   
     document.querySelectorAll('.toggle-pass').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const input = document.getElementById(btn.dataset.target);
-            if (!input) return;
-            const ver = input.type === 'password';
-            input.type = ver ? 'text' : 'password';
-            btn.textContent = ver ? '🙈' : '👁';
-        });
+    btn.addEventListener('click', () => {
+        const input = document.getElementById(btn.dataset.target);
+        if (!input) return;
+
+        const eyeOpen = btn.querySelector('.eye-icon');
+        const eyeClosed = btn.querySelector('.eye-slash-icon');
+
+        const ver = input.type === 'password';
+        input.type = ver ? 'text' : 'password';
+
+       
+        eyeOpen.style.display = ver ? 'none' : 'block';
+        eyeClosed.style.display = ver ? 'block' : 'none';
+
+       
+        btn.setAttribute('aria-label', ver ? 'Ocultar contraseña' : 'Ver contraseña');
+    });
     });
 
 });

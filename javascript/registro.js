@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
 
     const form        = document.getElementById('formRegistro');
@@ -7,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputPass   = document.getElementById('password');
     const inputRepeat = document.getElementById('repetirPassword');
     const formMensaje = document.getElementById('formMensaje');
+    const btnSubmit   = document.querySelector('.btn-registrar');
 
     if (!form) return;
 
@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nombre:        nombre.trim(),
             email:         email.toLowerCase().trim(),
             password:      password,
+            tipo:          'usuario',
             fechaRegistro: new Date().toISOString()
         });
         localStorage.setItem('reparify_usuarios', JSON.stringify(usuarios));
@@ -157,16 +158,24 @@ document.addEventListener('DOMContentLoaded', () => {
       
 
     /* VER-OCULTAR CONTRASEÑA */
-     document.querySelectorAll('.toggle-pass').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const input = document.getElementById(btn.dataset.target);
-            if (!input) return;
- 
-            const verPassword   = input.type === 'password';
-            input.type          = verPassword ? 'text' : 'password';
-            btn.textContent     = verPassword ? '🙈' : '👁';
-            btn.setAttribute('aria-label', verPassword ? 'Ocultar contraseña' : 'Ver contraseña');
-        });
+    
+    document.querySelectorAll('.toggle-pass').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const input = document.getElementById(btn.dataset.target);
+        if (!input) return;
+
+        const eyeOpen = btn.querySelector('.eye-icon');
+        const eyeClosed = btn.querySelector('.eye-slash-icon');
+
+        const ver = input.type === 'password';
+        input.type = ver ? 'text' : 'password';
+
+        eyeOpen.style.display = ver ? 'none' : 'block';
+        eyeClosed.style.display = ver ? 'block' : 'none';
+
+    
+        btn.setAttribute('aria-label', ver ? 'Ocultar contraseña' : 'Ver contraseña');
+    });
     });
 
 });
