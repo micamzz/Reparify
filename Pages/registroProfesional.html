@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="../styles/footer.css" />
     <link rel="stylesheet" href="../styles/registroProfesional.css" />
-     <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/components.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
 </head>
 
-<body>
+<body class="body-registroProfesional">
 
     <div id="nav-placeholder"></div>
 
@@ -50,45 +50,61 @@
                 <div class="paso-contenido activo" id="paso1">
                     <p class="paso-label">Datos personales</p>
                     <form id="formPaso1" novalidate>
-
+                        <!-- Nombre completo -->
                         <div class="campo-grupo">
-                            <input class="campo-input" type="text" id="p1Nombre"
-                                placeholder="Nombre y Apellido" autocomplete="name" />
+                            <input class="campo-input" type="text" id="p1Nombre" placeholder="Nombre y Apellido"
+                                autocomplete="name" />
                             <span class="campo-error" id="err-p1Nombre"></span>
                         </div>
-
+                        <!-- DNI -->
                         <div class="campo-grupo">
-                            <input class="campo-input" type="text" id="p1Dni"
-                                placeholder="DNI / CUIT" />
+                            <input class="campo-input" type="text" id="p1Dni" placeholder="DNI / CUIT"
+                                inputmode="numeric" autocomplete="off" />
                             <span class="campo-error" id="err-p1Dni"></span>
                         </div>
-
+                        <!-- Telefono -->
                         <div class="campo-grupo">
-                            <input class="campo-input" type="tel" id="p1Telefono"
-                                placeholder="Teléfono" autocomplete="tel" />
+                            <input class="campo-input" type="tel" id="p1Telefono" placeholder="Teléfono"
+                                inputmode="numeric" autocomplete="tel" />
                             <span class="campo-error" id="err-p1Telefono"></span>
                         </div>
-
+                        <!-- Email -->
                         <div class="campo-grupo">
-                            <input class="campo-input" type="text" id="p1Email"
-                                placeholder="Email" autocomplete="email" />
+                            <input class="campo-input" type="text" id="p1Email" placeholder="Email"
+                                autocomplete="email" />
                             <span class="campo-error" id="err-p1Email"></span>
                         </div>
 
+                        <!-- Contraseña -->
                         <div class="campo-grupo">
                             <div class="input-password-wrapper">
-                                <input class="campo-input" type="password" id="p1Password"
-                                    placeholder="Contraseña" autocomplete="new-password" />
+                                <input class="campo-input" type="password" id="p1Password" placeholder="Contraseña"
+                                    autocomplete="new-password" />
+
                                 <button type="button" class="toggle-pass" data-target="p1Password"
-                                    aria-label="Ver contraseña">👁</button>
+                                    aria-label="Ver contraseña">
+                                    <svg class="eye-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                    <svg class="eye-slash-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg"
+                                        width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path
+                                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22" />
+                                    </svg>
+                                </button>
                             </div>
                             <span class="campo-error" id="err-p1Password"></span>
                         </div>
 
+
+
                         <p class="ya-cuenta">
                             ¿Ya tienes cuenta? <a href="./iniciarSesion.html">Inicia sesión</a>
                         </p>
-
+                        <!-- Boton para el siguiente paso -->
                         <button type="submit" class="btn-continuar">Continuar</button>
 
                     </form>
@@ -125,17 +141,16 @@
                         </div>
 
                         <div class="campo-grupo">
-                            <input class="campo-input" type="text" id="p2Matricula"
-                                placeholder="Matrícula profesional" />
+                            <input class="campo-input" type="text" id="p2Matricula" placeholder="Matrícula profesional"
+                                inputmode="numeric" autocomplete="off" />
                             <span class="campo-error" id="err-p2Matricula"></span>
                         </div>
 
                         <div class="campo-grupo">
                             <label class="campo-label-file">
-                                <input type="file" id="p2Certificado" accept="image/*,.pdf"
-                                    class="input-file-hidden" />
+                                <input type="file" id="p2Certificado" accept="image/*,.pdf" class="input-file-hidden" />
                                 <span class="campo-input campo-file" id="p2CertificadoLabel">
-                                  Certificado de antecedentes penales
+                                    Certificado de antecedentes penales
                                 </span>
                             </label>
                             <span class="campo-error" id="err-p2Certificado"></span>
@@ -159,20 +174,19 @@
                     <form id="formPaso3" novalidate>
 
                         <div class="campo-grupo">
-                            <input class="campo-input" type="text" id="p3Email"
-                                placeholder="Email" autocomplete="email" />
+                            <input class="campo-input" type="text" id="p3Email" placeholder="Email"
+                                autocomplete="email" />
                             <span class="campo-error" id="err-p3Email"></span>
                         </div>
 
                         <div class="campo-grupo">
-                            <input class="campo-input" type="text" id="p3Cbu"
-                                placeholder="CBU / ALIAS" />
+                            <input class="campo-input" type="text" id="p3Cbu" placeholder="CBU / ALIAS" />
                             <span class="campo-error" id="err-p3Cbu"></span>
                         </div>
 
                         <div class="campo-grupo">
-                            <input class="campo-input" type="text" id="p3Domicilio"
-                                placeholder="Domicilio fiscal" autocomplete="street-address" />
+                            <input class="campo-input" type="text" id="p3Domicilio" placeholder="Domicilio fiscal"
+                                autocomplete="street-address" />
                             <span class="campo-error" id="err-p3Domicilio"></span>
                         </div>
 
@@ -202,9 +216,7 @@
 
             <!-- Columna derecha: imagen del profesional -->
             <div class="regpro-imagen">
-                <img src="../image/profesionales/registro 2.png"
-                    alt="Profesional Reparify"
-                    class="regpro-img"
+                <img src="../image/profesionales/registro 2.png" alt="Profesional Reparify" class="regpro-img"
                     onerror="this.style.display='none'" />
             </div>
 
@@ -217,4 +229,5 @@
     <script src="../javascript/registroProfesional.js"></script>
 
 </body>
+
 </html>
