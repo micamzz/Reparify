@@ -1,7 +1,7 @@
 @import url('variables.css');
 
-body{
-     background-image: url('../image/fondo-perfilUsuario.jpg');
+body {
+    background-image: url('../image/fondo-perfilUsuario.jpg');
 }
 
 .perfil-main {
@@ -28,10 +28,11 @@ body{
     background: transparent;
     font-size: 2rem;
 }
- 
+
 .btn-cambiar-foto:hover {
     transform: scale(1.1);
 }
+
 /* BANNER VALORACIÓN PENDIENTE */
 .banner-valoracion {
     background: var(--yellow);
@@ -83,7 +84,7 @@ body{
     background: var(--black);
     color: var(--white);
     border: none;
-    border-radius:var(--radius-md);
+    border-radius: var(--radius-md);
     padding: 9px 18px;
     font-size: 0.88rem;
     font-weight: 700;
@@ -244,16 +245,6 @@ body{
     align-items: start;
 }
 
-/*  MENÚ LATERAL  */
-.datos-menu {
-    background: var(--white);
-    border: 1.5px solid var(--border, #e5e7eb);
-    border-radius: var(--radius-lg);
-    padding: 0.75em;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
 
 .menu-item {
     background: none;
@@ -318,9 +309,11 @@ body{
     background: var(--blue-light);
     color: var(--blue);
 }
-.icon-red{
+
+.icon-red {
     color: rgb(255, 78, 78);
 }
+
 /* PANELES  */
 .datos-contenido {
     background: var(--white);
@@ -485,7 +478,7 @@ body{
         padding: 9px 10px;
     }
 
-  
+
     .banner-valoracion {
         flex-direction: column;
         align-items: flex-start;
@@ -501,7 +494,7 @@ body{
 @media screen and (min-width: 321px) and (max-width: 425px) {
 
     .perfil-card {
-        padding: 1.25em;
+         box-shadow: 6px 6px 0px var(--pink);
     }
 
     .perfil-card-top {
@@ -532,6 +525,11 @@ body{
 
     .datos-menu {
         flex-direction: column;
+        width: 100%;
+    }
+
+    .datos-contenido {
+        box-shadow: 4px 4px 0px var(--blue);
     }
 
     .seccion-titulo {
@@ -552,12 +550,9 @@ body{
 
 @media screen and (max-width: 320px) {
 
-    .perfil-container {
-        padding: 0 14px;
-    }
-
     .perfil-card {
         padding: 1em;
+        box-shadow: 3px 3px 0px var(--pink);
     }
 
     .perfil-foto {
@@ -582,8 +577,17 @@ body{
     }
 
     .datos-contenido {
-        padding: 1.25em 1em;
+        box-shadow: 3px 3px 0px var(--blue);
     }
 
-  
+    .datos-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .datos-menu {
+        width: 100%;
+    }
+
 }

@@ -74,6 +74,7 @@ body{
 .stats-inner {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 28px 24px;
   flex-wrap: wrap;
   gap: 2em;
@@ -87,10 +88,13 @@ body{
 }
 
 .stat-number {
-  padding: 6px 18px;
+   display: inline-block;
+   min-width: 80px;   
+   text-align: center;
+    padding: 6px 0; 
+  border-radius: 20px;
+  font-size: 0.95rem;
   font-weight: 700;
-  border-radius: 40px;
-  color: var(--black);
 }
 
 .stat-number.pink {
@@ -122,6 +126,7 @@ body{
   color: var(--text-muted);
   font-weight: 500;
 }
+
 
 /* PASOS */
 .steps {

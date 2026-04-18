@@ -374,13 +374,14 @@ body{
     }
 
     .mipro-layout {
-        flex-direction: column;
+       display: block
     }
 
     .mipro-menu {
         width: 100%;
         flex-direction: row;
         flex-wrap: wrap;
+        margin-bottom: 1em;
     }
 
     .menu-item {
@@ -405,5 +406,19 @@ body{
 
     .pro-stat:last-child {
         border-bottom: none;
+    }
+}
+
+@media (max-width: 321px) {
+    .mipro-layout{
+        display: block
+    }
+    .mipro-menu{
+        display: flex;
+        flex-direction: column;
+    }
+ .datos-layout{
+        display: flex;
+        flex-direction: column;
     }
 }

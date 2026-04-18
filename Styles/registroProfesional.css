@@ -423,6 +423,7 @@ body{
 /* RESPONSIVE TELÉFONO MUY PEQUEÑO (≤ 320px) */
 
 @media screen and (max-width: 320px) {
+
     .regpro-main {
         padding: 1.25em 10px;
         align-items: flex-start;

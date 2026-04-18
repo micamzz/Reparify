@@ -153,51 +153,9 @@ body{
 
 .contacto-feedback.exito { color: #a0ffb0; }
 
+/* RESPONSIVE */
 
-/* RESPONSIVE TABLET (769px - 1024px) */
-
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-    .contacto-card {
-        max-width: 800px;
-    }
-
-    .contacto-der {
-        padding: 2.5em 2em 2em;
-    }
-}
-
-
-/* RESPONSIVE PHABLET (426px - 768px) */
-
-@media screen and (min-width: 426px) and (max-width: 768px) {
-    .contacto-main {
-        padding: 1.5em 16px;
-        align-items: flex-start;
-    }
-
-    .contacto-card {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        border-radius: 18px;
-    }
-
-    /* En móvil ocultamos el lado izquierdo con la imagen */
-    .contacto-izq {
-        display: none;
-    }
-
-    .contacto-der {
-        padding: 3em 1.75em 2em;
-        border-radius: 18px;
-    }
-
-   
-}
-
-
-/* RESPONSIVE TELÉFONO (321px - 425px) */
-
-@media screen and (min-width: 321px) and (max-width: 425px) {
+@media screen  and (max-width: 768px) {
     .contacto-main {
         padding: 1.25em 12px;
         align-items: flex-start;
@@ -220,6 +178,7 @@ body{
     .contacto-titulo {
         font-size: 1.5rem;
          color: var(--blue);
+         margin-top: -1.3em;
     }
 
     .btn-enviar {
@@ -232,6 +191,9 @@ body{
             font-size: 0.9em;
         }
         
+        .campo-grupo{
+            margin-bottom: 0;
+        }
         .campo-input {
             border: 1px solid var(--orange)
         }
@@ -240,49 +202,5 @@ body{
             background-color: var(bg);
 }
 
-/* RESPONSIVE TELÉFONO MUY PEQUEÑO (≤ 320px) */
 
-@media screen and (max-width: 320px) {
-
-    .contacto-titulo, .contacto-desc {
-        color:var(--black)
-    }
-    .contacto-main {
-        padding: 1em 10px;
-        align-items: flex-start;
-    }
-
-    .contacto-card {
-        grid-template-columns: 1fr;
-        border-radius: 12px;
-    }
-
-    .contacto-izq {
-        display: none;
-    }
-
-    .contacto-der {
-        padding: 2.5em 1em 1.5em;
-        gap: 0.75em;
-    }
-
-    .contacto-titulo {
-        font-size: 1.3rem;
-        color: var(--blue);
-    }
-
-    .contacto-desc {
-        font-size: 0.8rem;
-          color:var(--text)
-    }
-
-    .campo-input {
-        font-size: 0.88rem;
-        padding: 0.75em 0.875em;
-    }
-
-    .btn-enviar {
-        padding: 11px;
-        font-size: 0.9rem;
-    }
-}}
+}
