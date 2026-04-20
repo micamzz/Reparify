@@ -1,5 +1,8 @@
 @import url('variables.css');
 
+body{
+    background-image: url('../image/fondo-sobreNos.jpg');
+}
 /* ── LAYOUT GENERAL ── */
 .res-main {
     padding: 2.5em 24px 4em;

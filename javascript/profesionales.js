@@ -88,13 +88,13 @@ const profesionalesBase = [
         id: 8,
         nombre: 'Sofía López',
         profesion: 'Electricista',
-        ubicacion: 'Palermo, CABA',
+        ubicacion: 'Almagro, CABA',
         desde: 'Septiembre 2022',
         trabajos: 70,
         valoracion: 4.8,
         respuesta: '1h',
         foto: '../image/profesionales/persona8.png',
-        zona: 'Palermo'
+        zona: 'Almagro'
     },
     {
         id: 9,
@@ -105,7 +105,7 @@ const profesionalesBase = [
         trabajos: 130,
         valoracion: 4.7,
         respuesta: '30min',
-        foto:'../image/profesionales/persona9.png',
+        foto: '../image/profesionales/persona9.png',
         zona: 'Colegiales'
     },
     {
@@ -129,7 +129,7 @@ const profesionalesBase = [
         trabajos: 115,
         valoracion: 5.0,
         respuesta: '15min',
-        foto:'../image/profesionales/persona11.png',
+        foto: '../image/profesionales/persona11.png',
         zona: 'Palermo'
     },
     {
@@ -172,13 +172,13 @@ const profesionalesBase = [
         id: 15,
         nombre: 'Nicolás Herrera',
         profesion: 'Plomería',
-        ubicacion: 'Colegiales, CABA',
+        ubicacion: 'Almagro, CABA',
         desde: 'Diciembre 2021',
         trabajos: 105,
         valoracion: 4.8,
         respuesta: '30min',
         foto: '../image/profesionales/persona15.png',
-        zona: 'Colegiales'
+        zona: 'Almagro'
     }
 ];
 
@@ -207,10 +207,10 @@ document.addEventListener('DOMContentLoaded', () => {
     configurarFiltrosMapa();
 
     /* Si viene ?profesion=Plomería desde resultadoDiagnostico, filtrar automáticamente */
-    const params    = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search);
     const profParam = params.get('profesion');
     if (profParam) {
-        const todos     = obtenerTodosProfesionales();
+        const todos = obtenerTodosProfesionales();
         const filtrados = todos.filter(p =>
             p.profesion.toLowerCase() === profParam.toLowerCase()
         );
@@ -299,7 +299,7 @@ function actualizarBotonesSlider(total) {
 function configurarSliderControles() {
     const btnPrev = document.getElementById('sliderPrev');
     const btnNext = document.getElementById('sliderNext');
-    const track   = document.getElementById('sliderTrack');
+    const track = document.getElementById('sliderTrack');
 
     if (btnPrev) {
         btnPrev.addEventListener('click', () => {
@@ -331,16 +331,16 @@ function configurarSliderControles() {
 
 /* BÚSQUEDA por servicio y zona */
 function configurarBusqueda() {
-    const form        = document.getElementById('formBusqueda');
+    const form = document.getElementById('formBusqueda');
     const inputServicio = document.getElementById('inputServicio');
-    const inputZona     = document.getElementById('inputZona');
+    const inputZona = document.getElementById('inputZona');
 
     if (!form) return;
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const servicio = inputServicio.value.trim().toLowerCase();
-        const zona     = inputZona.value.trim().toLowerCase();
+        const zona = inputZona.value.trim().toLowerCase();
 
         const todos = obtenerTodosProfesionales();
 
@@ -398,8 +398,8 @@ function configurarFiltrosCategorias() {
 /* RENDER DE RESULTADOS DE BÚSQUEDA */
 function renderResultados(lista, termino) {
     const contenedor = document.getElementById('resultadosGrid');
-    const titulo     = document.getElementById('resultadosTitulo');
-    const seccion    = document.getElementById('seccionResultados');
+    const titulo = document.getElementById('resultadosTitulo');
+    const seccion = document.getElementById('seccionResultados');
 
     if (!contenedor || !seccion) return;
 
@@ -451,15 +451,15 @@ function renderResultados(lista, termino) {
 
 /* MAPA DE ZONAS CON GOOGLE MAPS */
 const coordenadasZonas = {
-    'Belgrano':     { lat: -34.5607, lng: -58.4538 },
-    'Colegiales':   { lat: -34.5732, lng: -58.4456 },
-    'Palermo':      { lat: -34.5796, lng: -58.4266 },
+    'Belgrano': { lat: -34.5607, lng: -58.4538 },
+    'Colegiales': { lat: -34.5732, lng: -58.4456 },
+    'Palermo': { lat: -34.5796, lng: -58.4266 },
     'Villa Crespo': { lat: -34.5993, lng: -58.4394 },
-    'Recoleta':     { lat: -34.5875, lng: -58.3930 }
+    'Recoleta': { lat: -34.5875, lng: -58.3930 }
 };
 
 let mapaInstancia = null;
-let marcadores    = [];
+let marcadores = [];
 
 function renderMapa() {
     const contenedor = document.getElementById('mapaContenedor');
@@ -541,8 +541,8 @@ function actualizarMapa(lista) {
 
 /* FILTROS DEL MAPA (zona + calificación) */
 function configurarFiltrosMapa() {
-    const btnAplicar  = document.getElementById('btnAplicarFiltros');
-    const btnLimpiar  = document.getElementById('btnLimpiarFiltros');
+    const btnAplicar = document.getElementById('btnAplicarFiltros');
+    const btnLimpiar = document.getElementById('btnLimpiarFiltros');
 
     if (btnAplicar) {
         btnAplicar.addEventListener('click', () => {
@@ -580,10 +580,12 @@ function configurarAutocomplete(inputId, sugerenciasId, propiedadABuscar) {
     input.addEventListener('input', () => {
         const texto = input.value.toLowerCase();
         const todos = obtenerTodosProfesionales();
-        
+
         // Filtra valores únicos basados en la propiedad (profesion o zona)
+        // Ordenados
         const filtrados = [...new Set(todos.map(p => p[propiedadABuscar]))]
-            .filter(valor => valor.toLowerCase().includes(texto));
+            .filter(valor => valor.toLowerCase().includes(texto))
+            .sort((a, b) => a.localeCompare(b));
 
         if (texto && filtrados.length > 0) {
             panel.innerHTML = filtrados

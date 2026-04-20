@@ -2,7 +2,8 @@
 
 body{
      background-image: url('../image/fondo-profesionales.jpg');
-    background-size: contain
+    background-size: contain;
+     background-repeat: repeat;
 }
 
 .buscar-container {
@@ -583,6 +584,9 @@ body{
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
 
+    body{
+        background-repeat: repeat;
+    }
     .buscar-form {
         flex-direction: column;
     }
@@ -618,7 +622,9 @@ body{
 /* RESPONSIVE TELÉFONO (321px - 425px) */
 
 @media screen and (min-width: 321px) and (max-width: 425px) {
-
+  body{
+        background-repeat: repeat-y;
+    }
     .hero-buscar {
         padding: 2.5em 0 2em;
     }
@@ -672,7 +678,9 @@ body{
 /* RESPONSIVE TELÉFONO MUY PEQUEÑO (≤ 320px) */
 
 @media screen and (max-width: 320px) {
-
+  body{
+        background-repeat: repeat;
+    }
     .btn-buscar {
         width: 100%;
     }

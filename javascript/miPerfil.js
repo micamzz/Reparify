@@ -67,8 +67,7 @@ function mostrarPopupCancelar(id, proNombre, fecha, horario) {
     /* Actualizar descripción */
     document.getElementById('_popupDesc').innerHTML =
         'Vas a cancelar tu cita con <strong>' + proNombre + '</strong><br>' +
-        'el <strong>' + fecha + '</strong> a las <strong>' + horario + ' hs</strong>.<br>' +
-        'Esta acción no se puede deshacer.';
+        'el <strong>' + fecha + '</strong> a las <strong>' + horario + ' hs</strong>.<br>' 
 
     _popup.style.display = 'flex';
 

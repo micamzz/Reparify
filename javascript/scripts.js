@@ -1,8 +1,3 @@
-/*
-   REPARIFY – scripts.js
-   Funcionalidades exclusivas del index.html.
-   NO manejes aquí el navbar ni el hamburger (están en header.js).
- */
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -35,48 +30,68 @@ document.addEventListener('DOMContentLoaded', () => {
        2. SLIDER DE TESTIMONIOS
        Solo se inicializa si el slider existe en la página.*/
     const track = document.getElementById('testimonialsTrack');
-    const dots = document.querySelectorAll('.dot');
+    const sliderEl = document.getElementById('testimonialsSlider');
+    const sliderDotsContainer = document.getElementById('sliderDots');
 
-    if (track && dots.length > 0) {
+    if (track) {
         let currentSlide = 0;
         let slideInterval;
         let cardsPerView = getCardsPerView();
+
+        // Generar dots automáticamente según cantidad de cards
+        const allCards = track.querySelectorAll('.testimonial-card');
+        sliderDotsContainer.innerHTML = '';
+        allCards.forEach((_, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'dot' + (i === 0 ? ' active' : '');
+            btn.dataset.index = i;
+            sliderDotsContainer.appendChild(btn);
+        });
 
         function getCardsPerView() {
             const w = window.innerWidth;
             if (w <= 600) return 1;
             if (w <= 900) return 2;
-            return 4;
+            return 2; // Desktop: mostrar 2 cards → slider funcional
         }
 
         function goToSlide(index) {
             const cards = track.querySelectorAll('.testimonial-card');
             if (cards.length === 0) return;
 
-            const cardWidth = cards[0].offsetWidth + 20;
+            const sliderWidth = sliderEl.offsetWidth;
+            const gap = 20;
+            const cardWidth = (sliderWidth - gap * (cardsPerView - 1)) / cardsPerView + gap;
             const maxOffset = Math.max(0, cards.length - cardsPerView);
             index = Math.max(0, Math.min(index, maxOffset));
             currentSlide = index;
             track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
-            dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+            document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
         }
 
         function startAutoSlide() {
+            clearInterval(slideInterval);
             slideInterval = setInterval(() => {
                 const cards = track.querySelectorAll('.testimonial-card');
                 const maxOffset = Math.max(0, cards.length - cardsPerView);
                 const next = currentSlide >= maxOffset ? 0 : currentSlide + 1;
                 goToSlide(next);
-            }, 4000);
+            }, 3000);
         }
 
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                clearInterval(slideInterval);
-                goToSlide(parseInt(dot.dataset.index));
-                startAutoSlide();
-            });
+        sliderDotsContainer.addEventListener('click', (e) => {
+            const dot = e.target.closest('.dot');
+            if (!dot) return;
+            clearInterval(slideInterval);
+            goToSlide(parseInt(dot.dataset.index));
+            startAutoSlide();
         });
+
+        /* Pausar al hacer hover */
+        if (sliderEl) {
+            sliderEl.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            sliderEl.addEventListener('mouseleave', () => startAutoSlide());
+        }
 
         /* Swipe táctil */
         let touchStartX = 0;
@@ -101,54 +116,14 @@ document.addEventListener('DOMContentLoaded', () => {
             goToSlide(0);
         });
 
+        goToSlide(0);
         startAutoSlide();
     }
 
 
-    /* 
-       3. NAVBAR HIDE/SHOW EN SCROLL
-       Oculta el navbar al bajar, lo muestra al subir.
-       Cierra el menú móvil antes de ocultar el navbar.
-     */
-    const navbar = document.querySelector('.navbar');
-    let lastScrollY = window.scrollY;
-
-    if (navbar) {
-        navbar.style.transition = 'transform 0.3s ease';
-
-        window.addEventListener('scroll', () => {
-            const navLinks = document.querySelector('.nav-links');
-            /* No ocultar el navbar si el menú móvil está abierto */
-            if (navLinks && navLinks.classList.contains('mobile-open')) return;
-
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > lastScrollY && currentScrollY > 80) {
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                navbar.style.transform = 'translateY(0)';
-            }
-            lastScrollY = currentScrollY;
-        }, { passive: true });
-    }
-
 
     /* 
-       4. SMOOTH SCROLL
-       Scroll suave para links internos tipo href="#seccion".
-     */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            const target = document.querySelector(anchor.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-
-    /* 
-       5. RIPPLE EFFECT EN BOTONES
+     RIPPLE EFFECT EN BOTONES
        Efecto de onda al hacer click en los botones principales.
      */
     const rippleStyle = document.createElement('style');

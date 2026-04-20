@@ -84,17 +84,42 @@ function cerrarSesion() {
 }
 
 /* Marca el link activo según la URL */
+// function marcarPaginaActiva() {
+//     const path = window.location.pathname;
+//     document.querySelectorAll('.nav-link').forEach(link => {
+//         const href = link.getAttribute('href')
+//             .replace('./', '/')
+//             .replace('../', '/');
+//         if (href !== '/' && path.includes(href)) {
+//             link.classList.add('active');
+//         }
+//     });
+// }
+
 function marcarPaginaActiva() {
     const path = window.location.pathname;
+    const hash = window.location.hash;
+
     document.querySelectorAll('.nav-link').forEach(link => {
-        const href = link.getAttribute('href')
-            .replace('./', '/')
-            .replace('../', '/');
-        if (href !== '/' && path.includes(href)) {
+        const href = (link.getAttribute('href') || '').split('?')[0];
+
+        const [linkPath, linkHash] = href.split('#');
+
+        // con Hash #
+        if (linkHash) {
+            if (path === linkPath && hash === '#' + linkHash) {
+                link.classList.add('active');
+            }
+            return;
+        }
+
+        // Sin Hash
+        if (path === href && hash === '') {
             link.classList.add('active');
         }
     });
 }
+
 
 /* Hamburguesa */
 function configurarHamburguesa() {
@@ -140,3 +165,40 @@ function configurarHamburguesa() {
         if (window.innerWidth > 768) cerrarMenu();
     });
 }
+
+ /* 
+       3. NAVBAR HIDE/SHOW EN SCROLL
+       Oculta el navbar al bajar, lo muestra al subir.
+       Cierra el menú móvil antes de ocultar el navbar.
+     */
+    const navbar = document.querySelector('.navbar');
+    let lastScrollY = window.scrollY;
+
+    if (navbar) {
+        navbar.style.transition = 'transform 0.3s ease';
+
+        window.addEventListener('scroll', () => {
+            const navLinks = document.querySelector('.nav-links');
+            /* No ocultar el navbar si el menú móvil está abierto */
+            if (navLinks && navLinks.classList.contains('mobile-open')) return;
+
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+    }
+
+    //  Scroll suave para links internos tipo href="#seccion".
+     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
