@@ -41,4 +41,4 @@ La implementación funcional fue un desafío personal posterior a la entrega aca
 
 ---
 
-## Próximos pasos
+
