@@ -1,8 +1,11 @@
 # Reparify
-
 Plataforma web para conectar usuarios con profesionales del hogar. Permite describir un problema doméstico, obtener un diagnóstico orientativo y agendar un turno con el profesional indicado.
 
-Desarrollado en HTML, CSS y JavaScript Vanilla como proyecto personal de portfolio, partiendo de un prototipo diseñado en Figma para la materia **Introducción al Diseño Web** (Tecnicatura en Desarrollo Web, UNLaM).
+🔗 [Link App](https://reparify.netlify.app/)
+
+Desarrollado en HTML, CSS y JavaScript Vanilla como proyecto personal de portfolio, partiendo de un prototipo diseñado en Figma para la materia Introducción al Diseño Web (Tecnicatura en Desarrollo Web, UNLaM).
+
+La documentación inicial del proyecto (brief, memoria descriptiva y pantallas) se encuentra en `/docs`.
 
 ---
 
@@ -30,7 +33,12 @@ Calendario funcional que respeta la disponibilidad de cada profesional. Bloquea 
 - localStorage para persistencia de datos
 
 ---
-> Los datos se almacenan en el `localStorage` del navegador. Para resetear el estado de la aplicación, limpiá el localStorage desde las DevTools del navegador.
+
+## Persistencia de datos
+
+Los datos se almacenan en el localStorage del navegador.  
+Para reiniciar el estado de la aplicación, podés limpiar el localStorage desde las DevTools.
+
 ---
 
 ## Origen del proyecto
