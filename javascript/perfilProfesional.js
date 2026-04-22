@@ -8,7 +8,7 @@
 
 /* DATOS EXTENDIDOS de cada profesional hardcodeado
    Estos se complementan con los datos base de profesionales.js.
-   El id debe coincidir. */
+   */
 const datosProfesionalesExtendidos = {
     1: {
         biografia: `Soy María González, carpintera con más de 8 años de experiencia en muebles a medida, restauración y carpintería fina en zona norte de CABA. Me especializo en trabajos de alta calidad, respetando siempre los tiempos acordados.\n\nCuento con certificaciones en seguridad laboral y en diseño de interiores en madera. Me gusta trabajar con el cliente para lograr exactamente lo que necesita.`,

@@ -4,13 +4,7 @@
    Busca el email en:
    - reparify_usuarios      (usuarios regulares)
    - reparify_profesionales (profesionales registrados)
-
-   Independientemente de si el email existe o no, muestra
-   el mismo mensaje amigable para no revelar qué emails
-   están registrados (práctica de seguridad estándar).
-
-   En un proyecto real, aquí se llamaría a un backend
-   que envíe el correo. Por ahora simula el envío. */
+ */
 
 document.addEventListener('DOMContentLoaded', () => {
 

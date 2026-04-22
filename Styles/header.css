@@ -61,6 +61,7 @@ button {
     letter-spacing: 1px;
 }
 
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -241,6 +242,8 @@ button {
         font-size: 0.8rem;
     }
 
+  
+
 }
 
 
@@ -261,6 +264,7 @@ button {
     .nav-mobile-panel {
         top: 64px;
     }
+
 }
 
 
